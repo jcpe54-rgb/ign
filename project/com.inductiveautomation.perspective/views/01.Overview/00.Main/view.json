@@ -39,7 +39,7 @@
                     },
                     "props": {
                       "style": {
-                        "classes": "overview/title"
+                        "classes": "text/subtitle"
                       },
                       "text": ""
                     },
@@ -65,7 +65,7 @@
                     },
                     "props": {
                       "style": {
-                        "classes": "overview/supervisor"
+                        "classes": "text/caption"
                       },
                       "text": ""
                     },
@@ -92,8 +92,10 @@
                 "props": {
                   "direction": "column",
                   "style": {
-                    "classes": "overview/context"
-                  }
+                    "classes": "layout/row",
+                    "padding": "0"
+                  },
+                  "justify": "center"
                 },
                 "type": "ia.container.flex",
                 "position": {
@@ -797,7 +799,7 @@
                 "props": {
                   "direction": "row",
                   "style": {
-                    "classes": "overview/groups"
+                    "classes": "layout/row"
                   },
                   "wrap": "nowrap"
                 },
@@ -931,7 +933,11 @@
     "props": {
       "direction": "column",
       "style": {
-        "classes": "overview/page"
+        "width": "100%",
+        "height": "100%",
+        "boxSizing": "border-box",
+        "overflow": "auto",
+        "backgroundColor": "var(--containerRoot)"
       }
     },
     "type": "ia.container.flex"

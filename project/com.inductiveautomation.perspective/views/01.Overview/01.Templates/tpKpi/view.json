@@ -18,7 +18,8 @@
         },
         "props": {
           "style": {
-            "classes": "overview/kpi-label"
+            "classes": "text/label",
+            "textAlign": "center"
           },
           "text": ""
         },
@@ -43,7 +44,8 @@
         },
         "props": {
           "style": {
-            "classes": "overview/kpi-value"
+            "classes": "text/value",
+            "textAlign": "center"
           },
           "text": ""
         },

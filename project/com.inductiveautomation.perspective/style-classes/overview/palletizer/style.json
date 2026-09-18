@@ -4,8 +4,8 @@
       "height": "100%",
       "padding": "12px 23px",
       "boxSizing": "border-box",
-      "backgroundColor": "#FFFFFF",
-      "borderBottom": "1px solid #DFE5EE"
+      "backgroundColor": "var(--container)",
+      "borderBottom": "1px solid var(--border)"
     }
   }
 }

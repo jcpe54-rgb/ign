@@ -153,7 +153,7 @@
         "props": {
           "direction": "column",
           "style": {
-            "classes": "overview/pallet-line"
+            "classes": "layout/stack"
           }
         },
         "type": "ia.container.flex",
@@ -221,7 +221,7 @@
         "props": {
           "direction": "column",
           "style": {
-            "classes": "overview/pallet-line"
+            "classes": "layout/stack"
           }
         },
         "type": "ia.container.flex",
@@ -243,11 +243,11 @@
     },
     "type": "ia.container.flex",
     "propConfig": {
-      "props.style.classes": {
+      "props.style.backgroundColor": {
         "binding": {
           "type": "expr",
           "config": {
-            "expression": "if({view.params.palletizer.state} = \"active\", \"overview/palletizer\", \"overview/palletizer overview/inactive\")"
+            "expression": "if({view.params.palletizer.state} = \"active\", \"var(--container)\", \"var(--containerNested)\")"
           }
         }
       }
