@@ -6,7 +6,7 @@
   },
   "props": {
     "defaultSize": {
-      "height": 112,
+      "height": 90,
       "width": 280
     }
   },
@@ -18,7 +18,7 @@
         },
         "props": {
           "style": {
-            "classes": "text/label"
+            "classes": "overview/kpi-label"
           },
           "text": ""
         },
@@ -43,7 +43,7 @@
         },
         "props": {
           "style": {
-            "classes": "text/value"
+            "classes": "overview/kpi-value"
           },
           "text": ""
         },
@@ -69,7 +69,7 @@
     "props": {
       "direction": "column",
       "style": {
-        "classes": "card/kpi"
+        "classes": "overview/kpi"
       },
       "justify": "center"
     },

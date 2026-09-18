@@ -111,7 +111,7 @@
                   "style": {
                     "classes": "text/caption"
                   },
-                  "text": "SALIDA · FARDOS"
+                  "text": "ENTRADA"
                 },
                 "type": "ia.display.label",
                 "position": {
@@ -136,7 +136,7 @@
                   "props.text": {
                     "binding": {
                       "config": {
-                        "expression": "numberFormat({view.params.line.caseOutCount}, \"#,##0\")"
+                        "expression": "numberFormat({view.params.line.caseOutCount}, \"#,##0\") + \" Fardos\""
                       },
                       "type": "expr"
                     }
@@ -247,9 +247,35 @@
               "props.text": {
                 "binding": {
                   "config": {
-                    "expression": "if({view.params.line.state} = \"inactive\", \"INACTIVA\", if({view.params.line.downtime.stopCount} = 1, \"1 paro · \" + toStr({view.params.line.downtime.stoppedMinutes}) + \" min\", toStr({view.params.line.downtime.stopCount}) + \" paros · \" + toStr({view.params.line.downtime.stoppedMinutes}) + \" min\"))"
+                    "expression": "\"DETENCIONES\""
                   },
                   "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "DowntimeSummary"
+            },
+            "props": {
+              "style": {
+                "classes": "overview/downtime-summary"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "130px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.params.line.state} = \"inactive\", \"\", if({view.params.line.downtime.stopCount} = 0, \"\", toStr({view.params.line.downtime.stopCount}) + if({view.params.line.downtime.stopCount} = 1, \" paro · \", \" paros · \") + toStr({view.params.line.downtime.stoppedMinutes}) + \" min\"))"
+                  }
                 }
               }
             }
@@ -328,9 +354,19 @@
     "props": {
       "direction": "column",
       "style": {
-        "classes": "card/base"
+        "classes": "overview/line"
       }
     },
-    "type": "ia.container.flex"
+    "type": "ia.container.flex",
+    "propConfig": {
+      "props.style.classes": {
+        "binding": {
+          "type": "expr",
+          "config": {
+            "expression": "if({view.params.line.state} = \"stopped\" && {view.params.line.hasFault}, \"overview/line overview/fault\", if({view.params.line.state} = \"stopped\", \"overview/line overview/stopped\", if({view.params.line.state} = \"inactive\", \"overview/line overview/inactive\", if({view.params.line.state} = \"noData\", \"overview/line overview/no-data\", \"overview/line\"))))"
+          }
+        }
+      }
+    }
   }
 }
