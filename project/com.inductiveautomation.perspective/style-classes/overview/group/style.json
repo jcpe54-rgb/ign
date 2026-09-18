@@ -1,0 +1,14 @@
+{
+  "base": {
+    "style": {
+      "display": "flex",
+      "flexDirection": "column",
+      "width": "100%",
+      "gap": "0",
+      "backgroundColor": "#FFFFFF",
+      "border": "1px solid #DFE5EE",
+      "borderRadius": "7px",
+      "overflow": "hidden"
+    }
+  }
+}

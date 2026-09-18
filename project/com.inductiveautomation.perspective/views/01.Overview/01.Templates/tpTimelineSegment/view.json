@@ -19,9 +19,7 @@
         },
         "props": {
           "style": {
-            "backgroundColor": "currentColor",
-            "borderRadius": "4px",
-            "classes": "text/caption"
+            "backgroundColor": "currentColor"
           },
           "text": ""
         },

@@ -23,7 +23,7 @@
         },
         "type": "ia.display.view",
         "position": {
-          "basis": "72px",
+          "basis": "50px",
           "shrink": 0
         }
       },
@@ -39,13 +39,24 @@
                     },
                     "props": {
                       "style": {
-                        "classes": "text/title"
+                        "classes": "overview/title"
                       },
-                      "text": "Overview"
+                      "text": ""
                     },
                     "type": "ia.display.label",
                     "position": {
-                      "basis": "38px"
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "type": "expr",
+                          "config": {
+                            "expression": "{view.custom.overview.data.shift.shift.name} + \" - Grupo \" + if(isNull({view.custom.overview.data.shift.shift.group}), \"sin asignar\", toStr({view.custom.overview.data.shift.shift.group}))"
+                          }
+                        }
+                      }
                     }
                   },
                   {
@@ -54,19 +65,20 @@
                     },
                     "props": {
                       "style": {
-                        "classes": "text/body"
+                        "classes": "overview/supervisor"
                       },
                       "text": ""
                     },
                     "type": "ia.display.label",
                     "position": {
-                      "grow": 1
+                      "basis": "22px",
+                      "shrink": 0
                     },
                     "propConfig": {
                       "props.text": {
                         "binding": {
                           "config": {
-                            "expression": "{view.custom.overview.data.shift.shift.name} + \" · Grupo \" + if(isNull({view.custom.overview.data.shift.shift.group}), \"sin asignar\", toStr({view.custom.overview.data.shift.shift.group})) + \" · Supervisor \" + if(isNull({view.custom.overview.data.shift.shift.supervisor}), \"sin asignar\", toStr({view.custom.overview.data.shift.shift.supervisor}))"
+                            "expression": "\"Supervisor \" + if(isNull({view.custom.overview.data.shift.shift.supervisor}), \"sin asignar\", toStr({view.custom.overview.data.shift.shift.supervisor}))"
                           },
                           "type": "expr"
                         }
@@ -78,14 +90,14 @@
                   "name": "Context"
                 },
                 "props": {
-                  "direction": "row",
+                  "direction": "column",
                   "style": {
-                    "classes": "layout/row"
+                    "classes": "overview/context"
                   }
                 },
                 "type": "ia.container.flex",
                 "position": {
-                  "basis": "42px",
+                  "basis": "66px",
                   "shrink": 0
                 }
               },
@@ -266,13 +278,13 @@
                 "props": {
                   "direction": "row",
                   "style": {
-                    "classes": "layout/row"
+                    "classes": "overview/kpis"
                   },
-                  "wrap": "wrap"
+                  "wrap": "nowrap"
                 },
                 "type": "ia.container.flex",
                 "position": {
-                  "basis": "112px",
+                  "basis": "90px",
                   "shrink": 0
                 }
               },
@@ -367,14 +379,14 @@
                     "props": {
                       "direction": "column",
                       "style": {
-                        "classes": "layout/stack"
+                        "classes": "overview/group"
                       },
                       "wrap": "nowrap"
                     },
                     "type": "ia.container.flex",
                     "position": {
                       "grow": 1,
-                      "basis": "230px",
+                      "basis": "250px",
                       "shrink": 1
                     }
                   },
@@ -467,14 +479,14 @@
                     "props": {
                       "direction": "column",
                       "style": {
-                        "classes": "layout/stack"
+                        "classes": "overview/group"
                       },
                       "wrap": "nowrap"
                     },
                     "type": "ia.container.flex",
                     "position": {
                       "grow": 1,
-                      "basis": "230px",
+                      "basis": "250px",
                       "shrink": 1
                     }
                   },
@@ -567,14 +579,14 @@
                     "props": {
                       "direction": "column",
                       "style": {
-                        "classes": "layout/stack"
+                        "classes": "overview/group"
                       },
                       "wrap": "nowrap"
                     },
                     "type": "ia.container.flex",
                     "position": {
                       "grow": 1,
-                      "basis": "230px",
+                      "basis": "250px",
                       "shrink": 1
                     }
                   },
@@ -667,14 +679,14 @@
                     "props": {
                       "direction": "column",
                       "style": {
-                        "classes": "layout/stack"
+                        "classes": "overview/group"
                       },
                       "wrap": "nowrap"
                     },
                     "type": "ia.container.flex",
                     "position": {
                       "grow": 1,
-                      "basis": "230px",
+                      "basis": "250px",
                       "shrink": 1
                     }
                   },
@@ -767,14 +779,14 @@
                     "props": {
                       "direction": "column",
                       "style": {
-                        "classes": "layout/stack"
+                        "classes": "overview/group"
                       },
                       "wrap": "nowrap"
                     },
                     "type": "ia.container.flex",
                     "position": {
                       "grow": 1,
-                      "basis": "230px",
+                      "basis": "250px",
                       "shrink": 1
                     }
                   }
@@ -785,7 +797,7 @@
                 "props": {
                   "direction": "row",
                   "style": {
-                    "classes": "layout/row"
+                    "classes": "overview/groups"
                   },
                   "wrap": "nowrap"
                 },
@@ -903,7 +915,7 @@
         "props": {
           "direction": "column",
           "style": {
-            "classes": "layout/section"
+            "classes": "overview/content"
           }
         },
         "type": "ia.container.flex",
@@ -919,7 +931,7 @@
     "props": {
       "direction": "column",
       "style": {
-        "classes": "layout/page"
+        "classes": "overview/page"
       }
     },
     "type": "ia.container.flex"

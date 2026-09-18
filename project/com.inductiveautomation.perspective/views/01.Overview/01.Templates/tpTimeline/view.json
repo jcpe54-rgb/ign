@@ -24,7 +24,7 @@
           "direction": "row",
           "instances": [],
           "style": {
-            "classes": "layout/row"
+            "classes": "overview/timeline"
           }
         },
         "type": "ia.display.flex-repeater",
@@ -45,10 +45,10 @@
         },
         "props": {
           "style": {
-            "classes": "text/caption",
+            "classes": "overview/timeline-legend",
             "textAlign": "justify"
           },
-          "text": "INICIO DEL TURNO                                                AHORA"
+          "text": "06:00                         08:00                         10:00                         11:35"
         },
         "type": "ia.display.label",
         "position": {

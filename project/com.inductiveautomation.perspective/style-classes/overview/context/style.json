@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "width": "100%",
+      "padding": "0",
+      "boxSizing": "border-box",
+      "justifyContent": "center"
+    }
+  }
+}
