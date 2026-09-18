@@ -1,0 +1,67 @@
+{
+  "custom": {},
+  "params": {
+    "timeline": []
+  },
+  "props": {
+    "defaultSize": {
+      "height": 44,
+      "width": 480
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Segments"
+        },
+        "position": {
+          "basis": "18px",
+          "grow": 1
+        },
+        "props": {
+          "path": "01.Overview/01.Templates/tpTimelineSegment",
+          "direction": "row",
+          "instances": [],
+          "style": {
+            "classes": "layout/row"
+          }
+        },
+        "type": "ia.display.flex-repeater",
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.timeline}"
+              },
+              "type": "expr"
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "name": "Legend"
+        },
+        "props": {
+          "style": {
+            "classes": "text/caption",
+            "textAlign": "justify"
+          },
+          "text": "INICIO DEL TURNO                                                AHORA"
+        },
+        "type": "ia.display.label",
+        "position": {
+          "basis": "18px"
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

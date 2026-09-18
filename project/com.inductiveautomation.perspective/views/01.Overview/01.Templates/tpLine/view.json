@@ -1,0 +1,336 @@
+{
+  "custom": {},
+  "params": {
+    "line": {
+      "id": "",
+      "name": "",
+      "state": "noData",
+      "hasFault": false,
+      "caseOutCount": 0,
+      "speedTonH": null,
+      "downtime": {
+        "stopCount": 0,
+        "stoppedMinutes": 0,
+        "timeline": []
+      }
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 220,
+      "width": 520
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Name"
+            },
+            "props": {
+              "style": {
+                "classes": "text/subtitle"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.line.name}"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "Status"
+            },
+            "props": {
+              "style": {
+                "classes": "text/label"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "150px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.line.state} = \"running\", \"● EN PRODUCCIÓN\", if({view.params.line.state} = \"stopped\", \"● DETENIDA\", if({view.params.line.state} = \"inactive\", \"● INACTIVA\", \"● SIN DATOS / SIN COMUNICACIÓN\")))"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.line.state} = \"running\", \"text/label state/running\", if({view.params.line.state} = \"stopped\" && {view.params.line.hasFault}, \"text/label state/fault\", if({view.params.line.state} = \"stopped\", \"text/label state/stopped\", if({view.params.line.state} = \"inactive\", \"text/label state/inactive\", \"text/label state/noData\"))))"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "classes": "layout/row"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        }
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "OutputLabel"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/caption"
+                  },
+                  "text": "SALIDA · FARDOS"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "20px"
+                }
+              },
+              {
+                "meta": {
+                  "name": "Output"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/value"
+                  },
+                  "text": ""
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "numberFormat({view.params.line.caseOutCount}, \"#,##0\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ],
+            "meta": {
+              "name": "OutputColumn"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "grow": 1,
+              "basis": "0px"
+            }
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "SpeedLabel"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/caption"
+                  },
+                  "text": "VELOCIDAD"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "20px"
+                }
+              },
+              {
+                "meta": {
+                  "name": "Speed"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/value"
+                  },
+                  "text": ""
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if(isNull({view.params.line.speedTonH}), \"—\", numberFormat({view.params.line.speedTonH}, \"#,##0.00\") + \" Ton/h\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ],
+            "meta": {
+              "name": "SpeedColumn"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "grow": 1,
+              "basis": "0px"
+            }
+          }
+        ],
+        "meta": {
+          "name": "Metrics"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "classes": "layout/row"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "62px",
+          "shrink": 0
+        }
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Downtime"
+            },
+            "props": {
+              "style": {
+                "classes": "text/body"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.line.state} = \"inactive\", \"INACTIVA\", if({view.params.line.downtime.stopCount} = 1, \"1 paro · \" + toStr({view.params.line.downtime.stoppedMinutes}) + \" min\", toStr({view.params.line.downtime.stopCount}) + \" paros · \" + toStr({view.params.line.downtime.stoppedMinutes}) + \" min\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "Fault"
+            },
+            "props": {
+              "style": {
+                "classes": "text/label state/fault"
+              },
+              "text": "⚠ FALLA"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "85px"
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.line.hasFault}"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ],
+        "meta": {
+          "name": "DowntimeRow"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "classes": "layout/row"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "28px",
+          "shrink": 0
+        }
+      },
+      {
+        "meta": {
+          "name": "Timeline"
+        },
+        "props": {
+          "path": "01.Overview/01.Templates/tpTimeline",
+          "params": {
+            "timeline": []
+          }
+        },
+        "type": "ia.display.view",
+        "position": {
+          "basis": "46px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.timeline": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.line.downtime.timeline}"
+              },
+              "type": "expr"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "card/base"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
