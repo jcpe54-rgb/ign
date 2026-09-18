@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--state-running)",
+      "fill": "var(--state-running)",
+      "borderColor": "var(--state-running)"
+    }
+  }
+}

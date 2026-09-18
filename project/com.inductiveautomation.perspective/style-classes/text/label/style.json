@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--label)",
+      "fontSize": "14px",
+      "fontWeight": 500,
+      "lineHeight": "1.4"
+    }
+  }
+}
