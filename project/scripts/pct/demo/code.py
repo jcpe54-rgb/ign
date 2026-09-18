@@ -40,7 +40,7 @@ LINES = [
      "state": "running", "faultCode": 0,
      "stops": [(55, 5), (125, 7), (210, 9), (315, 11), (410, 15)]},
     {"id": "L6", "caseOutCount": 8920, "counter5MinAgo": 8920,
-     "state": "fault", "faultCode": 1,
+     "state": "stopped", "faultCode": 1,
      "stops": [(100, 10), (245, 12), (390, 12)]},
     {"id": "L7", "caseOutCount": 0, "counter5MinAgo": 0,
      "state": "inactive", "faultCode": 0, "stops": None},

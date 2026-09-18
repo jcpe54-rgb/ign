@@ -31,15 +31,16 @@ APP_CONFIG = {
     # Los sufijos se resolveran contra tagPath exclusivamente en el adapter.
     "signals": {
         "state": None,
-        "faultCode": None,
-        "caseInCount": None,
-        "caseOutCount": None,
-        "operatingMode": None,
-        "operatingState": None,
-        "sku": None,
-        "workOrder": None,
-        "networkStatus": None,
-        "powerOnTime": None
+        "faultCode": "Fault_Code",
+        "caseInCount": "CaseIN_Count",
+        "caseOutCount": "CaseOUT_Count",
+        "operatingMode": "Operating_Mode",
+        "operatingState": "Operating_State",
+        "palletCount": "Pallet_Count",
+        "sku": "SKU",
+        "workOrder": "WO",
+        "networkStatus": "Check_Network",
+        "powerOnTime": "PowerOn_Time"
     },
     # Estructuras configurables; los horarios no se declaran como definitivos.
     "shifts": [],
