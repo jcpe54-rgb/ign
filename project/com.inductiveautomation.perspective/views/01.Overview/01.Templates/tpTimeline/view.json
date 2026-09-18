@@ -24,7 +24,8 @@
           "direction": "row",
           "instances": [],
           "style": {
-            "classes": "overview/timeline"
+            "classes": "layout/row",
+            "gap": "0"
           }
         },
         "type": "ia.display.flex-repeater",
@@ -43,14 +44,62 @@
         "meta": {
           "name": "Legend"
         },
-        "props": {
-          "style": {
-            "classes": "overview/timeline-legend",
-            "textAlign": "justify"
+        "children": [
+          {
+            "meta": {
+              "name": "Time0600"
+            },
+            "props": {
+              "style": {
+                "classes": "text/caption"
+              },
+              "text": "06:00"
+            },
+            "type": "ia.display.label"
           },
-          "text": "06:00                         08:00                         10:00                         11:35"
+          {
+            "meta": {
+              "name": "Time0800"
+            },
+            "props": {
+              "style": {
+                "classes": "text/caption"
+              },
+              "text": "08:00"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Time1000"
+            },
+            "props": {
+              "style": {
+                "classes": "text/caption"
+              },
+              "text": "10:00"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Time1135"
+            },
+            "props": {
+              "style": {
+                "classes": "text/caption"
+              },
+              "text": "11:35"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "props": {
+          "direction": "row",
+          "justify": "space-between",
+          "alignItems": "center"
         },
-        "type": "ia.display.label",
+        "type": "ia.container.flex",
         "position": {
           "basis": "18px"
         }

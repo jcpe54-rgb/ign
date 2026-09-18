@@ -5,8 +5,8 @@
       "flexDirection": "column",
       "width": "100%",
       "gap": "0",
-      "backgroundColor": "#FFFFFF",
-      "border": "1px solid #DFE5EE",
+      "backgroundColor": "var(--container)",
+      "border": "1px solid var(--border)",
       "borderRadius": "7px",
       "overflow": "hidden"
     }

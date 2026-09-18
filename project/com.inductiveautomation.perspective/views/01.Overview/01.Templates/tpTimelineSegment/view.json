@@ -26,6 +26,16 @@
         "type": "ia.display.label",
         "position": {
           "basis": "100%"
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.params.state} = \"stopped\", \"var(--state-fault)\", \"currentColor\")"
+              }
+            }
+          }
         }
       }
     ],
@@ -49,7 +59,7 @@
       "props.style.classes": {
         "binding": {
           "config": {
-            "expression": "if({view.params.state} = \"running\", \"state/running\", if({view.params.state} = \"stopped\", \"state/fault\", \"state/inactive\"))"
+            "expression": "if({view.params.state} = \"running\", \"state/running\", if({view.params.state} = \"stopped\", \"state/stopped\", \"state/inactive\"))"
           },
           "type": "expr"
         }

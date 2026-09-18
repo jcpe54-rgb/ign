@@ -260,7 +260,7 @@
             },
             "props": {
               "style": {
-                "classes": "overview/downtime-summary"
+                "classes": "text/caption"
               },
               "text": ""
             },
@@ -354,16 +354,26 @@
     "props": {
       "direction": "column",
       "style": {
-        "classes": "overview/line"
+        "classes": "overview/line",
+        "borderStyle": "solid",
+        "borderWidth": "0 0 1px 0"
       }
     },
     "type": "ia.container.flex",
     "propConfig": {
-      "props.style.classes": {
+      "props.style.backgroundColor": {
         "binding": {
           "type": "expr",
           "config": {
-            "expression": "if({view.params.line.state} = \"stopped\" && {view.params.line.hasFault}, \"overview/line overview/fault\", if({view.params.line.state} = \"stopped\", \"overview/line overview/stopped\", if({view.params.line.state} = \"inactive\", \"overview/line overview/inactive\", if({view.params.line.state} = \"noData\", \"overview/line overview/no-data\", \"overview/line\"))))"
+            "expression": "if({view.params.line.state} = \"inactive\" || {view.params.line.state} = \"noData\", \"var(--containerNested)\", \"var(--container)\")"
+          }
+        }
+      },
+      "props.style.borderColor": {
+        "binding": {
+          "type": "expr",
+          "config": {
+            "expression": "if({view.params.line.state} = \"stopped\" && {view.params.line.hasFault}, \"var(--state-fault)\", if({view.params.line.state} = \"stopped\", \"var(--state-stopped)\", if({view.params.line.state} = \"inactive\", \"var(--state-inactive)\", if({view.params.line.state} = \"noData\", \"var(--state-noData)\", \"var(--border)\"))))"
           }
         }
       }
