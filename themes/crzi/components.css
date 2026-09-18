@@ -1,0 +1,58 @@
+.ia_button--primary,
+.ia_button--secondary,
+.ia_dropdown,
+.ia_inputField,
+.ia_select {
+    border-radius: var(--borderRadiusInput);
+}
+
+.ia_button--primary {
+    background-color: var(--callToAction);
+    color: var(--white);
+}
+
+.ia_button--primary:enabled:hover {
+    background-color: var(--callToAction--hover);
+}
+
+.ia_dropdown--active,
+.ia_dropdown--focused,
+.ia_inputField:focus,
+.ia_select:focus-within {
+    outline: 1px solid var(--callToAction--hover);
+}
+
+.ia_table__headContainer,
+.ia_table__footContainer {
+    background-color: var(--containerNested);
+}
+
+.ia_table__body__row--even {
+    background-color: var(--white);
+}
+
+.ia_table__body__row--odd {
+    background-color: var(--neutral-10);
+}
+
+.ia_dateRangePicker__calendar__dayTile--node,
+.ia_dateRangePicker__calendar__dayTile--rangeNode {
+    border-radius: var(--borderRadius);
+}
+
+.ia_tagBrowser__noResultsDisplay,
+.ia_tagBrowser__loadingDisplay,
+.ia_powerChartComponent__tagBrowserContainer__tree {
+    background-color: var(--container);
+    border-color: var(--border);
+}
+
+.ia_powerChartComponent,
+.ia_dateTimePickerComponent {
+    border-color: var(--border);
+}
+
+.ia_powerChartComponent__noDataDisplay {
+    background-color: var(--containerNested);
+    color: var(--state-noData);
+}

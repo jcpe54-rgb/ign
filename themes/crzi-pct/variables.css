@@ -1,0 +1,7 @@
+:root {
+    /* Pasta Corta keeps application-only density and surface adjustments here. */
+    --pct-content-gap: 16px;
+    --pct-panel-padding: 20px;
+    --pct-header-height: 64px;
+    --containerRoot: #F4F2F0;
+}
