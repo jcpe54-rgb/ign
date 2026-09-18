@@ -1,0 +1,7 @@
+{
+  "title": "Monitoreo de Producción - Pasta Corta",
+  "description": "Plataforma de monitoreo de producción de Pasta Corta.",
+  "enabled": true,
+  "inheritable": false,
+  "parent": ""
+}

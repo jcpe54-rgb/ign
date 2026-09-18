@@ -1,0 +1,40 @@
+{
+  "auth": {
+    "mode": "AUTO",
+    "roles": []
+  },
+  "defaultSessionTimeout": 0,
+  "enableUpdateNotifications": true,
+  "pageConfig": {
+    "pages": [
+      {
+        "mountPath": "/overview",
+        "pagePath": "01.Overview/00.Main",
+        "title": "Overview"
+      },
+      {
+        "mountPath": "/history",
+        "pagePath": "02.History/00.Main",
+        "title": "Históricos"
+      },
+      {
+        "mountPath": "/reports",
+        "pagePath": "03.Reports/00.Main",
+        "title": "Reportes"
+      },
+      {
+        "mountPath": "/reports/generated",
+        "pagePath": "03.Reports/01.Generated",
+        "title": "Reportes generados"
+      },
+      {
+        "mountPath": "/settings",
+        "pagePath": "04.Settings/00.Main",
+        "title": "Configuración"
+      }
+    ],
+    "sharedDocks": []
+  },
+  "sessionProps": {},
+  "theme": "crzi-pct"
+}
