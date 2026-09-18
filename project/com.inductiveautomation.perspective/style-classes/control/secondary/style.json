@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "minHeight": "40px",
+      "padding": "0 16px",
+      "fontWeight": 500,
+      "lineHeight": "1.25"
+    }
+  }
+}

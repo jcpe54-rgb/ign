@@ -1,0 +1,11 @@
+{
+  "base": {
+    "style": {
+      "display": "flex",
+      "flexDirection": "row",
+      "alignItems": "center",
+      "width": "100%",
+      "gap": "var(--pct-content-gap)"
+    }
+  }
+}

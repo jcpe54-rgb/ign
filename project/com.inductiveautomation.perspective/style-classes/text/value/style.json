@@ -1,0 +1,11 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--label)",
+      "fontSize": "32px",
+      "fontWeight": 700,
+      "lineHeight": "1.15",
+      "fontVariantNumeric": "tabular-nums"
+    }
+  }
+}

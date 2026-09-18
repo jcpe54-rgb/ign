@@ -1,0 +1,11 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--container)",
+      "border": "var(--containerBorder)",
+      "borderRadius": "var(--borderRadius)",
+      "padding": "16px",
+      "boxSizing": "border-box"
+    }
+  }
+}

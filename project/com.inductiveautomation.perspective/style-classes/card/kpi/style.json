@@ -1,0 +1,12 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--container)",
+      "border": "var(--containerBorder)",
+      "borderLeft": "4px solid var(--callToAction)",
+      "borderRadius": "var(--borderRadius)",
+      "padding": "var(--pct-panel-padding)",
+      "boxSizing": "border-box"
+    }
+  }
+}
