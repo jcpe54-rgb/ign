@@ -1,0 +1,69 @@
+:root {
+    /* Corporate palette. Operational colors are reserved for semantic states. */
+    --crzi-brand: #440099;
+    --crzi-brand-hover: #2C3794;
+    --crzi-brand-active: #363B64;
+    --crzi-brand-tint: #E5E6EA;
+
+    --white: #FFFFFF;
+    --neutral-10: #FAFAFA;
+    --neutral-20: #F4F4F4;
+    --neutral-30: #E3DBD3;
+    --neutral-40: #C5B9AC;
+    --neutral-50: #A1A1A1;
+    --neutral-60: #767676;
+    --neutral-70: #5E5E5E;
+    --neutral-80: #4D4D4D;
+    --neutral-90: #313131;
+    --neutral-100: #161616;
+
+    --containerRoot: var(--neutral-20);
+    --container: var(--white);
+    --containerNested: var(--neutral-10);
+    --input: var(--white);
+    --input--disabled: var(--neutral-30);
+    --label: var(--neutral-90);
+    --label--disabled: var(--neutral-60);
+    --icon: var(--neutral-70);
+    --icon--hover: var(--crzi-brand-hover);
+    --icon--selected: var(--white);
+    --icon--disabled: var(--neutral-40);
+
+    --border: #DEDEDE;
+    --border--disabled: var(--neutral-40);
+    --containerBorder: 1px solid var(--border);
+    --borderRadius: 6px;
+    --borderRadiusInput: 6px;
+
+    --callToAction: var(--crzi-brand);
+    --callToActionHighlight: #F0E8FA;
+    --callToAction--hover: var(--crzi-brand-hover);
+    --callToAction--active: var(--crzi-brand-active);
+    --callToAction--activeAlt: var(--crzi-brand-tint);
+    --callToAction--activeAltInvis: var(--crzi-brand);
+    --callToAction--disabled: var(--neutral-50);
+
+    /* Operational semantics. Do not use these tokens as decorative accents. */
+    --success: #4C9F38;
+    --warning: #D79800;
+    --error: #DA291C;
+    --info: #26A6C5;
+    --infoSecondary: #CAF0FA;
+    --warningSecondary: #FBD374;
+    --state-running: var(--success);
+    --state-stopped: var(--warning);
+    --state-fault: var(--error);
+    --state-inactive: var(--neutral-60);
+    --state-noData: var(--neutral-40);
+
+    --font-crzi: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    --checkbox--checked: var(--callToAction);
+    --checkbox--indeterminate: var(--callToAction);
+    --checkbox--unchecked: var(--border);
+    --checkbox--disabled: var(--input--disabled);
+    --radio--selected: var(--callToAction);
+    --radio--unselected: var(--border);
+    --radio--disabled: var(--input--disabled);
+    --toggleSwitch--selected: var(--callToAction);
+    --toggleSwitch--unselected: var(--neutral-30);
+}

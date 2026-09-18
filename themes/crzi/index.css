@@ -1,0 +1,5 @@
+@import "../light/index.css";
+@import "./fonts.css";
+@import "./variables.css";
+@import "./globals.css";
+@import "./components.css";
