@@ -1,0 +1,78 @@
+{
+  "custom": {},
+  "params": {
+    "label": "",
+    "value": ""
+  },
+  "props": {
+    "defaultSize": {
+      "height": 112,
+      "width": 280
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "props": {
+          "style": {
+            "classes": "text/label"
+          },
+          "text": ""
+        },
+        "type": "ia.display.label",
+        "position": {
+          "basis": "28px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.label}"
+              },
+              "type": "expr"
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "name": "Value"
+        },
+        "props": {
+          "style": {
+            "classes": "text/value"
+          },
+          "text": ""
+        },
+        "type": "ia.display.label",
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.value}"
+              },
+              "type": "expr"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "card/kpi"
+      },
+      "justify": "center"
+    },
+    "type": "ia.container.flex"
+  }
+}

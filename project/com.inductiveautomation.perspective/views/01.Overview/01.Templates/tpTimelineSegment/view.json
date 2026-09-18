@@ -1,0 +1,61 @@
+{
+  "custom": {},
+  "params": {
+    "state": "inactive",
+    "startMinute": 0,
+    "durationMinutes": 1
+  },
+  "props": {
+    "defaultSize": {
+      "height": 14,
+      "width": 80
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Bar"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "currentColor",
+            "borderRadius": "4px",
+            "classes": "text/caption"
+          },
+          "text": ""
+        },
+        "type": "ia.display.label",
+        "position": {
+          "basis": "100%"
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "row",
+      "alignItems": "stretch"
+    },
+    "type": "ia.container.flex",
+    "propConfig": {
+      "position.grow": {
+        "binding": {
+          "config": {
+            "expression": "{view.params.durationMinutes}"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.classes": {
+        "binding": {
+          "config": {
+            "expression": "if({view.params.state} = \"running\", \"state/running\", if({view.params.state} = \"stopped\", \"state/fault\", \"state/inactive\"))"
+          },
+          "type": "expr"
+        }
+      }
+    }
+  }
+}

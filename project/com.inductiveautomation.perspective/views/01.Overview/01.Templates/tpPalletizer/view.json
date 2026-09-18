@@ -1,0 +1,244 @@
+{
+  "custom": {},
+  "params": {
+    "palletizer": {
+      "id": "",
+      "name": "",
+      "state": "inactive",
+      "line1": "",
+      "line2": "",
+      "palletsLine1": 0,
+      "palletsLine2": 0
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 220,
+      "width": 230
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Name"
+            },
+            "props": {
+              "style": {
+                "classes": "text/subtitle"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.palletizer.name}"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "State"
+            },
+            "props": {
+              "style": {
+                "classes": "text/label"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "100px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.palletizer.state} = \"active\", \"● ACTIVO\", \"● INACTIVO\")"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.palletizer.state} = \"active\", \"text/label state/running\", \"text/label state/inactive\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "classes": "layout/row"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "32px"
+        }
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Line1Name"
+            },
+            "props": {
+              "style": {
+                "classes": "text/body"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.palletizer.line1}"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "Line1Value"
+            },
+            "props": {
+              "style": {
+                "classes": "text/value"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "80px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "numberFormat({view.params.palletizer.palletsLine1}, \"#,##0\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ],
+        "meta": {
+          "name": "Line1"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "classes": "layout/row"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "45px"
+        }
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Line2Name"
+            },
+            "props": {
+              "style": {
+                "classes": "text/body"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.palletizer.line2}"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "Line2Value"
+            },
+            "props": {
+              "style": {
+                "classes": "text/value"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "80px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "numberFormat({view.params.palletizer.palletsLine2}, \"#,##0\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ],
+        "meta": {
+          "name": "Line2"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "classes": "layout/row"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "45px"
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "card/base"
+      },
+      "justify": "space-between"
+    },
+    "type": "ia.container.flex"
+  }
+}
