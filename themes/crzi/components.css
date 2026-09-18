@@ -16,9 +16,7 @@
 }
 
 .ia_dropdown--active,
-.ia_dropdown--focused,
-.ia_inputField:focus,
-.ia_select:focus-within {
+.ia_dropdown--focused {
     outline: 1px solid var(--callToAction--hover);
 }
 
