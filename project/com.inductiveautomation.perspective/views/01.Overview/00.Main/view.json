@@ -1,0 +1,103 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1080,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TopNavigation"
+        },
+        "position": {
+          "basis": "72px",
+          "shrink": 0
+        },
+        "props": {
+          "path": "00.Common/02.Navigation/TopNavigation"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "style": {
+                "classes": "text/title"
+              },
+              "text": "Overview"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "42px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "Subtitle"
+            },
+            "props": {
+              "style": {
+                "classes": "text/subtitle"
+              },
+              "text": "Resumen operativo de Pasta Corta."
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "32px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "ContentPlaceholder"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "card/panel"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "PageContent"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "layout/section"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "layout/page"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
