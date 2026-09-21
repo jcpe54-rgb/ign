@@ -57,7 +57,9 @@
               "style": {
                 "classes": "text/caption",
                 "fontWeight": 600,
-                "color": "var(--label)"
+                "color": "var(--label)",
+                "fontSize": "10px",
+                "whiteSpace": "nowrap"
               }
             },
             "type": "ia.display.label",

@@ -35,7 +35,7 @@
         },
         "type": "ia.container.flex",
         "position": {
-          "basis": "410px",
+          "basis": "420px",
           "shrink": 1
         },
         "children": [
@@ -238,7 +238,7 @@
         },
         "type": "ia.container.flex",
         "position": {
-          "basis": "410px",
+          "basis": "420px",
           "shrink": 1
         },
         "children": [

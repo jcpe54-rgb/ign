@@ -45,7 +45,7 @@
       "justify": "space-between",
       "style": {
         "classes": "card/base",
-        "padding": "18px 22px",
+        "padding": "18px",
         "gap": "10px",
         "overflow": "hidden"
       }
@@ -60,7 +60,7 @@
           "direction": "row",
           "alignItems": "center",
           "style": {
-            "gap": "8px",
+            "gap": "6px",
             "paddingBottom": "10px",
             "borderBottom": "var(--containerBorder)"
           }
@@ -112,7 +112,7 @@
             },
             "type": "ia.container.flex",
             "position": {
-              "basis": "130px",
+              "basis": "112px",
               "shrink": 0
             },
             "children": [
@@ -152,14 +152,14 @@
                 "props": {
                   "text": "SIN DATOS",
                   "style": {
-                    "classes": "text/label",
+                    "classes": "text/caption",
                     "textAlign": "right",
                     "fontWeight": 600
                   }
                 },
                 "type": "ia.display.label",
                 "position": {
-                  "basis": "105px",
+                  "basis": "88px",
                   "shrink": 0
                 },
                 "propConfig": {
@@ -196,13 +196,13 @@
                 "color": "var(--state-fault)",
                 "border": "1px solid var(--state-fault)",
                 "borderRadius": "3px",
-                "padding": "2px 4px",
+                "padding": "2px 3px",
                 "boxSizing": "border-box"
               }
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "48px",
+              "basis": "44px",
               "shrink": 0
             },
             "propConfig": {
