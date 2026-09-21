@@ -6,46 +6,96 @@
       "lineOdd": {
         "id": "",
         "name": "—",
+        "state": "noData",
+        "hasFault": false,
+        "faultCode": 0,
         "caseInCount": "—",
         "caseOutCount": "—",
-        "faultCode": "—",
+        "speedTonH": "—",
+        "palletCount": 0,
         "operatingMode": "—",
-        "operatingState": "—",
+        "operatingState": "noData",
         "sku": "—",
         "wo": "—",
         "quality": null,
-        "visualState": "noData"
+        "visualState": "noData",
+        "downtime": {
+          "stopCount": 0,
+          "stoppedMinutes": 0,
+          "timeline": [
+            {
+              "state": "inactive",
+              "startMinute": 0,
+              "durationMinutes": 480
+            }
+          ]
+        }
       },
       "palletizer": {
         "id": "",
-        "name": "—",
-        "state": "—",
-        "palletCount": "—",
+        "name": "PALETIZADOR —",
+        "state": "inactive",
+        "line1": "—",
+        "line2": "—",
+        "palletsLine1": 0,
+        "palletsLine2": 0,
+        "totalPallets": 0,
+        "palletCount": 0,
         "quality": null,
-        "visualState": "noData"
+        "visualState": "inactive"
       },
       "lineEven": {
         "id": "",
         "name": "—",
+        "state": "noData",
+        "hasFault": false,
+        "faultCode": 0,
         "caseInCount": "—",
         "caseOutCount": "—",
-        "faultCode": "—",
+        "speedTonH": "—",
+        "palletCount": 0,
         "operatingMode": "—",
-        "operatingState": "—",
+        "operatingState": "noData",
         "sku": "—",
         "wo": "—",
         "quality": null,
-        "visualState": "noData"
+        "visualState": "noData",
+        "downtime": {
+          "stopCount": 0,
+          "stoppedMinutes": 0,
+          "timeline": [
+            {
+              "state": "inactive",
+              "startMinute": 0,
+              "durationMinutes": 480
+            }
+          ]
+        }
       }
     }
   },
   "props": {
     "defaultSize": {
-      "height": 800,
+      "height": 805,
       "width": 359
     }
   },
   "root": {
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "var(--containerNested)",
+        "border": "var(--containerBorder)",
+        "borderRadius": "var(--borderRadius)",
+        "gap": "18px",
+        "boxSizing": "border-box",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex",
     "children": [
       {
         "meta": {
@@ -57,21 +107,36 @@
             "line": {
               "id": "",
               "name": "—",
+              "state": "noData",
+              "hasFault": false,
+              "faultCode": 0,
               "caseInCount": "—",
               "caseOutCount": "—",
-              "faultCode": "—",
+              "speedTonH": "—",
+              "palletCount": 0,
               "operatingMode": "—",
-              "operatingState": "—",
+              "operatingState": "noData",
               "sku": "—",
               "wo": "—",
               "quality": null,
-              "visualState": "noData"
+              "visualState": "noData",
+              "downtime": {
+                "stopCount": 0,
+                "stoppedMinutes": 0,
+                "timeline": [
+                  {
+                    "state": "inactive",
+                    "startMinute": 0,
+                    "durationMinutes": 480
+                  }
+                ]
+              }
             }
           }
         },
         "type": "ia.display.view",
         "position": {
-          "grow": 2.3,
+          "grow": 1,
           "basis": "0px",
           "shrink": 1
         },
@@ -95,19 +160,23 @@
           "params": {
             "palletizer": {
               "id": "",
-              "name": "—",
-              "state": "—",
-              "palletCount": "—",
+              "name": "PALETIZADOR —",
+              "state": "inactive",
+              "line1": "—",
+              "line2": "—",
+              "palletsLine1": 0,
+              "palletsLine2": 0,
+              "totalPallets": 0,
+              "palletCount": 0,
               "quality": null,
-              "visualState": "noData"
+              "visualState": "inactive"
             }
           }
         },
         "type": "ia.display.view",
         "position": {
-          "grow": 1,
-          "basis": "0px",
-          "shrink": 1
+          "basis": "136px",
+          "shrink": 0
         },
         "propConfig": {
           "props.params.palletizer": {
@@ -130,21 +199,36 @@
             "line": {
               "id": "",
               "name": "—",
+              "state": "noData",
+              "hasFault": false,
+              "faultCode": 0,
               "caseInCount": "—",
               "caseOutCount": "—",
-              "faultCode": "—",
+              "speedTonH": "—",
+              "palletCount": 0,
               "operatingMode": "—",
-              "operatingState": "—",
+              "operatingState": "noData",
               "sku": "—",
               "wo": "—",
               "quality": null,
-              "visualState": "noData"
+              "visualState": "noData",
+              "downtime": {
+                "stopCount": 0,
+                "stoppedMinutes": 0,
+                "timeline": [
+                  {
+                    "state": "inactive",
+                    "startMinute": 0,
+                    "durationMinutes": 480
+                  }
+                ]
+              }
             }
           }
         },
         "type": "ia.display.view",
         "position": {
-          "grow": 2.3,
+          "grow": 1,
           "basis": "0px",
           "shrink": 1
         },
@@ -159,21 +243,6 @@
           }
         }
       }
-    ],
-    "meta": {
-      "name": "root"
-    },
-    "position": {
-      "basis": "0px",
-      "grow": 1,
-      "shrink": 1
-    },
-    "props": {
-      "direction": "column",
-      "style": {
-        "gap": "18px"
-      }
-    },
-    "type": "ia.container.flex"
+    ]
   }
 }

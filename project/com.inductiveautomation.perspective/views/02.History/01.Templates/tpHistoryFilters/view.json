@@ -10,153 +10,10 @@
   "props": {
     "defaultSize": {
       "height": 94,
-      "width": 1800
+      "width": 1846
     }
   },
   "root": {
-    "children": [
-      {
-        "children": [
-          {
-            "meta": {
-              "name": "Label"
-            },
-            "props": {
-              "style": {
-                "classes": "text/caption"
-              },
-              "text": "DESDE"
-            },
-            "type": "ia.display.label"
-          },
-          {
-            "meta": {
-              "name": "Value"
-            },
-            "props": {
-              "style": {
-                "classes": "text/body"
-              },
-              "text": "—"
-            },
-            "type": "ia.display.label"
-          }
-        ],
-        "meta": {
-          "name": "From"
-        },
-        "props": {
-          "direction": "column",
-          "style": {
-            "classes": "card/base",
-            "padding": "8px 12px",
-            "gap": "4px"
-          }
-        },
-        "type": "ia.container.flex",
-        "position": {
-          "basis": "176px",
-          "shrink": 0
-        }
-      },
-      {
-        "children": [
-          {
-            "meta": {
-              "name": "Label"
-            },
-            "props": {
-              "style": {
-                "classes": "text/caption"
-              },
-              "text": "HASTA"
-            },
-            "type": "ia.display.label"
-          },
-          {
-            "meta": {
-              "name": "Value"
-            },
-            "props": {
-              "style": {
-                "classes": "text/body"
-              },
-              "text": "—"
-            },
-            "type": "ia.display.label"
-          }
-        ],
-        "meta": {
-          "name": "To"
-        },
-        "props": {
-          "direction": "column",
-          "style": {
-            "classes": "card/base",
-            "padding": "8px 12px",
-            "gap": "4px"
-          }
-        },
-        "type": "ia.container.flex",
-        "position": {
-          "basis": "218px",
-          "shrink": 0
-        }
-      },
-      {
-        "children": [
-          {
-            "meta": {
-              "name": "Label"
-            },
-            "props": {
-              "style": {
-                "classes": "text/caption"
-              },
-              "text": "LÍNEAS"
-            },
-            "type": "ia.display.label"
-          },
-          {
-            "meta": {
-              "name": "Value"
-            },
-            "props": {
-              "style": {
-                "classes": "text/body"
-              },
-              "text": "—"
-            },
-            "type": "ia.display.label"
-          }
-        ],
-        "meta": {
-          "name": "Lines"
-        },
-        "props": {
-          "direction": "column",
-          "style": {
-            "classes": "card/base",
-            "padding": "8px 12px",
-            "gap": "4px"
-          }
-        },
-        "type": "ia.container.flex",
-        "position": {
-          "basis": "218px",
-          "shrink": 0
-        }
-      },
-      {
-        "meta": {
-          "name": "Spacer"
-        },
-        "type": "ia.container.flex",
-        "position": {
-          "grow": 1
-        }
-      }
-    ],
     "meta": {
       "name": "root"
     },
@@ -165,10 +22,320 @@
       "alignItems": "center",
       "style": {
         "classes": "card/base",
+        "padding": "14px 24px",
         "gap": "28px",
-        "padding": "14px 24px"
+        "overflow": "hidden"
       }
     },
-    "type": "ia.container.flex"
+    "type": "ia.container.flex",
+    "children": [
+      {
+        "meta": {
+          "name": "Shift"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "gap": "5px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "176px",
+          "shrink": 0
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "text": "TURNO",
+              "style": {
+                "classes": "text/caption"
+              }
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "18px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "Control"
+            },
+            "props": {
+              "options": [
+                {
+                  "label": "Todos",
+                  "value": "all"
+                },
+                {
+                  "label": "Mañana",
+                  "value": "morning"
+                },
+                {
+                  "label": "Tarde",
+                  "value": "afternoon"
+                },
+                {
+                  "label": "Noche",
+                  "value": "night"
+                }
+              ],
+              "value": "all",
+              "placeholder": "Seleccionar",
+              "style": {
+                "minHeight": "36px",
+                "backgroundColor": "var(--input)",
+                "border": "var(--containerBorder)",
+                "borderRadius": "var(--borderRadiusInput)"
+              }
+            },
+            "type": "ia.input.dropdown"
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "From"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "gap": "5px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "228px",
+          "shrink": 0
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "text": "DESDE",
+              "style": {
+                "classes": "text/caption"
+              }
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "18px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "Control"
+            },
+            "props": {
+              "value": null,
+              "style": {
+                "minHeight": "36px",
+                "backgroundColor": "var(--input)",
+                "border": "var(--containerBorder)",
+                "borderRadius": "var(--borderRadiusInput)"
+              }
+            },
+            "type": "ia.input.date-time-input"
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "To"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "gap": "5px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "228px",
+          "shrink": 0
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "text": "HASTA",
+              "style": {
+                "classes": "text/caption"
+              }
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "18px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "Control"
+            },
+            "props": {
+              "value": null,
+              "style": {
+                "minHeight": "36px",
+                "backgroundColor": "var(--input)",
+                "border": "var(--containerBorder)",
+                "borderRadius": "var(--borderRadiusInput)"
+              }
+            },
+            "type": "ia.input.date-time-input"
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "Quick"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "gap": "5px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "250px",
+          "shrink": 0
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "text": "PERÍODO RÁPIDO",
+              "style": {
+                "classes": "text/caption"
+              }
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "18px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "Buttons"
+            },
+            "props": {
+              "direction": "row",
+              "alignItems": "center",
+              "style": {
+                "gap": "6px"
+              }
+            },
+            "type": "ia.container.flex",
+            "children": [
+              {
+                "meta": {
+                  "name": "Today"
+                },
+                "props": {
+                  "text": "Hoy",
+                  "primary": false,
+                  "style": {
+                    "classes": "control/secondary",
+                    "minHeight": "36px",
+                    "padding": "0 12px",
+                    "backgroundColor": "var(--callToActionHighlight)"
+                  }
+                },
+                "type": "ia.input.button",
+                "position": {
+                  "basis": "72px",
+                  "shrink": 0
+                }
+              },
+              {
+                "meta": {
+                  "name": "Seven"
+                },
+                "props": {
+                  "text": "7 días",
+                  "primary": false,
+                  "style": {
+                    "classes": "control/secondary",
+                    "minHeight": "36px",
+                    "padding": "0 12px"
+                  }
+                },
+                "type": "ia.input.button",
+                "position": {
+                  "basis": "72px",
+                  "shrink": 0
+                }
+              },
+              {
+                "meta": {
+                  "name": "Thirty"
+                },
+                "props": {
+                  "text": "30 días",
+                  "primary": false,
+                  "style": {
+                    "classes": "control/secondary",
+                    "minHeight": "36px",
+                    "padding": "0 12px"
+                  }
+                },
+                "type": "ia.input.button",
+                "position": {
+                  "basis": "82px",
+                  "shrink": 0
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "Spacer"
+        },
+        "props": {
+          "direction": "row"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1
+        },
+        "children": []
+      },
+      {
+        "meta": {
+          "name": "Consult"
+        },
+        "props": {
+          "text": "CONSULTAR",
+          "primary": false,
+          "style": {
+            "classes": "control/primary",
+            "backgroundColor": "var(--callToAction)",
+            "color": "var(--white)",
+            "border": "none",
+            "minHeight": "38px"
+          }
+        },
+        "type": "ia.input.button",
+        "position": {
+          "basis": "140px",
+          "shrink": 0
+        }
+      }
+    ]
   }
 }

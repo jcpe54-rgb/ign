@@ -4,30 +4,44 @@
     "row": {
       "id": "",
       "name": "—",
+      "summary": "—",
       "segments": []
     }
   },
   "props": {
     "defaultSize": {
-      "height": 40,
+      "height": 25,
       "width": 1800
     }
   },
   "root": {
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "row",
+      "alignItems": "center",
+      "style": {
+        "gap": "12px"
+      }
+    },
+    "type": "ia.container.flex",
     "children": [
       {
         "meta": {
           "name": "Name"
         },
         "props": {
+          "text": "—",
           "style": {
-            "classes": "text/body"
-          },
-          "text": "—"
+            "classes": "text/caption",
+            "fontWeight": 600,
+            "color": "var(--label)"
+          }
         },
         "type": "ia.display.label",
         "position": {
-          "basis": "160px",
+          "basis": "48px",
           "shrink": 0
         },
         "propConfig": {
@@ -43,36 +57,70 @@
       },
       {
         "meta": {
-          "name": "Track"
+          "name": "Segments"
         },
         "props": {
+          "path": "00.Common/Components/tpTimelineSegment",
+          "direction": "row",
+          "instances": [],
+          "useDefaultViewWidth": false,
+          "useDefaultViewHeight": false,
           "style": {
+            "gap": "1px",
             "backgroundColor": "var(--containerNested)",
-            "border": "var(--containerBorder)",
-            "borderRadius": "var(--borderRadius)"
+            "borderRadius": "2px",
+            "overflow": "hidden",
+            "height": "10px"
           },
-          "text": ""
+          "elementPosition": {
+            "basis": "0px",
+            "grow": 1,
+            "shrink": 1
+          }
+        },
+        "type": "ia.display.flex-repeater",
+        "position": {
+          "grow": 1,
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.params.row.segments"
+              },
+              "type": "property"
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "name": "Summary"
+        },
+        "props": {
+          "text": "—",
+          "style": {
+            "classes": "text/caption",
+            "textAlign": "right"
+          }
         },
         "type": "ia.display.label",
         "position": {
-          "grow": 1
+          "basis": "145px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.row.summary"
+              },
+              "type": "property"
+            }
+          }
         }
       }
-    ],
-    "meta": {
-      "name": "root"
-    },
-    "position": {
-      "basis": "40px",
-      "shrink": 0
-    },
-    "props": {
-      "direction": "row",
-      "alignItems": "center",
-      "style": {
-        "gap": "16px"
-      }
-    },
-    "type": "ia.container.flex"
+    ]
   }
 }

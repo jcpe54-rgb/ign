@@ -3,11 +3,16 @@
   "params": {
     "palletizer": {
       "id": "",
-      "name": "—",
-      "state": "—",
-      "palletCount": "—",
+      "name": "PALETIZADOR —",
+      "state": "inactive",
+      "line1": "—",
+      "line2": "—",
+      "palletsLine1": 0,
+      "palletsLine2": 0,
+      "totalPallets": 0,
+      "palletCount": 0,
       "quality": null,
-      "visualState": "noData"
+      "visualState": "inactive"
     }
   },
   "props": {
@@ -17,18 +22,48 @@
     }
   },
   "root": {
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "card/base",
+        "padding": "12px 18px",
+        "gap": "5px",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex",
     "children": [
       {
+        "meta": {
+          "name": "Header"
+        },
+        "props": {
+          "direction": "row",
+          "alignItems": "center",
+          "style": {
+            "paddingBottom": "5px",
+            "borderBottom": "var(--containerBorder)"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "24px",
+          "shrink": 0
+        },
         "children": [
           {
             "meta": {
               "name": "Name"
             },
             "props": {
+              "text": "PALETIZADOR —",
               "style": {
-                "classes": "text/subtitle"
-              },
-              "text": "—"
+                "classes": "text/label",
+                "fontWeight": 700
+              }
             },
             "type": "ia.display.label",
             "position": {
@@ -50,30 +85,42 @@
               "name": "State"
             },
             "props": {
+              "text": "INACTIVO",
               "style": {
-                "classes": "text/caption"
-              },
-              "text": "—"
+                "classes": "text/caption",
+                "textAlign": "right",
+                "fontWeight": 600
+              }
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "90px",
+              "basis": "80px",
               "shrink": 0
             },
             "propConfig": {
               "props.text": {
                 "binding": {
                   "config": {
-                    "path": "view.params.palletizer.state"
+                    "expression": "if({view.params.palletizer.state} = \"active\", \"ACTIVO\", \"INACTIVO\")"
                   },
-                  "type": "property"
+                  "type": "expr"
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.palletizer.state} = \"active\", \"var(--state-running)\", \"var(--state-inactive)\")"
+                  },
+                  "type": "expr"
                 }
               }
             }
           }
-        ],
+        ]
+      },
+      {
         "meta": {
-          "name": "Header"
+          "name": "Body"
         },
         "props": {
           "direction": "row",
@@ -84,88 +131,193 @@
         },
         "type": "ia.container.flex",
         "position": {
-          "basis": "32px",
-          "shrink": 0
-        }
-      },
-      {
+          "grow": 1
+        },
         "children": [
           {
             "meta": {
-              "name": "Label"
+              "name": "Line1"
             },
             "props": {
+              "direction": "column",
+              "justify": "center",
               "style": {
-                "classes": "text/caption"
-              },
-              "text": "PALLETS"
+                "gap": "0px"
+              }
             },
-            "type": "ia.display.label",
+            "type": "ia.container.flex",
             "position": {
-              "grow": 1
+              "grow": 1,
+              "basis": "0px"
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "Name"
+                },
+                "props": {
+                  "text": "—",
+                  "style": {
+                    "classes": "text/caption",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label",
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.palletizer.line1"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "props": {
+                  "text": "0",
+                  "style": {
+                    "classes": "text/value",
+                    "fontSize": "22px",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label",
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.palletizer.palletsLine1"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "Unit"
+                },
+                "props": {
+                  "text": "PALLETS",
+                  "style": {
+                    "classes": "text/caption",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "props": {
+              "path": "material/settings",
+              "style": {
+                "color": "var(--callToAction)",
+                "width": "34px",
+                "height": "34px"
+              }
+            },
+            "type": "ia.display.icon",
+            "position": {
+              "basis": "48px",
+              "shrink": 0
             }
           },
           {
             "meta": {
-              "name": "Value"
+              "name": "Line2"
             },
             "props": {
+              "direction": "column",
+              "justify": "center",
               "style": {
-                "classes": "text/value"
-              },
-              "text": "—"
-            },
-            "type": "ia.display.label",
-            "position": {
-              "basis": "110px",
-              "shrink": 0
-            },
-            "propConfig": {
-              "props.text": {
-                "binding": {
-                  "config": {
-                    "path": "view.params.palletizer.palletCount"
-                  },
-                  "type": "property"
-                }
+                "gap": "0px"
               }
-            }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "grow": 1,
+              "basis": "0px"
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "Name"
+                },
+                "props": {
+                  "text": "—",
+                  "style": {
+                    "classes": "text/caption",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label",
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.palletizer.line2"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "props": {
+                  "text": "0",
+                  "style": {
+                    "classes": "text/value",
+                    "fontSize": "22px",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label",
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.palletizer.palletsLine2"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "Unit"
+                },
+                "props": {
+                  "text": "PALLETS",
+                  "style": {
+                    "classes": "text/caption",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ]
           }
-        ],
-        "meta": {
-          "name": "Pallets"
-        },
-        "props": {
-          "direction": "row",
-          "alignItems": "center"
-        },
-        "type": "ia.container.flex",
-        "position": {
-          "grow": 1
-        }
+        ]
       }
     ],
-    "meta": {
-      "name": "root"
-    },
-    "position": {
-      "basis": "0px",
-      "grow": 1,
-      "shrink": 1
-    },
-    "props": {
-      "direction": "column",
-      "justify": "space-between",
-      "style": {
-        "classes": "card/base"
-      }
-    },
-    "type": "ia.container.flex",
     "propConfig": {
-      "props.style.classes": {
+      "props.style.backgroundColor": {
         "binding": {
           "config": {
-            "expression": "\"card/base state/\" + {view.params.palletizer.visualState}"
+            "expression": "if({view.params.palletizer.state} = \"active\", \"var(--container)\", \"var(--pct-state-inactive-surface)\")"
           },
           "type": "expr"
         }

@@ -4,40 +4,88 @@
     "line": {
       "id": "",
       "name": "—",
+      "state": "noData",
+      "hasFault": false,
+      "faultCode": 0,
       "caseInCount": "—",
       "caseOutCount": "—",
-      "faultCode": "—",
+      "speedTonH": "—",
+      "palletCount": 0,
       "operatingMode": "—",
-      "operatingState": "—",
+      "operatingState": "noData",
       "sku": "—",
       "wo": "—",
       "quality": null,
-      "visualState": "noData"
+      "visualState": "noData",
+      "downtime": {
+        "stopCount": 0,
+        "stoppedMinutes": 0,
+        "timeline": [
+          {
+            "state": "inactive",
+            "startMinute": 0,
+            "durationMinutes": 480
+          }
+        ]
+      }
     }
   },
   "props": {
     "defaultSize": {
-      "height": 300,
+      "height": 315,
       "width": 359
     }
   },
   "root": {
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "justify": "space-between",
+      "style": {
+        "classes": "card/base",
+        "padding": "18px 22px",
+        "gap": "10px",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex",
     "children": [
       {
+        "meta": {
+          "name": "Header"
+        },
+        "props": {
+          "direction": "row",
+          "alignItems": "center",
+          "style": {
+            "gap": "8px",
+            "paddingBottom": "10px",
+            "borderBottom": "var(--containerBorder)"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "38px",
+          "shrink": 0
+        },
         "children": [
           {
             "meta": {
               "name": "Name"
             },
             "props": {
+              "text": "—",
               "style": {
-                "classes": "text/subtitle"
-              },
-              "text": "—"
+                "classes": "text/subtitle",
+                "fontSize": "18px"
+              }
             },
             "type": "ia.display.label",
             "position": {
-              "grow": 1
+              "grow": 1,
+              "shrink": 1
             },
             "propConfig": {
               "props.text": {
@@ -52,60 +100,168 @@
           },
           {
             "meta": {
-              "name": "State"
+              "name": "StateIndicator"
             },
             "props": {
+              "direction": "row",
+              "alignItems": "center",
+              "justify": "flex-end",
               "style": {
-                "classes": "text/caption"
+                "gap": "7px"
+              }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "130px",
+              "shrink": 0
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "Dot"
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "classes": "text/caption",
+                    "width": "10px",
+                    "height": "10px",
+                    "borderRadius": "50%"
+                  }
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "10px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.style.backgroundColor": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.params.line.visualState} = \"running\", \"var(--state-running)\", if({view.params.line.visualState} = \"stopped\", \"var(--state-stopped)\", if({view.params.line.visualState} = \"fault\", \"var(--state-fault)\", if({view.params.line.visualState} = \"inactive\", \"var(--state-inactive)\", \"var(--state-noData)\"))))"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
               },
-              "text": "—"
+              {
+                "meta": {
+                  "name": "State"
+                },
+                "props": {
+                  "text": "SIN DATOS",
+                  "style": {
+                    "classes": "text/label",
+                    "textAlign": "right",
+                    "fontWeight": 600
+                  }
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "105px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.params.line.state} = \"running\", \"EN PRODUCCIÓN\", if({view.params.line.state} = \"stopped\", \"DETENIDA\", if({view.params.line.state} = \"inactive\", \"INACTIVA\", \"SIN DATOS\")))"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.params.line.visualState} = \"running\", \"var(--state-running)\", if({view.params.line.visualState} = \"stopped\", \"var(--state-stopped)\", if({view.params.line.visualState} = \"fault\", \"var(--state-fault)\", if({view.params.line.visualState} = \"inactive\", \"var(--state-inactive)\", \"var(--state-noData)\"))))"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "Fault"
+            },
+            "props": {
+              "text": "FALLA",
+              "style": {
+                "classes": "text/caption",
+                "textAlign": "center",
+                "fontWeight": 700,
+                "color": "var(--state-fault)",
+                "border": "1px solid var(--state-fault)",
+                "borderRadius": "3px",
+                "padding": "2px 4px",
+                "boxSizing": "border-box"
+              }
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "92px",
+              "basis": "48px",
               "shrink": 0
             },
             "propConfig": {
-              "props.text": {
+              "meta.visible": {
                 "binding": {
                   "config": {
-                    "path": "view.params.line.operatingState"
+                    "expression": "{view.params.line.hasFault}"
                   },
-                  "type": "property"
+                  "type": "expr"
                 }
               }
             }
           }
-        ],
+        ]
+      },
+      {
         "meta": {
-          "name": "Header"
+          "name": "Metrics"
         },
         "props": {
           "direction": "row",
-          "alignItems": "center",
           "style": {
-            "gap": "8px"
+            "gap": "12px"
           }
         },
         "type": "ia.container.flex",
         "position": {
-          "basis": "34px",
+          "basis": "86px",
           "shrink": 0
-        }
-      },
-      {
+        },
         "children": [
           {
+            "meta": {
+              "name": "InputMetric"
+            },
+            "props": {
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "gap": "1px",
+                "paddingRight": "12px",
+                "borderRight": "var(--containerBorder)"
+              }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "grow": 1,
+              "basis": "0px"
+            },
             "children": [
               {
                 "meta": {
                   "name": "Label"
                 },
                 "props": {
+                  "text": "ENTRADA",
                   "style": {
                     "classes": "text/caption"
-                  },
-                  "text": "ENTRADA"
+                  }
                 },
                 "type": "ia.display.label"
               },
@@ -114,10 +270,11 @@
                   "name": "Value"
                 },
                 "props": {
+                  "text": "—",
                   "style": {
-                    "classes": "text/value"
-                  },
-                  "text": "—"
+                    "classes": "text/value",
+                    "fontSize": "28px"
+                  }
                 },
                 "type": "ia.display.label",
                 "propConfig": {
@@ -130,34 +287,48 @@
                     }
                   }
                 }
+              },
+              {
+                "meta": {
+                  "name": "Unit"
+                },
+                "props": {
+                  "text": "Fardos",
+                  "style": {
+                    "classes": "text/caption"
+                  }
+                },
+                "type": "ia.display.label"
               }
-            ],
+            ]
+          },
+          {
             "meta": {
-              "name": "InputMetric"
+              "name": "SpeedMetric"
             },
             "props": {
               "direction": "column",
+              "justify": "center",
               "style": {
-                "gap": "4px"
+                "gap": "1px",
+                "paddingLeft": "4px"
               }
             },
             "type": "ia.container.flex",
             "position": {
               "grow": 1,
               "basis": "0px"
-            }
-          },
-          {
+            },
             "children": [
               {
                 "meta": {
                   "name": "Label"
                 },
                 "props": {
+                  "text": "VELOCIDAD",
                   "style": {
                     "classes": "text/caption"
-                  },
-                  "text": "SALIDA"
+                  }
                 },
                 "type": "ia.display.label"
               },
@@ -166,230 +337,249 @@
                   "name": "Value"
                 },
                 "props": {
+                  "text": "—",
                   "style": {
-                    "classes": "text/value"
-                  },
-                  "text": "—"
+                    "classes": "text/value",
+                    "fontSize": "28px"
+                  }
                 },
                 "type": "ia.display.label",
                 "propConfig": {
                   "props.text": {
                     "binding": {
                       "config": {
-                        "path": "view.params.line.caseOutCount"
+                        "path": "view.params.line.speedTonH"
                       },
                       "type": "property"
                     }
                   }
                 }
+              },
+              {
+                "meta": {
+                  "name": "Unit"
+                },
+                "props": {
+                  "text": "Ton/h",
+                  "style": {
+                    "classes": "text/caption"
+                  }
+                },
+                "type": "ia.display.label"
               }
-            ],
+            ]
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "Downtime"
+        },
+        "props": {
+          "direction": "column",
+          "justify": "flex-end",
+          "style": {
+            "gap": "5px",
+            "paddingTop": "8px",
+            "borderTop": "var(--containerBorder)"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1,
+          "shrink": 1
+        },
+        "children": [
+          {
             "meta": {
-              "name": "OutputMetric"
+              "name": "DowntimeHeader"
             },
             "props": {
-              "direction": "column",
-              "style": {
-                "gap": "4px"
-              }
+              "direction": "row",
+              "alignItems": "center"
             },
             "type": "ia.container.flex",
             "position": {
-              "grow": 1,
-              "basis": "0px"
-            }
-          }
-        ],
-        "meta": {
-          "name": "Metrics"
-        },
-        "props": {
-          "direction": "row",
-          "style": {
-            "gap": "16px"
-          }
-        },
-        "type": "ia.container.flex",
-        "position": {
-          "basis": "74px",
-          "shrink": 0
-        }
-      },
-      {
-        "children": [
-          {
-            "meta": {
-              "name": "SkuLabel"
-            },
-            "props": {
-              "style": {
-                "classes": "text/caption"
-              },
-              "text": "SKU"
-            },
-            "type": "ia.display.label",
-            "position": {
-              "basis": "44px",
+              "basis": "20px",
               "shrink": 0
-            }
-          },
-          {
-            "meta": {
-              "name": "SkuValue"
             },
-            "props": {
-              "style": {
-                "classes": "text/body"
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "text": "DETENCIONES",
+                  "style": {
+                    "classes": "text/caption",
+                    "fontWeight": 600,
+                    "color": "var(--label)"
+                  }
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                }
               },
-              "text": "—"
-            },
-            "type": "ia.display.label",
-            "position": {
-              "grow": 1
-            },
-            "propConfig": {
-              "props.text": {
-                "binding": {
-                  "config": {
-                    "path": "view.params.line.sku"
-                  },
-                  "type": "property"
+              {
+                "meta": {
+                  "name": "Summary"
+                },
+                "props": {
+                  "text": "0 paros · 0 min",
+                  "style": {
+                    "classes": "text/caption",
+                    "textAlign": "right"
+                  }
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "145px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "toStr({view.params.line.downtime.stopCount}) + \" paros · \" + toStr({view.params.line.downtime.stoppedMinutes}) + \" min\""
+                      },
+                      "type": "expr"
+                    }
+                  }
                 }
               }
-            }
+            ]
           },
           {
             "meta": {
-              "name": "WoLabel"
+              "name": "Timeline"
             },
             "props": {
+              "path": "00.Common/Components/tpTimelineSegment",
+              "direction": "row",
+              "instances": [],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false,
               "style": {
-                "classes": "text/caption"
-              },
-              "text": "OT"
-            },
-            "type": "ia.display.label",
-            "position": {
-              "basis": "28px",
-              "shrink": 0
-            }
-          },
-          {
-            "meta": {
-              "name": "WoValue"
-            },
-            "props": {
-              "style": {
-                "classes": "text/body"
-              },
-              "text": "—"
-            },
-            "type": "ia.display.label",
-            "position": {
-              "grow": 1
-            },
-            "propConfig": {
-              "props.text": {
-                "binding": {
-                  "config": {
-                    "path": "view.params.line.wo"
-                  },
-                  "type": "property"
-                }
-              }
-            }
-          }
-        ],
-        "meta": {
-          "name": "ProductionContext"
-        },
-        "props": {
-          "direction": "row",
-          "alignItems": "center",
-          "style": {
-            "gap": "8px"
-          }
-        },
-        "type": "ia.container.flex",
-        "position": {
-          "basis": "34px",
-          "shrink": 0
-        }
-      },
-      {
-        "children": [
-          {
-            "meta": {
-              "name": "Placeholder"
-            },
-            "props": {
-              "style": {
-                "classes": "text/caption"
-              },
-              "text": "TIMELINE"
-            },
-            "type": "ia.display.label",
-            "position": {
-              "basis": "58px",
-              "shrink": 0
-            }
-          },
-          {
-            "meta": {
-              "name": "Track"
-            },
-            "props": {
-              "style": {
+                "gap": "1px",
                 "backgroundColor": "var(--containerNested)",
-                "border": "var(--containerBorder)",
-                "borderRadius": "var(--borderRadius)"
+                "borderRadius": "2px",
+                "overflow": "hidden"
               },
-              "text": ""
+              "elementPosition": {
+                "basis": "0px",
+                "grow": 1,
+                "shrink": 1
+              }
             },
-            "type": "ia.display.label",
+            "type": "ia.display.flex-repeater",
             "position": {
-              "grow": 1
+              "basis": "14px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.line.downtime.timeline"
+                  },
+                  "type": "property"
+                }
+              }
             }
+          },
+          {
+            "meta": {
+              "name": "Hours"
+            },
+            "props": {
+              "direction": "row",
+              "justify": "space-between"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "18px",
+              "shrink": 0
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "H0"
+                },
+                "props": {
+                  "text": "06:00",
+                  "style": {
+                    "classes": "text/caption"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "H1"
+                },
+                "props": {
+                  "text": "08:00",
+                  "style": {
+                    "classes": "text/caption"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "H2"
+                },
+                "props": {
+                  "text": "10:00",
+                  "style": {
+                    "classes": "text/caption"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "H3"
+                },
+                "props": {
+                  "text": "12:00",
+                  "style": {
+                    "classes": "text/caption"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "H4"
+                },
+                "props": {
+                  "text": "14:00",
+                  "style": {
+                    "classes": "text/caption"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ]
           }
-        ],
-        "meta": {
-          "name": "TimelinePlaceholder"
-        },
-        "props": {
-          "direction": "row",
-          "alignItems": "center",
-          "style": {
-            "gap": "8px"
-          }
-        },
-        "type": "ia.container.flex",
-        "position": {
-          "basis": "30px",
-          "shrink": 0
-        }
+        ]
       }
     ],
-    "meta": {
-      "name": "root"
-    },
-    "position": {
-      "basis": "0px",
-      "grow": 1,
-      "shrink": 1
-    },
-    "props": {
-      "direction": "column",
-      "justify": "space-between",
-      "style": {
-        "classes": "card/base"
-      }
-    },
-    "type": "ia.container.flex",
     "propConfig": {
-      "props.style.classes": {
+      "props.style.backgroundColor": {
         "binding": {
           "config": {
-            "expression": "\"card/base state/\" + {view.params.line.visualState}"
+            "expression": "if({view.params.line.visualState} = \"stopped\", \"var(--pct-state-stopped-surface)\", if({view.params.line.visualState} = \"fault\", \"var(--pct-state-fault-surface)\", if({view.params.line.visualState} = \"inactive\", \"var(--pct-state-inactive-surface)\", if({view.params.line.visualState} = \"noData\", \"var(--pct-state-noData-surface)\", \"var(--pct-state-running-surface)\"))))"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.border": {
+        "binding": {
+          "config": {
+            "expression": "if({view.params.line.visualState} = \"stopped\", \"2px solid var(--state-stopped)\", if({view.params.line.visualState} = \"fault\", \"2px solid var(--state-fault)\", if({view.params.line.visualState} = \"inactive\", \"2px solid var(--state-inactive)\", if({view.params.line.visualState} = \"noData\", \"1px dashed var(--state-noData)\", \"var(--containerBorder)\"))))"
           },
           "type": "expr"
         }

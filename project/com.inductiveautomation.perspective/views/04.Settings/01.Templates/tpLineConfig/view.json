@@ -10,25 +10,39 @@
   },
   "props": {
     "defaultSize": {
-      "height": 64,
+      "height": 58,
       "width": 900
     }
   },
   "root": {
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "row",
+      "alignItems": "center",
+      "style": {
+        "classes": "card/base",
+        "padding": "8px 12px",
+        "gap": "10px"
+      }
+    },
+    "type": "ia.container.flex",
     "children": [
       {
         "meta": {
           "name": "Id"
         },
         "props": {
+          "text": "—",
           "style": {
-            "classes": "text/label"
-          },
-          "text": "—"
+            "classes": "text/label",
+            "fontWeight": 700
+          }
         },
         "type": "ia.display.label",
         "position": {
-          "basis": "90px",
+          "basis": "60px",
           "shrink": 0
         },
         "propConfig": {
@@ -47,15 +61,17 @@
           "name": "Name"
         },
         "props": {
+          "text": "",
+          "placeholder": "Nombre visible",
           "style": {
-            "classes": "text/body"
-          },
-          "text": "—"
+            "border": "var(--containerBorder)",
+            "borderRadius": "var(--borderRadiusInput)"
+          }
         },
-        "type": "ia.display.label",
+        "type": "ia.input.text-field",
         "position": {
-          "basis": "220px",
-          "shrink": 0
+          "basis": "170px",
+          "shrink": 1
         },
         "propConfig": {
           "props.text": {
@@ -73,33 +89,81 @@
           "name": "BasePath"
         },
         "props": {
+          "text": "",
+          "placeholder": "Base path sin configurar",
           "style": {
-            "classes": "text/caption"
-          },
-          "text": "Sin ruta configurada"
+            "border": "var(--containerBorder)",
+            "borderRadius": "var(--borderRadiusInput)"
+          }
         },
-        "type": "ia.display.label",
+        "type": "ia.input.text-field",
         "position": {
-          "grow": 1
+          "grow": 1,
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.lineConfig.basePath"
+              },
+              "type": "property"
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "name": "Palletizer"
+        },
+        "props": {
+          "options": [
+            {
+              "label": "P1",
+              "value": "P1"
+            },
+            {
+              "label": "P2",
+              "value": "P2"
+            },
+            {
+              "label": "P3",
+              "value": "P3"
+            },
+            {
+              "label": "P4",
+              "value": "P4"
+            },
+            {
+              "label": "P5",
+              "value": "P5"
+            }
+          ],
+          "value": null,
+          "placeholder": "Paletizador",
+          "style": {
+            "minHeight": "36px",
+            "backgroundColor": "var(--input)",
+            "border": "var(--containerBorder)",
+            "borderRadius": "var(--borderRadiusInput)"
+          }
+        },
+        "type": "ia.input.dropdown",
+        "position": {
+          "basis": "130px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "path": "view.params.lineConfig.palletizerId"
+              },
+              "type": "property"
+            }
+          }
         }
       }
-    ],
-    "meta": {
-      "name": "root"
-    },
-    "position": {
-      "basis": "64px",
-      "shrink": 0
-    },
-    "props": {
-      "direction": "row",
-      "alignItems": "center",
-      "style": {
-        "classes": "card/base",
-        "padding": "10px 14px",
-        "gap": "16px"
-      }
-    },
-    "type": "ia.container.flex"
+    ]
   }
 }

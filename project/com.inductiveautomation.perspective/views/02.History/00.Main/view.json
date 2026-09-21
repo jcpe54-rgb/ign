@@ -1,5 +1,7 @@
 {
-  "custom": {},
+  "custom": {
+    "mode": "chart"
+  },
   "params": {},
   "props": {
     "defaultSize": {
@@ -8,13 +10,25 @@
     }
   },
   "root": {
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "var(--containerRoot)",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex",
     "children": [
       {
         "meta": {
           "name": "Navigation"
         },
         "props": {
-          "path": "00.Common/Navigation"
+          "path": "00.Common/Navigation",
+          "params": {}
         },
         "type": "ia.display.view",
         "position": {
@@ -23,22 +37,77 @@
         }
       },
       {
+        "meta": {
+          "name": "Content"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "padding": "24px 38px 24px",
+            "gap": "22px",
+            "backgroundColor": "var(--containerRoot)",
+            "boxSizing": "border-box",
+            "overflowY": "auto",
+            "overflowX": "hidden"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1,
+          "shrink": 1
+        },
         "children": [
           {
             "meta": {
-              "name": "Title"
+              "name": "Header"
             },
             "props": {
+              "direction": "column",
+              "justify": "center",
               "style": {
-                "classes": "text/title"
-              },
-              "text": "Históricos"
+                "gap": "2px"
+              }
             },
-            "type": "ia.display.label",
+            "type": "ia.container.flex",
             "position": {
               "basis": "56px",
               "shrink": 0
-            }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "text": "HISTÓRICOS",
+                  "style": {
+                    "classes": "text/title",
+                    "fontSize": "25px"
+                  }
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "34px",
+                  "shrink": 0
+                }
+              },
+              {
+                "meta": {
+                  "name": "Subtitle"
+                },
+                "props": {
+                  "text": "Consulta y comparación de comportamiento por período",
+                  "style": {
+                    "classes": "text/caption"
+                  }
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "18px",
+                  "shrink": 0
+                }
+              }
+            ]
           },
           {
             "meta": {
@@ -61,136 +130,1220 @@
             }
           },
           {
+            "meta": {
+              "name": "Trends"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "classes": "card/panel",
+                "padding": "0px",
+                "gap": "0px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "450px",
+              "shrink": 0
+            },
             "children": [
               {
                 "meta": {
-                  "name": "TimelineTitle"
+                  "name": "SelectorPanel"
                 },
                 "props": {
+                  "direction": "column",
                   "style": {
-                    "classes": "text/subtitle"
-                  },
-                  "text": "Timeline de producción"
+                    "padding": "20px 24px",
+                    "borderRight": "var(--containerBorder)",
+                    "gap": "6px"
+                  }
                 },
-                "type": "ia.display.label",
+                "type": "ia.container.flex",
                 "position": {
-                  "basis": "32px",
+                  "basis": "230px",
                   "shrink": 0
-                }
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "LinesLabel"
+                    },
+                    "props": {
+                      "text": "LÍNEAS",
+                      "style": {
+                        "classes": "text/label",
+                        "fontWeight": 700
+                      }
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "basis": "22px",
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "LineSelectors"
+                    },
+                    "props": {
+                      "path": "02.History/01.Templates/tpLineSelectorItem",
+                      "direction": "column",
+                      "instances": [
+                        {
+                          "label": "Todas",
+                          "selected": true
+                        },
+                        {
+                          "label": "L1",
+                          "selected": true
+                        },
+                        {
+                          "label": "L2",
+                          "selected": true
+                        },
+                        {
+                          "label": "L3",
+                          "selected": true
+                        },
+                        {
+                          "label": "L4",
+                          "selected": true
+                        },
+                        {
+                          "label": "L5",
+                          "selected": false
+                        },
+                        {
+                          "label": "L6",
+                          "selected": false
+                        },
+                        {
+                          "label": "L7",
+                          "selected": false
+                        },
+                        {
+                          "label": "L8",
+                          "selected": false
+                        },
+                        {
+                          "label": "L9",
+                          "selected": false
+                        },
+                        {
+                          "label": "L10",
+                          "selected": false
+                        }
+                      ],
+                      "useDefaultViewWidth": false,
+                      "useDefaultViewHeight": false,
+                      "style": {
+                        "gap": "1px",
+                        "overflow": "hidden"
+                      },
+                      "elementPosition": {
+                        "basis": "22px",
+                        "grow": 0,
+                        "shrink": 0
+                      }
+                    },
+                    "type": "ia.display.flex-repeater",
+                    "position": {
+                      "grow": 1,
+                      "shrink": 1
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "VariableLabel"
+                    },
+                    "props": {
+                      "text": "VARIABLE",
+                      "style": {
+                        "classes": "text/label",
+                        "fontWeight": 700
+                      }
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "basis": "22px",
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "Variable"
+                    },
+                    "props": {
+                      "options": [
+                        {
+                          "label": "Velocidad",
+                          "value": "speed"
+                        },
+                        {
+                          "label": "Producción",
+                          "value": "production"
+                        },
+                        {
+                          "label": "Pallets",
+                          "value": "pallets"
+                        }
+                      ],
+                      "value": "speed",
+                      "placeholder": "Seleccionar",
+                      "style": {
+                        "minHeight": "36px",
+                        "backgroundColor": "var(--input)",
+                        "border": "var(--containerBorder)",
+                        "borderRadius": "var(--borderRadiusInput)"
+                      }
+                    },
+                    "type": "ia.input.dropdown",
+                    "position": {
+                      "basis": "38px",
+                      "shrink": 0
+                    }
+                  }
+                ]
               },
               {
                 "meta": {
-                  "name": "TimelineRows"
+                  "name": "TrendArea"
                 },
                 "props": {
-                  "path": "02.History/01.Templates/tpTimelineRow",
                   "direction": "column",
-                  "instances": [
-                    {}
-                  ],
                   "style": {
-                    "gap": "10px"
+                    "padding": "18px 24px",
+                    "gap": "8px"
                   }
                 },
-                "type": "ia.display.flex-repeater",
+                "type": "ia.container.flex",
                 "position": {
-                  "grow": 1
-                }
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "TrendHeader"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "alignItems": "center",
+                      "style": {
+                        "paddingBottom": "10px",
+                        "borderBottom": "var(--containerBorder)"
+                      }
+                    },
+                    "type": "ia.container.flex",
+                    "position": {
+                      "basis": "48px",
+                      "shrink": 0
+                    },
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Metric"
+                        },
+                        "props": {
+                          "direction": "column",
+                          "style": {
+                            "gap": "0px"
+                          }
+                        },
+                        "type": "ia.container.flex",
+                        "position": {
+                          "grow": 1
+                        },
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Name"
+                            },
+                            "props": {
+                              "text": "Velocidad",
+                              "style": {
+                                "classes": "text/subtitle"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Unit"
+                            },
+                            "props": {
+                              "text": "Ton/h",
+                              "style": {
+                                "classes": "text/caption"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ]
+                      },
+                      {
+                        "meta": {
+                          "name": "Mode"
+                        },
+                        "props": {
+                          "direction": "row",
+                          "alignItems": "center",
+                          "style": {
+                            "gap": "4px"
+                          }
+                        },
+                        "type": "ia.container.flex",
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "ChartMode"
+                            },
+                            "props": {
+                              "text": "GRÁFICO",
+                              "primary": false,
+                              "style": {
+                                "classes": "control/secondary",
+                                "minHeight": "32px",
+                                "padding": "0 10px"
+                              }
+                            },
+                            "type": "ia.input.button",
+                            "position": {
+                              "basis": "88px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.style.backgroundColor": {
+                                "binding": {
+                                  "config": {
+                                    "expression": "if({view.custom.mode} = \"chart\", \"var(--callToActionHighlight)\", \"transparent\")"
+                                  },
+                                  "type": "expr"
+                                }
+                              }
+                            },
+                            "events": {
+                              "component": {
+                                "onActionPerformed": {
+                                  "config": {
+                                    "script": "\tself.view.custom.mode = \"chart\""
+                                  },
+                                  "scope": "G",
+                                  "type": "script"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "meta": {
+                              "name": "TableMode"
+                            },
+                            "props": {
+                              "text": "TABLA",
+                              "primary": false,
+                              "style": {
+                                "classes": "control/secondary",
+                                "minHeight": "32px",
+                                "padding": "0 10px"
+                              }
+                            },
+                            "type": "ia.input.button",
+                            "position": {
+                              "basis": "72px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.style.backgroundColor": {
+                                "binding": {
+                                  "config": {
+                                    "expression": "if({view.custom.mode} = \"table\", \"var(--callToActionHighlight)\", \"transparent\")"
+                                  },
+                                  "type": "expr"
+                                }
+                              }
+                            },
+                            "events": {
+                              "component": {
+                                "onActionPerformed": {
+                                  "config": {
+                                    "script": "\tself.view.custom.mode = \"table\""
+                                  },
+                                  "scope": "G",
+                                  "type": "script"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "meta": {
+                      "name": "ChartView"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "style": {
+                        "paddingTop": "14px"
+                      }
+                    },
+                    "type": "ia.container.flex",
+                    "position": {
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "YAxis"
+                        },
+                        "props": {
+                          "direction": "column",
+                          "justify": "space-between",
+                          "alignItems": "flex-end",
+                          "style": {
+                            "padding": "4px 6px 18px 0"
+                          }
+                        },
+                        "type": "ia.container.flex",
+                        "position": {
+                          "basis": "30px",
+                          "shrink": 0
+                        },
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Y30"
+                            },
+                            "props": {
+                              "text": "30",
+                              "style": {
+                                "classes": "text/caption"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Y20"
+                            },
+                            "props": {
+                              "text": "20",
+                              "style": {
+                                "classes": "text/caption"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Y10"
+                            },
+                            "props": {
+                              "text": "10",
+                              "style": {
+                                "classes": "text/caption"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Y0"
+                            },
+                            "props": {
+                              "text": "0",
+                              "style": {
+                                "classes": "text/caption"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ]
+                      },
+                      {
+                        "meta": {
+                          "name": "ChartBody"
+                        },
+                        "props": {
+                          "direction": "column",
+                          "style": {
+                            "backgroundColor": "var(--containerNested)",
+                            "border": "var(--containerBorder)",
+                            "padding": "12px 14px 6px",
+                            "boxSizing": "border-box"
+                          }
+                        },
+                        "type": "ia.container.flex",
+                        "position": {
+                          "grow": 1,
+                          "shrink": 1
+                        },
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Trend"
+                            },
+                            "props": {
+                              "data": [
+                                18,
+                                21,
+                                20,
+                                24,
+                                26,
+                                25,
+                                28,
+                                27,
+                                30,
+                                29,
+                                27,
+                                28,
+                                26,
+                                24,
+                                25,
+                                27,
+                                29,
+                                28,
+                                30,
+                                31,
+                                29,
+                                28,
+                                27,
+                                29,
+                                30,
+                                28,
+                                27,
+                                26,
+                                28,
+                                29
+                              ],
+                              "style": {
+                                "color": "var(--callToAction)",
+                                "height": "100%",
+                                "width": "100%"
+                              }
+                            },
+                            "type": "ia.display.sparkline",
+                            "position": {
+                              "grow": 1,
+                              "shrink": 1
+                            }
+                          },
+                          {
+                            "meta": {
+                              "name": "XAxis"
+                            },
+                            "props": {
+                              "direction": "row",
+                              "justify": "space-between"
+                            },
+                            "type": "ia.container.flex",
+                            "position": {
+                              "basis": "18px",
+                              "shrink": 0
+                            },
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "X0"
+                                },
+                                "props": {
+                                  "text": "06:00",
+                                  "style": {
+                                    "classes": "text/caption"
+                                  }
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "X1"
+                                },
+                                "props": {
+                                  "text": "08:00",
+                                  "style": {
+                                    "classes": "text/caption"
+                                  }
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "X2"
+                                },
+                                "props": {
+                                  "text": "10:00",
+                                  "style": {
+                                    "classes": "text/caption"
+                                  }
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "X3"
+                                },
+                                "props": {
+                                  "text": "12:00",
+                                  "style": {
+                                    "classes": "text/caption"
+                                  }
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "X4"
+                                },
+                                "props": {
+                                  "text": "14:00",
+                                  "style": {
+                                    "classes": "text/caption"
+                                  }
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "propConfig": {
+                      "meta.visible": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.custom.mode} = \"chart\""
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "TableView"
+                    },
+                    "props": {
+                      "data": [
+                        {
+                          "FECHA / HORA": "21/09/2026 06:00",
+                          "LÍNEA": "L1",
+                          "VELOCIDAD": "29.52 Ton/h",
+                          "ESTADO": "En producción"
+                        },
+                        {
+                          "FECHA / HORA": "21/09/2026 06:05",
+                          "LÍNEA": "L2",
+                          "VELOCIDAD": "0.00 Ton/h",
+                          "ESTADO": "Detenida"
+                        },
+                        {
+                          "FECHA / HORA": "21/09/2026 06:10",
+                          "LÍNEA": "L3",
+                          "VELOCIDAD": "27.94 Ton/h",
+                          "ESTADO": "En producción"
+                        },
+                        {
+                          "FECHA / HORA": "21/09/2026 06:15",
+                          "LÍNEA": "L4",
+                          "VELOCIDAD": "26.06 Ton/h",
+                          "ESTADO": "En producción"
+                        },
+                        {
+                          "FECHA / HORA": "21/09/2026 06:20",
+                          "LÍNEA": "L5",
+                          "VELOCIDAD": "28.94 Ton/h",
+                          "ESTADO": "En producción"
+                        }
+                      ],
+                      "pager": {
+                        "bottom": false,
+                        "top": false
+                      },
+                      "selection": {
+                        "enabled": false
+                      },
+                      "filter": {
+                        "enabled": false
+                      },
+                      "style": {
+                        "fontSize": "12px",
+                        "border": "var(--containerBorder)",
+                        "borderRadius": "var(--borderRadius)"
+                      }
+                    },
+                    "type": "ia.display.table",
+                    "position": {
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "propConfig": {
+                      "meta.visible": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.custom.mode} = \"table\""
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    }
+                  }
+                ]
               }
-            ],
+            ]
+          },
+          {
             "meta": {
-              "name": "TimelinePanel"
+              "name": "Downtime"
             },
             "props": {
               "direction": "column",
               "style": {
                 "classes": "card/panel",
-                "gap": "14px"
+                "padding": "16px 24px 12px",
+                "gap": "5px",
+                "overflow": "hidden"
               }
             },
             "type": "ia.container.flex",
             "position": {
               "grow": 1,
               "shrink": 1
-            }
-          },
-          {
+            },
             "children": [
               {
                 "meta": {
-                  "name": "TableTitle"
+                  "name": "DowntimeHeader"
                 },
                 "props": {
-                  "style": {
-                    "classes": "text/subtitle"
-                  },
-                  "text": "Detalle histórico"
+                  "direction": "row",
+                  "alignItems": "center"
                 },
-                "type": "ia.display.label"
+                "type": "ia.container.flex",
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Title"
+                    },
+                    "props": {
+                      "text": "DETENCIONES · PERÍODO CONSULTADO",
+                      "style": {
+                        "classes": "text/subtitle",
+                        "fontSize": "16px"
+                      }
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "grow": 1
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "Legend"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "alignItems": "center",
+                      "style": {
+                        "gap": "14px"
+                      }
+                    },
+                    "type": "ia.container.flex",
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Run"
+                        },
+                        "props": {
+                          "text": "● Running",
+                          "style": {
+                            "classes": "text/caption",
+                            "color": "var(--state-running)"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Stop"
+                        },
+                        "props": {
+                          "text": "● Stopped",
+                          "style": {
+                            "classes": "text/caption",
+                            "color": "var(--state-fault)"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Inactive"
+                        },
+                        "props": {
+                          "text": "● Inactive",
+                          "style": {
+                            "classes": "text/caption",
+                            "color": "var(--state-inactive)"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "meta": {
-                  "name": "TablePlaceholder"
+                  "name": "Rows"
                 },
                 "props": {
+                  "path": "02.History/01.Templates/tpTimelineRow",
+                  "direction": "column",
+                  "instances": [
+                    {
+                      "row": {
+                        "id": "L1",
+                        "name": "L1",
+                        "summary": "0 paros · 0 min",
+                        "segments": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 480
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "row": {
+                        "id": "L2",
+                        "name": "L2",
+                        "summary": "3 paros · 72 min",
+                        "segments": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 90
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 90,
+                            "durationMinutes": 22
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 112,
+                            "durationMinutes": 198
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 310,
+                            "durationMinutes": 25
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 335,
+                            "durationMinutes": 120
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 455,
+                            "durationMinutes": 25
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "row": {
+                        "id": "L3",
+                        "name": "L3",
+                        "summary": "2 paros · 21 min",
+                        "segments": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 130
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 130,
+                            "durationMinutes": 8
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 138,
+                            "durationMinutes": 212
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 350,
+                            "durationMinutes": 13
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 363,
+                            "durationMinutes": 117
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "row": {
+                        "id": "L4",
+                        "name": "L4",
+                        "summary": "0 paros · 0 min",
+                        "segments": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 480
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "row": {
+                        "id": "L5",
+                        "name": "L5",
+                        "summary": "5 paros · 47 min",
+                        "segments": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 55
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 55,
+                            "durationMinutes": 5
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 60,
+                            "durationMinutes": 65
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 125,
+                            "durationMinutes": 7
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 132,
+                            "durationMinutes": 78
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 210,
+                            "durationMinutes": 9
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 219,
+                            "durationMinutes": 96
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 315,
+                            "durationMinutes": 11
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 326,
+                            "durationMinutes": 84
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 410,
+                            "durationMinutes": 15
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 425,
+                            "durationMinutes": 55
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "row": {
+                        "id": "L6",
+                        "name": "L6",
+                        "summary": "3 paros · 56 min",
+                        "segments": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 100
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 100,
+                            "durationMinutes": 10
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 110,
+                            "durationMinutes": 135
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 245,
+                            "durationMinutes": 12
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 257,
+                            "durationMinutes": 189
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 446,
+                            "durationMinutes": 34
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "row": {
+                        "id": "L7",
+                        "name": "L7",
+                        "summary": "Inactiva",
+                        "segments": [
+                          {
+                            "state": "inactive",
+                            "startMinute": 0,
+                            "durationMinutes": 480
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "row": {
+                        "id": "L8",
+                        "name": "L8",
+                        "summary": "Inactiva",
+                        "segments": [
+                          {
+                            "state": "inactive",
+                            "startMinute": 0,
+                            "durationMinutes": 480
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "row": {
+                        "id": "L9",
+                        "name": "L9",
+                        "summary": "1 paro · 31 min",
+                        "segments": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 260
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 260,
+                            "durationMinutes": 31
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 291,
+                            "durationMinutes": 189
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "row": {
+                        "id": "L10",
+                        "name": "L10",
+                        "summary": "2 paros · 20 min",
+                        "segments": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 145
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 145,
+                            "durationMinutes": 9
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 154,
+                            "durationMinutes": 216
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 370,
+                            "durationMinutes": 11
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 381,
+                            "durationMinutes": 99
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "useDefaultViewWidth": false,
+                  "useDefaultViewHeight": false,
                   "style": {
-                    "classes": "text/caption"
+                    "gap": "2px",
+                    "overflow": "hidden"
                   },
-                  "text": "Sin datos"
+                  "elementPosition": {
+                    "basis": "25px",
+                    "grow": 0,
+                    "shrink": 0
+                  }
                 },
-                "type": "ia.display.label",
+                "type": "ia.display.flex-repeater",
                 "position": {
-                  "grow": 1
+                  "grow": 1,
+                  "shrink": 1
                 }
+              },
+              {
+                "meta": {
+                  "name": "SharedAxis"
+                },
+                "props": {
+                  "direction": "row",
+                  "alignItems": "center"
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "basis": "18px",
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Pad"
+                    },
+                    "props": {
+                      "text": "",
+                      "style": {
+                        "classes": "text/caption"
+                      }
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "basis": "60px",
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "Times"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "justify": "space-between"
+                    },
+                    "type": "ia.container.flex",
+                    "position": {
+                      "grow": 1
+                    },
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "T0"
+                        },
+                        "props": {
+                          "text": "06:00",
+                          "style": {
+                            "classes": "text/caption"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "T1"
+                        },
+                        "props": {
+                          "text": "08:00",
+                          "style": {
+                            "classes": "text/caption"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "T2"
+                        },
+                        "props": {
+                          "text": "10:00",
+                          "style": {
+                            "classes": "text/caption"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "T3"
+                        },
+                        "props": {
+                          "text": "12:00",
+                          "style": {
+                            "classes": "text/caption"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "T4"
+                        },
+                        "props": {
+                          "text": "14:00",
+                          "style": {
+                            "classes": "text/caption"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ]
+                  },
+                  {
+                    "meta": {
+                      "name": "PadRight"
+                    },
+                    "props": {
+                      "text": "",
+                      "style": {
+                        "classes": "text/caption"
+                      }
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "basis": "157px",
+                      "shrink": 0
+                    }
+                  }
+                ]
               }
-            ],
-            "meta": {
-              "name": "TablePanel"
-            },
-            "props": {
-              "direction": "column",
-              "style": {
-                "classes": "card/panel",
-                "gap": "12px"
-              }
-            },
-            "type": "ia.container.flex",
-            "position": {
-              "basis": "294px",
-              "shrink": 0
-            }
+            ]
           }
-        ],
-        "meta": {
-          "name": "Content"
-        },
-        "position": {
-          "grow": 1,
-          "shrink": 1
-        },
-        "props": {
-          "direction": "column",
-          "style": {
-            "padding": "30px 38px 24px",
-            "gap": "22px",
-            "backgroundColor": "var(--containerRoot)",
-            "boxSizing": "border-box",
-            "overflow": "hidden"
-          }
-        },
-        "type": "ia.container.flex"
+        ]
       }
-    ],
-    "meta": {
-      "name": "root"
-    },
-    "props": {
-      "direction": "column",
-      "style": {
-        "backgroundColor": "var(--containerRoot)",
-        "overflow": "hidden"
-      }
-    },
-    "type": "ia.container.flex"
+    ]
   }
 }

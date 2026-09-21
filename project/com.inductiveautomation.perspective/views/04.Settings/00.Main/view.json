@@ -8,166 +8,6 @@
     }
   },
   "root": {
-    "children": [
-      {
-        "meta": {
-          "name": "Navigation"
-        },
-        "props": {
-          "path": "00.Common/Navigation"
-        },
-        "type": "ia.display.view",
-        "position": {
-          "basis": "50px",
-          "shrink": 0
-        }
-      },
-      {
-        "children": [
-          {
-            "meta": {
-              "name": "Title"
-            },
-            "props": {
-              "style": {
-                "classes": "text/title"
-              },
-              "text": "Configuración"
-            },
-            "type": "ia.display.label",
-            "position": {
-              "basis": "64px",
-              "shrink": 0
-            }
-          },
-          {
-            "children": [
-              {
-                "meta": {
-                  "name": "LinesTitle"
-                },
-                "props": {
-                  "style": {
-                    "classes": "text/subtitle"
-                  },
-                  "text": "Líneas"
-                },
-                "type": "ia.display.label",
-                "position": {
-                  "basis": "32px",
-                  "shrink": 0
-                }
-              },
-              {
-                "meta": {
-                  "name": "Lines"
-                },
-                "props": {
-                  "path": "04.Settings/01.Templates/tpLineConfig",
-                  "direction": "column",
-                  "instances": [
-                    {}
-                  ],
-                  "style": {
-                    "gap": "10px"
-                  }
-                },
-                "type": "ia.display.flex-repeater",
-                "position": {
-                  "grow": 1
-                }
-              }
-            ],
-            "meta": {
-              "name": "LineSection"
-            },
-            "props": {
-              "direction": "column",
-              "style": {
-                "classes": "card/panel",
-                "gap": "14px"
-              }
-            },
-            "type": "ia.container.flex",
-            "position": {
-              "grow": 1,
-              "basis": "0px"
-            }
-          },
-          {
-            "children": [
-              {
-                "meta": {
-                  "name": "PalletizersTitle"
-                },
-                "props": {
-                  "style": {
-                    "classes": "text/subtitle"
-                  },
-                  "text": "Paletizadores"
-                },
-                "type": "ia.display.label",
-                "position": {
-                  "basis": "32px",
-                  "shrink": 0
-                }
-              },
-              {
-                "meta": {
-                  "name": "Palletizers"
-                },
-                "props": {
-                  "path": "04.Settings/01.Templates/tpPalletizerConfig",
-                  "direction": "column",
-                  "instances": [
-                    {}
-                  ],
-                  "style": {
-                    "gap": "10px"
-                  }
-                },
-                "type": "ia.display.flex-repeater",
-                "position": {
-                  "grow": 1
-                }
-              }
-            ],
-            "meta": {
-              "name": "PalletizerSection"
-            },
-            "props": {
-              "direction": "column",
-              "style": {
-                "classes": "card/panel",
-                "gap": "14px"
-              }
-            },
-            "type": "ia.container.flex",
-            "position": {
-              "grow": 1,
-              "basis": "0px"
-            }
-          }
-        ],
-        "meta": {
-          "name": "Content"
-        },
-        "position": {
-          "grow": 1
-        },
-        "props": {
-          "direction": "column",
-          "style": {
-            "padding": "32px 47px 40px",
-            "gap": "20px",
-            "backgroundColor": "var(--containerRoot)",
-            "boxSizing": "border-box",
-            "overflow": "hidden"
-          }
-        },
-        "type": "ia.container.flex"
-      }
-    ],
     "meta": {
       "name": "root"
     },
@@ -178,6 +18,605 @@
         "overflow": "hidden"
       }
     },
-    "type": "ia.container.flex"
+    "type": "ia.container.flex",
+    "children": [
+      {
+        "meta": {
+          "name": "Navigation"
+        },
+        "props": {
+          "path": "00.Common/Navigation",
+          "params": {}
+        },
+        "type": "ia.display.view",
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        }
+      },
+      {
+        "meta": {
+          "name": "Content"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "padding": "32px 47px 40px",
+            "gap": "20px",
+            "backgroundColor": "var(--containerRoot)",
+            "boxSizing": "border-box",
+            "overflowY": "auto",
+            "overflowX": "hidden"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1,
+          "shrink": 1
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Header"
+            },
+            "props": {
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "gap": "2px"
+              }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "64px",
+              "shrink": 0
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "text": "CONFIGURACIÓN",
+                  "style": {
+                    "classes": "text/title",
+                    "fontSize": "25px"
+                  }
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "34px",
+                  "shrink": 0
+                }
+              },
+              {
+                "meta": {
+                  "name": "Subtitle"
+                },
+                "props": {
+                  "text": "Parámetros generales de la aplicación",
+                  "style": {
+                    "classes": "text/caption"
+                  }
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "18px",
+                  "shrink": 0
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "GeneralRow"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "gap": "20px"
+              }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "150px",
+              "shrink": 0
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "Shifts"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "card/panel",
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "grow": 1,
+                  "basis": "0px"
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Title"
+                    },
+                    "props": {
+                      "text": "TURNOS",
+                      "style": {
+                        "classes": "text/subtitle",
+                        "fontSize": "16px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Shift"
+                    },
+                    "props": {
+                      "options": [
+                        {
+                          "label": "Mañana",
+                          "value": "m"
+                        },
+                        {
+                          "label": "Tarde",
+                          "value": "t"
+                        },
+                        {
+                          "label": "Noche",
+                          "value": "n"
+                        }
+                      ],
+                      "value": "m",
+                      "placeholder": "Seleccionar",
+                      "style": {
+                        "minHeight": "36px",
+                        "backgroundColor": "var(--input)",
+                        "border": "var(--containerBorder)",
+                        "borderRadius": "var(--borderRadiusInput)"
+                      }
+                    },
+                    "type": "ia.input.dropdown"
+                  },
+                  {
+                    "meta": {
+                      "name": "Schedule"
+                    },
+                    "props": {
+                      "text": "06:00 – 14:00",
+                      "placeholder": "Horario",
+                      "style": {
+                        "border": "var(--containerBorder)",
+                        "borderRadius": "var(--borderRadiusInput)"
+                      }
+                    },
+                    "type": "ia.input.text-field"
+                  }
+                ]
+              },
+              {
+                "meta": {
+                  "name": "Groups"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "card/panel",
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "grow": 1,
+                  "basis": "0px"
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Title"
+                    },
+                    "props": {
+                      "text": "GRUPOS",
+                      "style": {
+                        "classes": "text/subtitle",
+                        "fontSize": "16px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Group"
+                    },
+                    "props": {
+                      "options": [
+                        {
+                          "label": "Grupo A",
+                          "value": "A"
+                        },
+                        {
+                          "label": "Grupo B",
+                          "value": "B"
+                        }
+                      ],
+                      "value": "A",
+                      "placeholder": "Seleccionar",
+                      "style": {
+                        "minHeight": "36px",
+                        "backgroundColor": "var(--input)",
+                        "border": "var(--containerBorder)",
+                        "borderRadius": "var(--borderRadiusInput)"
+                      }
+                    },
+                    "type": "ia.input.dropdown"
+                  },
+                  {
+                    "meta": {
+                      "name": "Description"
+                    },
+                    "props": {
+                      "text": "Grupo A",
+                      "placeholder": "Descripción",
+                      "style": {
+                        "border": "var(--containerBorder)",
+                        "borderRadius": "var(--borderRadiusInput)"
+                      }
+                    },
+                    "type": "ia.input.text-field"
+                  }
+                ]
+              },
+              {
+                "meta": {
+                  "name": "Supervisors"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "card/panel",
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "grow": 1,
+                  "basis": "0px"
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Title"
+                    },
+                    "props": {
+                      "text": "SUPERVISORES",
+                      "style": {
+                        "classes": "text/subtitle",
+                        "fontSize": "16px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Supervisor"
+                    },
+                    "props": {
+                      "options": [
+                        {
+                          "label": "XXXXXXX XXXXXX",
+                          "value": "demo"
+                        }
+                      ],
+                      "value": "demo",
+                      "placeholder": "Seleccionar",
+                      "style": {
+                        "minHeight": "36px",
+                        "backgroundColor": "var(--input)",
+                        "border": "var(--containerBorder)",
+                        "borderRadius": "var(--borderRadiusInput)"
+                      }
+                    },
+                    "type": "ia.input.dropdown"
+                  },
+                  {
+                    "meta": {
+                      "name": "Name"
+                    },
+                    "props": {
+                      "text": "XXXXXXX XXXXXX",
+                      "placeholder": "Nombre",
+                      "style": {
+                        "border": "var(--containerBorder)",
+                        "borderRadius": "var(--borderRadiusInput)"
+                      }
+                    },
+                    "type": "ia.input.text-field"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "EquipmentRow"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "gap": "20px"
+              }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "690px",
+              "shrink": 0
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "LinesSection"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "card/panel",
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "grow": 1,
+                  "basis": "0px",
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Title"
+                    },
+                    "props": {
+                      "text": "LÍNEAS",
+                      "style": {
+                        "classes": "text/subtitle",
+                        "fontSize": "16px"
+                      }
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "basis": "28px",
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "Lines"
+                    },
+                    "props": {
+                      "path": "04.Settings/01.Templates/tpLineConfig",
+                      "direction": "column",
+                      "instances": [
+                        {
+                          "lineConfig": {
+                            "id": "L1",
+                            "name": "Línea 1",
+                            "basePath": "",
+                            "palletizerId": "P1"
+                          }
+                        },
+                        {
+                          "lineConfig": {
+                            "id": "L2",
+                            "name": "Línea 2",
+                            "basePath": "",
+                            "palletizerId": "P1"
+                          }
+                        },
+                        {
+                          "lineConfig": {
+                            "id": "L3",
+                            "name": "Línea 3",
+                            "basePath": "",
+                            "palletizerId": "P2"
+                          }
+                        },
+                        {
+                          "lineConfig": {
+                            "id": "L4",
+                            "name": "Línea 4",
+                            "basePath": "",
+                            "palletizerId": "P2"
+                          }
+                        },
+                        {
+                          "lineConfig": {
+                            "id": "L5",
+                            "name": "Línea 5",
+                            "basePath": "",
+                            "palletizerId": "P3"
+                          }
+                        },
+                        {
+                          "lineConfig": {
+                            "id": "L6",
+                            "name": "Línea 6",
+                            "basePath": "",
+                            "palletizerId": "P3"
+                          }
+                        },
+                        {
+                          "lineConfig": {
+                            "id": "L7",
+                            "name": "Línea 7",
+                            "basePath": "",
+                            "palletizerId": "P4"
+                          }
+                        },
+                        {
+                          "lineConfig": {
+                            "id": "L8",
+                            "name": "Línea 8",
+                            "basePath": "",
+                            "palletizerId": "P4"
+                          }
+                        },
+                        {
+                          "lineConfig": {
+                            "id": "L9",
+                            "name": "Línea 9",
+                            "basePath": "",
+                            "palletizerId": "P5"
+                          }
+                        },
+                        {
+                          "lineConfig": {
+                            "id": "L10",
+                            "name": "Línea 10",
+                            "basePath": "",
+                            "palletizerId": "P5"
+                          }
+                        }
+                      ],
+                      "useDefaultViewWidth": false,
+                      "useDefaultViewHeight": false,
+                      "style": {
+                        "gap": "8px"
+                      },
+                      "elementPosition": {
+                        "basis": "58px",
+                        "grow": 0,
+                        "shrink": 0
+                      }
+                    },
+                    "type": "ia.display.flex-repeater",
+                    "position": {
+                      "grow": 1,
+                      "shrink": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "meta": {
+                  "name": "PalletizersSection"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "card/panel",
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "grow": 1,
+                  "basis": "0px",
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Title"
+                    },
+                    "props": {
+                      "text": "PALETIZADORES",
+                      "style": {
+                        "classes": "text/subtitle",
+                        "fontSize": "16px"
+                      }
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "basis": "28px",
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "Palletizers"
+                    },
+                    "props": {
+                      "path": "04.Settings/01.Templates/tpPalletizerConfig",
+                      "direction": "column",
+                      "instances": [
+                        {
+                          "palletizerConfig": {
+                            "id": "P1",
+                            "name": "Paletizador 1",
+                            "lineIds": [
+                              "L1",
+                              "L2"
+                            ]
+                          }
+                        },
+                        {
+                          "palletizerConfig": {
+                            "id": "P2",
+                            "name": "Paletizador 2",
+                            "lineIds": [
+                              "L3",
+                              "L4"
+                            ]
+                          }
+                        },
+                        {
+                          "palletizerConfig": {
+                            "id": "P3",
+                            "name": "Paletizador 3",
+                            "lineIds": [
+                              "L5",
+                              "L6"
+                            ]
+                          }
+                        },
+                        {
+                          "palletizerConfig": {
+                            "id": "P4",
+                            "name": "Paletizador 4",
+                            "lineIds": [
+                              "L7",
+                              "L8"
+                            ]
+                          }
+                        },
+                        {
+                          "palletizerConfig": {
+                            "id": "P5",
+                            "name": "Paletizador 5",
+                            "lineIds": [
+                              "L9",
+                              "L10"
+                            ]
+                          }
+                        }
+                      ],
+                      "useDefaultViewWidth": false,
+                      "useDefaultViewHeight": false,
+                      "style": {
+                        "gap": "8px"
+                      },
+                      "elementPosition": {
+                        "basis": "58px",
+                        "grow": 0,
+                        "shrink": 0
+                      }
+                    },
+                    "type": "ia.display.flex-repeater",
+                    "position": {
+                      "grow": 1,
+                      "shrink": 1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

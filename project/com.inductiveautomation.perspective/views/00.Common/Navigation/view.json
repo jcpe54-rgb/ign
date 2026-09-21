@@ -8,55 +8,103 @@
     }
   },
   "root": {
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "row",
+      "alignItems": "center",
+      "style": {
+        "backgroundColor": "var(--container)",
+        "borderBottom": "var(--containerBorder)",
+        "boxSizing": "border-box",
+        "padding": "0 34px",
+        "gap": "12px",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex",
     "children": [
       {
+        "meta": {
+          "name": "LeftBrand"
+        },
+        "props": {
+          "direction": "row",
+          "alignItems": "center"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "180px",
+          "shrink": 1
+        },
         "children": [
           {
             "meta": {
-              "name": "Brand"
+              "name": "PrimaryLogoPlaceholder"
             },
             "props": {
+              "text": "LOGO",
               "style": {
-                "classes": "text/subtitle"
-              },
-              "text": "PASTA CORTA"
+                "classes": "text/label",
+                "border": "var(--containerBorder)",
+                "borderRadius": "var(--borderRadius)",
+                "textAlign": "center",
+                "padding": "5px 14px",
+                "boxSizing": "border-box",
+                "color": "var(--neutral-60)"
+              }
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "220px",
+              "basis": "126px",
               "shrink": 0
             }
-          },
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "NavigationLinks"
+        },
+        "props": {
+          "direction": "row",
+          "alignItems": "stretch",
+          "justify": "center",
+          "style": {
+            "gap": "18px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1,
+          "shrink": 1
+        },
+        "children": [
           {
             "meta": {
               "name": "Overview"
             },
-            "position": {
-              "basis": "140px",
-              "shrink": 0
-            },
             "props": {
-              "text": "OVERVIEW",
+              "text": "Overview",
               "primary": false,
               "style": {
                 "classes": "control/secondary",
                 "backgroundColor": "transparent",
                 "border": "none",
                 "borderRadius": "0px",
-                "boxShadow": "none"
+                "boxShadow": "none",
+                "color": "var(--label)",
+                "fontSize": "14px",
+                "fontWeight": 500,
+                "minHeight": "50px",
+                "padding": "0 10px"
               }
             },
             "type": "ia.input.button",
-            "events": {
-              "component": {
-                "onActionPerformed": {
-                  "config": {
-                    "script": "\tsystem.perspective.navigate(\"/overview\")"
-                  },
-                  "scope": "G",
-                  "type": "script"
-                }
-              }
+            "position": {
+              "basis": "118px",
+              "shrink": 1
             },
             "propConfig": {
               "props.style.borderBottom": {
@@ -67,38 +115,43 @@
                   "type": "expr"
                 }
               }
+            },
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/overview\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
             }
           },
           {
             "meta": {
               "name": "History"
             },
-            "position": {
-              "basis": "140px",
-              "shrink": 0
-            },
             "props": {
-              "text": "HISTÓRICOS",
+              "text": "Históricos",
               "primary": false,
               "style": {
                 "classes": "control/secondary",
                 "backgroundColor": "transparent",
                 "border": "none",
                 "borderRadius": "0px",
-                "boxShadow": "none"
+                "boxShadow": "none",
+                "color": "var(--label)",
+                "fontSize": "14px",
+                "fontWeight": 500,
+                "minHeight": "50px",
+                "padding": "0 10px"
               }
             },
             "type": "ia.input.button",
-            "events": {
-              "component": {
-                "onActionPerformed": {
-                  "config": {
-                    "script": "\tsystem.perspective.navigate(\"/history\")"
-                  },
-                  "scope": "G",
-                  "type": "script"
-                }
-              }
+            "position": {
+              "basis": "118px",
+              "shrink": 1
             },
             "propConfig": {
               "props.style.borderBottom": {
@@ -109,38 +162,43 @@
                   "type": "expr"
                 }
               }
+            },
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/history\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
             }
           },
           {
             "meta": {
               "name": "Reports"
             },
-            "position": {
-              "basis": "140px",
-              "shrink": 0
-            },
             "props": {
-              "text": "REPORTES",
+              "text": "Reportes",
               "primary": false,
               "style": {
                 "classes": "control/secondary",
                 "backgroundColor": "transparent",
                 "border": "none",
                 "borderRadius": "0px",
-                "boxShadow": "none"
+                "boxShadow": "none",
+                "color": "var(--label)",
+                "fontSize": "14px",
+                "fontWeight": 500,
+                "minHeight": "50px",
+                "padding": "0 10px"
               }
             },
             "type": "ia.input.button",
-            "events": {
-              "component": {
-                "onActionPerformed": {
-                  "config": {
-                    "script": "\tsystem.perspective.navigate(\"/reports\")"
-                  },
-                  "scope": "G",
-                  "type": "script"
-                }
-              }
+            "position": {
+              "basis": "118px",
+              "shrink": 1
             },
             "propConfig": {
               "props.style.borderBottom": {
@@ -151,24 +209,123 @@
                   "type": "expr"
                 }
               }
+            },
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/reports\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "RightMeta"
+        },
+        "props": {
+          "direction": "row",
+          "alignItems": "center",
+          "justify": "flex-end",
+          "style": {
+            "gap": "12px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "410px",
+          "shrink": 1
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "User"
+            },
+            "props": {
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "gap": "0px"
+              }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "120px",
+              "shrink": 1
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "UserName"
+                },
+                "props": {
+                  "text": "Usuario",
+                  "style": {
+                    "classes": "text/label"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Role"
+                },
+                "props": {
+                  "text": "Operador",
+                  "style": {
+                    "classes": "text/caption"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "DateTime"
+            },
+            "props": {
+              "text": "21 SEP 2026 · 15:00",
+              "style": {
+                "classes": "text/caption",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "145px",
+              "shrink": 1
             }
           },
           {
             "meta": {
-              "name": "Spacer"
+              "name": "SecondaryLogoPlaceholder"
             },
+            "props": {
+              "text": "LOGO",
+              "style": {
+                "classes": "text/caption",
+                "border": "var(--containerBorder)",
+                "borderRadius": "var(--borderRadius)",
+                "textAlign": "center",
+                "padding": "5px 8px",
+                "boxSizing": "border-box"
+              }
+            },
+            "type": "ia.display.label",
             "position": {
-              "grow": 1
-            },
-            "type": "ia.container.flex"
+              "basis": "70px",
+              "shrink": 0
+            }
           },
           {
             "meta": {
               "name": "Settings"
-            },
-            "position": {
-              "basis": "56px",
-              "shrink": 0
             },
             "props": {
               "text": "",
@@ -177,8 +334,9 @@
                 "classes": "control/secondary",
                 "backgroundColor": "transparent",
                 "border": "none",
-                "borderRadius": "0px",
-                "boxShadow": "none"
+                "boxShadow": "none",
+                "padding": "0",
+                "minHeight": "36px"
               },
               "image": {
                 "icon": {
@@ -187,6 +345,10 @@
               }
             },
             "type": "ia.input.button",
+            "position": {
+              "basis": "42px",
+              "shrink": 0
+            },
             "events": {
               "component": {
                 "onActionPerformed": {
@@ -197,49 +359,10 @@
                   "type": "script"
                 }
               }
-            },
-            "propConfig": {
-              "props.style.borderBottom": {
-                "binding": {
-                  "config": {
-                    "expression": "if({page.props.path} = \"/settings\", \"2px solid var(--callToAction)\", \"2px solid transparent\")"
-                  },
-                  "type": "expr"
-                }
-              }
             }
           }
-        ],
-        "meta": {
-          "name": "NavigationRow"
-        },
-        "position": {
-          "basis": "100%"
-        },
-        "props": {
-          "alignItems": "center",
-          "direction": "row",
-          "style": {
-            "padding": "0 34px",
-            "boxSizing": "border-box",
-            "gap": "8px"
-          }
-        },
-        "type": "ia.container.flex"
+        ]
       }
-    ],
-    "meta": {
-      "name": "root"
-    },
-    "props": {
-      "alignItems": "center",
-      "direction": "row",
-      "style": {
-        "backgroundColor": "var(--container)",
-        "borderBottom": "var(--containerBorder)",
-        "boxSizing": "border-box"
-      }
-    },
-    "type": "ia.container.flex"
+    ]
   }
 }

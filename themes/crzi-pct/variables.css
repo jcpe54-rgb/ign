@@ -1,7 +1,25 @@
 :root {
-    /* Pasta Corta keeps application-only density and surface adjustments here. */
+    /* Pasta Corta Desktop: exact tokens required by the approved SVGs. */
     --pct-content-gap: 16px;
     --pct-panel-padding: 20px;
-    --pct-header-height: 64px;
-    --containerRoot: #F4F2F0;
+    --pct-header-height: 50px;
+
+    --containerRoot: #F9FAFD;
+    --container: #FFFFFF;
+    --containerNested: #FAFAFA;
+    --border: #E0E6EF;
+    --label: #1A2A5E;
+    --callToAction: #378ADD;
+
+    --state-running: #1CD431;
+    --state-stopped: #DDD61D;
+    --state-fault: #A32D2D;
+    --state-inactive: #CCCCCC;
+    --state-noData: #A1A1A1;
+
+    --pct-state-running-surface: #FFFFFF;
+    --pct-state-stopped-surface: #FAFADA;
+    --pct-state-fault-surface: #FCEBEB;
+    --pct-state-inactive-surface: #F6F6F6;
+    --pct-state-noData-surface: #FAFAFA;
 }

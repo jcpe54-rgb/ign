@@ -8,13 +8,25 @@
     }
   },
   "root": {
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "var(--containerRoot)",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex",
     "children": [
       {
         "meta": {
           "name": "Navigation"
         },
         "props": {
-          "path": "00.Common/Navigation"
+          "path": "00.Common/Navigation",
+          "params": {}
         },
         "type": "ia.display.view",
         "position": {
@@ -23,92 +35,26 @@
         }
       },
       {
+        "meta": {
+          "name": "Content"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "padding": "24px 34px 37px",
+            "gap": "18px",
+            "backgroundColor": "var(--containerRoot)",
+            "boxSizing": "border-box",
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1,
+          "shrink": 1
+        },
         "children": [
           {
-            "children": [
-              {
-                "children": [
-                  {
-                    "meta": {
-                      "name": "Title"
-                    },
-                    "props": {
-                      "style": {
-                        "classes": "text/subtitle"
-                      },
-                      "text": "MONITOREO DE PRODUCCIÓN"
-                    },
-                    "type": "ia.display.label",
-                    "position": {
-                      "basis": "34px",
-                      "shrink": 0
-                    }
-                  },
-                  {
-                    "meta": {
-                      "name": "Shift"
-                    },
-                    "props": {
-                      "style": {
-                        "classes": "text/caption"
-                      },
-                      "text": "Turno: —"
-                    },
-                    "type": "ia.display.label",
-                    "position": {
-                      "basis": "24px",
-                      "shrink": 0
-                    }
-                  }
-                ],
-                "meta": {
-                  "name": "ShiftContext"
-                },
-                "props": {
-                  "direction": "column",
-                  "justify": "center",
-                  "style": {
-                    "gap": "4px"
-                  }
-                },
-                "type": "ia.container.flex",
-                "position": {
-                  "grow": 1
-                }
-              },
-              {
-                "meta": {
-                  "name": "Supervisor"
-                },
-                "props": {
-                  "style": {
-                    "classes": "text/caption"
-                  },
-                  "text": "Supervisor: —"
-                },
-                "type": "ia.display.label",
-                "position": {
-                  "basis": "220px",
-                  "shrink": 0
-                }
-              },
-              {
-                "meta": {
-                  "name": "Updated"
-                },
-                "props": {
-                  "style": {
-                    "classes": "text/caption"
-                  },
-                  "text": "Última actualización: —"
-                },
-                "type": "ia.display.label",
-                "position": {
-                  "basis": "220px",
-                  "shrink": 0
-                }
-              }
-            ],
             "meta": {
               "name": "Context"
             },
@@ -116,16 +62,84 @@
               "direction": "row",
               "alignItems": "center",
               "style": {
-                "classes": "card/base",
-                "padding": "12px 20px",
-                "gap": "20px"
+                "gap": "16px"
               }
             },
             "type": "ia.container.flex",
             "position": {
-              "basis": "88px",
+              "basis": "40px",
               "shrink": 0
-            }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "ShiftSupervisor"
+                },
+                "props": {
+                  "direction": "column",
+                  "justify": "center",
+                  "style": {
+                    "gap": "1px"
+                  }
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "grow": 1
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Shift"
+                    },
+                    "props": {
+                      "text": "Turno mañana - Grupo A",
+                      "style": {
+                        "classes": "text/subtitle",
+                        "fontSize": "17px"
+                      }
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "basis": "25px",
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "Supervisor"
+                    },
+                    "props": {
+                      "text": "Supervisor XXXXXXX XXXXXX",
+                      "style": {
+                        "classes": "text/caption"
+                      }
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "basis": "16px",
+                      "shrink": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "meta": {
+                  "name": "Updated"
+                },
+                "props": {
+                  "text": "Última actualización · 21/09/2026 15:00",
+                  "style": {
+                    "classes": "text/caption",
+                    "textAlign": "right"
+                  }
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "270px",
+                  "shrink": 1
+                }
+              }
+            ]
           },
           {
             "meta": {
@@ -137,62 +151,78 @@
               "instances": [
                 {
                   "kpi": {
+                    "id": "lines",
                     "label": "LÍNEAS OPERANDO",
-                    "value": "—",
+                    "value": "6 de 10",
                     "unit": "",
-                    "trend": null,
-                    "state": "noData"
+                    "icon": "material/view_module",
+                    "divider": true
                   }
                 },
                 {
                   "kpi": {
+                    "id": "palletizers",
                     "label": "PALETIZADORES ACTIVOS",
-                    "value": "—",
+                    "value": "4 de 5",
                     "unit": "",
-                    "trend": null,
-                    "state": "noData"
+                    "icon": "material/settings",
+                    "divider": true
                   }
                 },
                 {
                   "kpi": {
+                    "id": "previousCases",
                     "label": "TURNO ANTERIOR",
-                    "value": "—",
-                    "unit": "",
-                    "trend": null,
-                    "state": "noData"
+                    "value": "151,840",
+                    "unit": "Fardos acumulados",
+                    "icon": "material/history",
+                    "divider": true
                   }
                 },
                 {
                   "kpi": {
+                    "id": "previousTons",
                     "label": "PRODUCCIÓN ANTERIOR",
-                    "value": "—",
+                    "value": "1,822.08",
                     "unit": "Ton",
-                    "trend": null,
-                    "state": "noData"
+                    "icon": "material/assessment",
+                    "divider": true
                   }
                 },
                 {
                   "kpi": {
+                    "id": "currentCases",
                     "label": "TURNO ACTUAL",
-                    "value": "—",
-                    "unit": "",
-                    "trend": null,
-                    "state": "noData"
+                    "value": "93,220",
+                    "unit": "Fardos acumulados",
+                    "icon": "material/access_time",
+                    "divider": true
                   }
                 },
                 {
                   "kpi": {
+                    "id": "currentTons",
                     "label": "PRODUCCIÓN ACUMULADA",
-                    "value": "—",
+                    "value": "1,118.64",
                     "unit": "Ton",
-                    "trend": null,
-                    "state": "noData"
+                    "icon": "material/trending_up",
+                    "divider": false
                   }
                 }
               ],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false,
               "style": {
-                "gap": "14px",
-                "overflow": "hidden"
+                "backgroundColor": "var(--container)",
+                "border": "var(--containerBorder)",
+                "borderRadius": "var(--borderRadius)",
+                "overflow": "hidden",
+                "gap": "0px"
+              },
+              "elementPosition": {
+                "basis": "0px",
+                "grow": 1,
+                "shrink": 1
               }
             },
             "type": "ia.display.flex-repeater",
@@ -211,203 +241,535 @@
               "instances": [
                 {
                   "group": {
-                    "id": "",
+                    "id": "G1",
                     "lineOdd": {
-                      "id": "",
-                      "name": "—",
-                      "caseInCount": "—",
+                      "id": "L1",
+                      "name": "L1",
+                      "state": "running",
+                      "hasFault": false,
+                      "faultCode": 0,
+                      "caseInCount": "6,425",
                       "caseOutCount": "—",
-                      "faultCode": "—",
+                      "speedTonH": "29.52",
+                      "palletCount": 0,
                       "operatingMode": "—",
-                      "operatingState": "—",
+                      "operatingState": "running",
                       "sku": "—",
                       "wo": "—",
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "running",
+                      "downtime": {
+                        "stopCount": 0,
+                        "stoppedMinutes": 0,
+                        "timeline": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 480
+                          }
+                        ]
+                      }
                     },
                     "palletizer": {
-                      "id": "",
-                      "name": "—",
-                      "state": "—",
-                      "palletCount": "—",
+                      "id": "P1",
+                      "name": "PALETIZADOR 1",
+                      "state": "active",
+                      "line1": "L1",
+                      "line2": "L2",
+                      "palletsLine1": 87,
+                      "palletsLine2": 100,
+                      "totalPallets": 187,
+                      "palletCount": 187,
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "running"
                     },
                     "lineEven": {
-                      "id": "",
-                      "name": "—",
-                      "caseInCount": "—",
+                      "id": "L2",
+                      "name": "L2",
+                      "state": "stopped",
+                      "hasFault": false,
+                      "faultCode": 0,
+                      "caseInCount": "6,100",
                       "caseOutCount": "—",
-                      "faultCode": "—",
+                      "speedTonH": "0.00",
+                      "palletCount": 0,
                       "operatingMode": "—",
-                      "operatingState": "—",
+                      "operatingState": "stopped",
                       "sku": "—",
                       "wo": "—",
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "stopped",
+                      "downtime": {
+                        "stopCount": 3,
+                        "stoppedMinutes": 72,
+                        "timeline": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 90
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 90,
+                            "durationMinutes": 22
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 112,
+                            "durationMinutes": 198
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 310,
+                            "durationMinutes": 25
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 335,
+                            "durationMinutes": 120
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 455,
+                            "durationMinutes": 25
+                          }
+                        ]
+                      }
                     }
                   }
                 },
                 {
                   "group": {
-                    "id": "",
+                    "id": "G2",
                     "lineOdd": {
-                      "id": "",
-                      "name": "—",
-                      "caseInCount": "—",
+                      "id": "L3",
+                      "name": "L3",
+                      "state": "running",
+                      "hasFault": false,
+                      "faultCode": 0,
+                      "caseInCount": "6,250",
                       "caseOutCount": "—",
-                      "faultCode": "—",
+                      "speedTonH": "27.94",
+                      "palletCount": 0,
                       "operatingMode": "—",
-                      "operatingState": "—",
+                      "operatingState": "running",
                       "sku": "—",
                       "wo": "—",
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "running",
+                      "downtime": {
+                        "stopCount": 2,
+                        "stoppedMinutes": 21,
+                        "timeline": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 130
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 130,
+                            "durationMinutes": 8
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 138,
+                            "durationMinutes": 212
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 350,
+                            "durationMinutes": 13
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 363,
+                            "durationMinutes": 117
+                          }
+                        ]
+                      }
                     },
                     "palletizer": {
-                      "id": "",
-                      "name": "—",
-                      "state": "—",
-                      "palletCount": "—",
+                      "id": "P2",
+                      "name": "PALETIZADOR 2",
+                      "state": "active",
+                      "line1": "L3",
+                      "line2": "L4",
+                      "palletsLine1": 94,
+                      "palletsLine2": 70,
+                      "totalPallets": 164,
+                      "palletCount": 164,
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "running"
                     },
                     "lineEven": {
-                      "id": "",
-                      "name": "—",
-                      "caseInCount": "—",
+                      "id": "L4",
+                      "name": "L4",
+                      "state": "running",
+                      "hasFault": false,
+                      "faultCode": 0,
+                      "caseInCount": "6,000",
                       "caseOutCount": "—",
-                      "faultCode": "—",
+                      "speedTonH": "26.06",
+                      "palletCount": 0,
                       "operatingMode": "—",
-                      "operatingState": "—",
+                      "operatingState": "running",
                       "sku": "—",
                       "wo": "—",
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "running",
+                      "downtime": {
+                        "stopCount": 0,
+                        "stoppedMinutes": 0,
+                        "timeline": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 480
+                          }
+                        ]
+                      }
                     }
                   }
                 },
                 {
                   "group": {
-                    "id": "",
+                    "id": "G3",
                     "lineOdd": {
-                      "id": "",
-                      "name": "—",
-                      "caseInCount": "—",
+                      "id": "L5",
+                      "name": "L5",
+                      "state": "running",
+                      "hasFault": false,
+                      "faultCode": 0,
+                      "caseInCount": "6,300",
                       "caseOutCount": "—",
-                      "faultCode": "—",
+                      "speedTonH": "28.94",
+                      "palletCount": 0,
                       "operatingMode": "—",
-                      "operatingState": "—",
+                      "operatingState": "running",
                       "sku": "—",
                       "wo": "—",
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "running",
+                      "downtime": {
+                        "stopCount": 5,
+                        "stoppedMinutes": 47,
+                        "timeline": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 55
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 55,
+                            "durationMinutes": 5
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 60,
+                            "durationMinutes": 65
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 125,
+                            "durationMinutes": 7
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 132,
+                            "durationMinutes": 78
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 210,
+                            "durationMinutes": 9
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 219,
+                            "durationMinutes": 96
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 315,
+                            "durationMinutes": 11
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 326,
+                            "durationMinutes": 84
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 410,
+                            "durationMinutes": 15
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 425,
+                            "durationMinutes": 55
+                          }
+                        ]
+                      }
                     },
                     "palletizer": {
-                      "id": "",
-                      "name": "—",
-                      "state": "—",
-                      "palletCount": "—",
+                      "id": "P3",
+                      "name": "PALETIZADOR 3",
+                      "state": "active",
+                      "line1": "L5",
+                      "line2": "L6",
+                      "palletsLine1": 68,
+                      "palletsLine2": 74,
+                      "totalPallets": 142,
+                      "palletCount": 142,
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "running"
                     },
                     "lineEven": {
-                      "id": "",
-                      "name": "—",
-                      "caseInCount": "—",
+                      "id": "L6",
+                      "name": "L6",
+                      "state": "stopped",
+                      "hasFault": true,
+                      "faultCode": "FC-014",
+                      "caseInCount": "4,750",
                       "caseOutCount": "—",
-                      "faultCode": "—",
+                      "speedTonH": "0.00",
+                      "palletCount": 0,
                       "operatingMode": "—",
-                      "operatingState": "—",
+                      "operatingState": "stopped",
                       "sku": "—",
                       "wo": "—",
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "fault",
+                      "downtime": {
+                        "stopCount": 3,
+                        "stoppedMinutes": 56,
+                        "timeline": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 100
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 100,
+                            "durationMinutes": 10
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 110,
+                            "durationMinutes": 135
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 245,
+                            "durationMinutes": 12
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 257,
+                            "durationMinutes": 189
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 446,
+                            "durationMinutes": 34
+                          }
+                        ]
+                      }
                     }
                   }
                 },
                 {
                   "group": {
-                    "id": "",
+                    "id": "G4",
                     "lineOdd": {
-                      "id": "",
-                      "name": "—",
-                      "caseInCount": "—",
+                      "id": "L7",
+                      "name": "L7",
+                      "state": "inactive",
+                      "hasFault": false,
+                      "faultCode": 0,
+                      "caseInCount": "5,800",
                       "caseOutCount": "—",
-                      "faultCode": "—",
+                      "speedTonH": "0.00",
+                      "palletCount": 0,
                       "operatingMode": "—",
-                      "operatingState": "—",
+                      "operatingState": "inactive",
                       "sku": "—",
                       "wo": "—",
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "inactive",
+                      "downtime": {
+                        "stopCount": 0,
+                        "stoppedMinutes": 0,
+                        "timeline": [
+                          {
+                            "state": "inactive",
+                            "startMinute": 0,
+                            "durationMinutes": 480
+                          }
+                        ]
+                      }
                     },
                     "palletizer": {
-                      "id": "",
-                      "name": "—",
-                      "state": "—",
-                      "palletCount": "—",
+                      "id": "P4",
+                      "name": "PALETIZADOR 4",
+                      "state": "inactive",
+                      "line1": "L7",
+                      "line2": "L8",
+                      "palletsLine1": 0,
+                      "palletsLine2": 0,
+                      "totalPallets": 0,
+                      "palletCount": 0,
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "inactive"
                     },
                     "lineEven": {
-                      "id": "",
-                      "name": "—",
-                      "caseInCount": "—",
+                      "id": "L8",
+                      "name": "L8",
+                      "state": "inactive",
+                      "hasFault": false,
+                      "faultCode": 0,
+                      "caseInCount": "6,300",
                       "caseOutCount": "—",
-                      "faultCode": "—",
+                      "speedTonH": "0.00",
+                      "palletCount": 0,
                       "operatingMode": "—",
-                      "operatingState": "—",
+                      "operatingState": "inactive",
                       "sku": "—",
                       "wo": "—",
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "inactive",
+                      "downtime": {
+                        "stopCount": 0,
+                        "stoppedMinutes": 0,
+                        "timeline": [
+                          {
+                            "state": "inactive",
+                            "startMinute": 0,
+                            "durationMinutes": 480
+                          }
+                        ]
+                      }
                     }
                   }
                 },
                 {
                   "group": {
-                    "id": "",
+                    "id": "G5",
                     "lineOdd": {
-                      "id": "",
-                      "name": "—",
-                      "caseInCount": "—",
+                      "id": "L9",
+                      "name": "L9",
+                      "state": "running",
+                      "hasFault": false,
+                      "faultCode": 0,
+                      "caseInCount": "6,150",
                       "caseOutCount": "—",
-                      "faultCode": "—",
+                      "speedTonH": "27.07",
+                      "palletCount": 0,
                       "operatingMode": "—",
-                      "operatingState": "—",
+                      "operatingState": "running",
                       "sku": "—",
                       "wo": "—",
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "running",
+                      "downtime": {
+                        "stopCount": 1,
+                        "stoppedMinutes": 31,
+                        "timeline": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 260
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 260,
+                            "durationMinutes": 31
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 291,
+                            "durationMinutes": 189
+                          }
+                        ]
+                      }
                     },
                     "palletizer": {
-                      "id": "",
-                      "name": "—",
-                      "state": "—",
-                      "palletCount": "—",
+                      "id": "P5",
+                      "name": "PALETIZADOR 5",
+                      "state": "active",
+                      "line1": "L9",
+                      "line2": "L10",
+                      "palletsLine1": 96,
+                      "palletsLine2": 76,
+                      "totalPallets": 172,
+                      "palletCount": 172,
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "running"
                     },
                     "lineEven": {
-                      "id": "",
-                      "name": "—",
-                      "caseInCount": "—",
+                      "id": "L10",
+                      "name": "L10",
+                      "state": "running",
+                      "hasFault": false,
+                      "faultCode": 0,
+                      "caseInCount": "4,497",
                       "caseOutCount": "—",
-                      "faultCode": "—",
+                      "speedTonH": "25.34",
+                      "palletCount": 0,
                       "operatingMode": "—",
-                      "operatingState": "—",
+                      "operatingState": "running",
                       "sku": "—",
                       "wo": "—",
                       "quality": null,
-                      "visualState": "noData"
+                      "visualState": "running",
+                      "downtime": {
+                        "stopCount": 2,
+                        "stoppedMinutes": 20,
+                        "timeline": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
+                            "durationMinutes": 145
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 145,
+                            "durationMinutes": 9
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 154,
+                            "durationMinutes": 216
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 370,
+                            "durationMinutes": 11
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 381,
+                            "durationMinutes": 99
+                          }
+                        ]
+                      }
                     }
                   }
                 }
               ],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false,
               "style": {
                 "gap": "14px",
                 "overflow": "hidden"
+              },
+              "elementPosition": {
+                "basis": "0px",
+                "grow": 1,
+                "shrink": 1
               }
             },
             "type": "ia.display.flex-repeater",
@@ -416,38 +778,8 @@
               "shrink": 1
             }
           }
-        ],
-        "meta": {
-          "name": "Content"
-        },
-        "position": {
-          "grow": 1,
-          "shrink": 1
-        },
-        "props": {
-          "direction": "column",
-          "style": {
-            "classes": "layout/page",
-            "padding": "32px 34px 37px",
-            "gap": "18px",
-            "backgroundColor": "var(--containerRoot)",
-            "boxSizing": "border-box",
-            "overflow": "hidden"
-          }
-        },
-        "type": "ia.container.flex"
+        ]
       }
-    ],
-    "meta": {
-      "name": "root"
-    },
-    "props": {
-      "direction": "column",
-      "style": {
-        "backgroundColor": "var(--containerRoot)",
-        "overflow": "hidden"
-      }
-    },
-    "type": "ia.container.flex"
+    ]
   }
 }
