@@ -11,16 +11,16 @@
     "children": [
       {
         "meta": {
-          "name": "TopNavigation"
-        },
-        "position": {
-          "basis": "72px",
-          "shrink": 0
+          "name": "Navigation"
         },
         "props": {
-          "path": "00.Common/02.Navigation/TopNavigation"
+          "path": "00.Common/Navigation"
         },
-        "type": "ia.display.view"
+        "type": "ia.display.view",
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        }
       },
       {
         "children": [
@@ -36,45 +36,133 @@
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "42px",
+              "basis": "56px",
               "shrink": 0
             }
           },
           {
             "meta": {
-              "name": "Subtitle"
+              "name": "Filters"
             },
             "props": {
-              "style": {
-                "classes": "text/subtitle"
-              },
-              "text": "Consulta histórica de producción."
+              "path": "02.History/01.Templates/tpHistoryFilters",
+              "params": {
+                "filters": {
+                  "from": null,
+                  "to": null,
+                  "lines": []
+                }
+              }
             },
-            "type": "ia.display.label",
+            "type": "ia.display.view",
             "position": {
-              "basis": "32px",
+              "basis": "94px",
               "shrink": 0
             }
           },
           {
+            "children": [
+              {
+                "meta": {
+                  "name": "TimelineTitle"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/subtitle"
+                  },
+                  "text": "Timeline de producción"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "32px",
+                  "shrink": 0
+                }
+              },
+              {
+                "meta": {
+                  "name": "TimelineRows"
+                },
+                "props": {
+                  "path": "02.History/01.Templates/tpTimelineRow",
+                  "direction": "column",
+                  "instances": [
+                    {}
+                  ],
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.display.flex-repeater",
+                "position": {
+                  "grow": 1
+                }
+              }
+            ],
             "meta": {
-              "name": "ContentPlaceholder"
-            },
-            "position": {
-              "grow": 1,
-              "shrink": 1
+              "name": "TimelinePanel"
             },
             "props": {
               "direction": "column",
               "style": {
-                "classes": "card/panel"
+                "classes": "card/panel",
+                "gap": "14px"
               }
             },
-            "type": "ia.container.flex"
+            "type": "ia.container.flex",
+            "position": {
+              "grow": 1,
+              "shrink": 1
+            }
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "TableTitle"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/subtitle"
+                  },
+                  "text": "Detalle histórico"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TablePlaceholder"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/caption"
+                  },
+                  "text": "Sin datos"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                }
+              }
+            ],
+            "meta": {
+              "name": "TablePanel"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "card/panel",
+                "gap": "12px"
+              }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "294px",
+              "shrink": 0
+            }
           }
         ],
         "meta": {
-          "name": "PageContent"
+          "name": "Content"
         },
         "position": {
           "grow": 1,
@@ -83,7 +171,11 @@
         "props": {
           "direction": "column",
           "style": {
-            "classes": "layout/section"
+            "padding": "30px 38px 24px",
+            "gap": "22px",
+            "backgroundColor": "var(--containerRoot)",
+            "boxSizing": "border-box",
+            "overflow": "hidden"
           }
         },
         "type": "ia.container.flex"
@@ -95,7 +187,8 @@
     "props": {
       "direction": "column",
       "style": {
-        "classes": "layout/page"
+        "backgroundColor": "var(--containerRoot)",
+        "overflow": "hidden"
       }
     },
     "type": "ia.container.flex"

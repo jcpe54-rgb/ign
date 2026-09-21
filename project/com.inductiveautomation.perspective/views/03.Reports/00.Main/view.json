@@ -11,16 +11,16 @@
     "children": [
       {
         "meta": {
-          "name": "TopNavigation"
-        },
-        "position": {
-          "basis": "72px",
-          "shrink": 0
+          "name": "Navigation"
         },
         "props": {
-          "path": "00.Common/02.Navigation/TopNavigation"
+          "path": "00.Common/Navigation"
         },
-        "type": "ia.display.view"
+        "type": "ia.display.view",
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        }
       },
       {
         "children": [
@@ -36,45 +36,243 @@
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "42px",
+              "basis": "72px",
               "shrink": 0
             }
           },
           {
+            "children": [
+              {
+                "meta": {
+                  "name": "Range"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/body"
+                  },
+                  "text": "Periodo: —"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "190px",
+                  "shrink": 0
+                }
+              },
+              {
+                "meta": {
+                  "name": "Lines"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/body"
+                  },
+                  "text": "Líneas: —"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "190px",
+                  "shrink": 0
+                }
+              },
+              {
+                "meta": {
+                  "name": "Shift"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/body"
+                  },
+                  "text": "Turno: —"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "190px",
+                  "shrink": 0
+                }
+              },
+              {
+                "meta": {
+                  "name": "Spacer"
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "grow": 1
+                }
+              }
+            ],
             "meta": {
-              "name": "Subtitle"
+              "name": "Filters"
             },
             "props": {
+              "direction": "row",
+              "alignItems": "center",
               "style": {
-                "classes": "text/subtitle"
-              },
-              "text": "Preparación y generación de reportes."
+                "classes": "card/base",
+                "padding": "14px 24px",
+                "gap": "28px"
+              }
             },
-            "type": "ia.display.label",
+            "type": "ia.container.flex",
             "position": {
-              "basis": "32px",
+              "basis": "94px",
               "shrink": 0
             }
           },
           {
+            "children": [
+              {
+                "meta": {
+                  "name": "ConfigTitle"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/subtitle"
+                  },
+                  "text": "Configuración del reporte"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "ConfigPlaceholder"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/caption"
+                  },
+                  "text": "Parámetros pendientes"
+                },
+                "type": "ia.display.label"
+              }
+            ],
             "meta": {
-              "name": "ContentPlaceholder"
-            },
-            "position": {
-              "grow": 1,
-              "shrink": 1
+              "name": "ReportConfig"
             },
             "props": {
               "direction": "column",
               "style": {
-                "classes": "card/panel"
+                "classes": "card/panel",
+                "gap": "12px"
               }
             },
-            "type": "ia.container.flex"
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "162px",
+              "shrink": 0
+            }
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "PreviewTitle"
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "text/subtitle"
+                      },
+                      "text": "Vista previa"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "PreviewPlaceholder"
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "text/caption"
+                      },
+                      "text": "Sin datos"
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "grow": 1
+                    }
+                  }
+                ],
+                "meta": {
+                  "name": "Preview"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "gap": "12px"
+                  }
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "grow": 1
+                }
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "GeneratedTitle"
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "text/subtitle"
+                      },
+                      "text": "Reportes generados"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "GeneratedPlaceholder"
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "text/caption"
+                      },
+                      "text": "Sin reportes"
+                    },
+                    "type": "ia.display.label",
+                    "position": {
+                      "grow": 1
+                    }
+                  }
+                ],
+                "meta": {
+                  "name": "GeneratedPanel"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "card/base",
+                    "gap": "12px"
+                  }
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "basis": "29%",
+                  "shrink": 0
+                }
+              }
+            ],
+            "meta": {
+              "name": "ReportWorkspace"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "classes": "card/panel",
+                "gap": "24px"
+              }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "grow": 1,
+              "shrink": 1
+            }
           }
         ],
         "meta": {
-          "name": "PageContent"
+          "name": "Content"
         },
         "position": {
           "grow": 1,
@@ -83,7 +281,11 @@
         "props": {
           "direction": "column",
           "style": {
-            "classes": "layout/section"
+            "padding": "32px 47px 64px",
+            "gap": "21px",
+            "backgroundColor": "var(--containerRoot)",
+            "boxSizing": "border-box",
+            "overflow": "hidden"
           }
         },
         "type": "ia.container.flex"
@@ -95,7 +297,8 @@
     "props": {
       "direction": "column",
       "style": {
-        "classes": "layout/page"
+        "backgroundColor": "var(--containerRoot)",
+        "overflow": "hidden"
       }
     },
     "type": "ia.container.flex"

@@ -1,0 +1,133 @@
+{
+  "custom": {},
+  "params": {
+    "kpi": {
+      "label": "",
+      "value": "",
+      "unit": "",
+      "trend": null,
+      "state": "noData"
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 88,
+      "width": 280
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "props": {
+          "style": {
+            "classes": "text/label"
+          },
+          "text": ""
+        },
+        "type": "ia.display.label",
+        "position": {
+          "basis": "24px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.kpi.label"
+              },
+              "type": "property"
+            }
+          }
+        }
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Value"
+            },
+            "props": {
+              "style": {
+                "classes": "text/value"
+              },
+              "text": "—"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.kpi.value"
+                  },
+                  "type": "property"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "Unit"
+            },
+            "props": {
+              "style": {
+                "classes": "text/caption"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "72px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.kpi.unit"
+                  },
+                  "type": "property"
+                }
+              }
+            }
+          }
+        ],
+        "meta": {
+          "name": "ValueRow"
+        },
+        "props": {
+          "alignItems": "end",
+          "direction": "row",
+          "style": {
+            "gap": "8px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "basis": "0px",
+      "grow": 1,
+      "shrink": 1
+    },
+    "props": {
+      "direction": "column",
+      "justify": "space-between",
+      "style": {
+        "classes": "card/kpi"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

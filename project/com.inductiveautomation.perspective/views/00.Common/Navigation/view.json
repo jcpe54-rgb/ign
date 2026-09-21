@@ -1,0 +1,245 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Brand"
+            },
+            "props": {
+              "style": {
+                "classes": "text/subtitle"
+              },
+              "text": "PASTA CORTA"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "220px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "Overview"
+            },
+            "position": {
+              "basis": "140px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "OVERVIEW",
+              "primary": false,
+              "style": {
+                "classes": "control/secondary",
+                "backgroundColor": "transparent",
+                "border": "none",
+                "borderRadius": "0px",
+                "boxShadow": "none"
+              }
+            },
+            "type": "ia.input.button",
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/overview\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "propConfig": {
+              "props.style.borderBottom": {
+                "binding": {
+                  "config": {
+                    "expression": "if({page.props.path} = \"/overview\", \"2px solid var(--callToAction)\", \"2px solid transparent\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "History"
+            },
+            "position": {
+              "basis": "140px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "HISTÓRICOS",
+              "primary": false,
+              "style": {
+                "classes": "control/secondary",
+                "backgroundColor": "transparent",
+                "border": "none",
+                "borderRadius": "0px",
+                "boxShadow": "none"
+              }
+            },
+            "type": "ia.input.button",
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/history\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "propConfig": {
+              "props.style.borderBottom": {
+                "binding": {
+                  "config": {
+                    "expression": "if({page.props.path} = \"/history\", \"2px solid var(--callToAction)\", \"2px solid transparent\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "Reports"
+            },
+            "position": {
+              "basis": "140px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "REPORTES",
+              "primary": false,
+              "style": {
+                "classes": "control/secondary",
+                "backgroundColor": "transparent",
+                "border": "none",
+                "borderRadius": "0px",
+                "boxShadow": "none"
+              }
+            },
+            "type": "ia.input.button",
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/reports\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "propConfig": {
+              "props.style.borderBottom": {
+                "binding": {
+                  "config": {
+                    "expression": "if(left({page.props.path}, 8) = \"/reports\", \"2px solid var(--callToAction)\", \"2px solid transparent\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "Spacer"
+            },
+            "position": {
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Settings"
+            },
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "",
+              "primary": false,
+              "style": {
+                "classes": "control/secondary",
+                "backgroundColor": "transparent",
+                "border": "none",
+                "borderRadius": "0px",
+                "boxShadow": "none"
+              },
+              "image": {
+                "icon": {
+                  "path": "material/settings"
+                }
+              }
+            },
+            "type": "ia.input.button",
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/settings\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "propConfig": {
+              "props.style.borderBottom": {
+                "binding": {
+                  "config": {
+                    "expression": "if({page.props.path} = \"/settings\", \"2px solid var(--callToAction)\", \"2px solid transparent\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ],
+        "meta": {
+          "name": "NavigationRow"
+        },
+        "position": {
+          "basis": "100%"
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "row",
+          "style": {
+            "padding": "0 34px",
+            "boxSizing": "border-box",
+            "gap": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignItems": "center",
+      "direction": "row",
+      "style": {
+        "backgroundColor": "var(--container)",
+        "borderBottom": "var(--containerBorder)",
+        "boxSizing": "border-box"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

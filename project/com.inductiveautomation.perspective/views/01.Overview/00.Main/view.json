@@ -1,10 +1,5 @@
 {
-  "custom": {
-    "overview": {
-      "status": "loading",
-      "data": null
-    }
-  },
+  "custom": {},
   "params": {},
   "props": {
     "defaultSize": {
@@ -16,10 +11,10 @@
     "children": [
       {
         "meta": {
-          "name": "TopNavigation"
+          "name": "Navigation"
         },
         "props": {
-          "path": "00.Common/02.Navigation/TopNavigation"
+          "path": "00.Common/Navigation"
         },
         "type": "ia.display.view",
         "position": {
@@ -41,890 +36,406 @@
                       "style": {
                         "classes": "text/subtitle"
                       },
-                      "text": ""
+                      "text": "MONITOREO DE PRODUCCIÓN"
                     },
                     "type": "ia.display.label",
                     "position": {
-                      "basis": "30px",
+                      "basis": "34px",
                       "shrink": 0
-                    },
-                    "propConfig": {
-                      "props.text": {
-                        "binding": {
-                          "type": "expr",
-                          "config": {
-                            "expression": "{view.custom.overview.data.shift.shift.name} + \" - Grupo \" + if(isNull({view.custom.overview.data.shift.shift.group}), \"sin asignar\", toStr({view.custom.overview.data.shift.shift.group}))"
-                          }
-                        }
-                      }
                     }
                   },
                   {
                     "meta": {
-                      "name": "ShiftContext"
+                      "name": "Shift"
                     },
                     "props": {
                       "style": {
                         "classes": "text/caption"
                       },
-                      "text": ""
+                      "text": "Turno: —"
                     },
                     "type": "ia.display.label",
                     "position": {
-                      "basis": "22px",
+                      "basis": "24px",
                       "shrink": 0
-                    },
-                    "propConfig": {
-                      "props.text": {
-                        "binding": {
-                          "config": {
-                            "expression": "\"Supervisor \" + if(isNull({view.custom.overview.data.shift.shift.supervisor}), \"sin asignar\", toStr({view.custom.overview.data.shift.shift.supervisor}))"
-                          },
-                          "type": "expr"
-                        }
-                      }
                     }
                   }
                 ],
                 "meta": {
-                  "name": "Context"
+                  "name": "ShiftContext"
                 },
                 "props": {
                   "direction": "column",
+                  "justify": "center",
                   "style": {
-                    "classes": "layout/row",
-                    "padding": "0"
-                  },
-                  "justify": "center"
+                    "gap": "4px"
+                  }
                 },
                 "type": "ia.container.flex",
                 "position": {
-                  "basis": "66px",
+                  "grow": 1
+                }
+              },
+              {
+                "meta": {
+                  "name": "Supervisor"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/caption"
+                  },
+                  "text": "Supervisor: —"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "220px",
                   "shrink": 0
                 }
               },
               {
-                "children": [
-                  {
-                    "meta": {
-                      "name": "OperatingLines"
-                    },
-                    "props": {
-                      "path": "01.Overview/01.Templates/tpKpi",
-                      "params": {
-                        "label": "LÍNEAS OPERANDO",
-                        "value": ""
-                      }
-                    },
-                    "type": "ia.display.view",
-                    "position": {
-                      "grow": 1,
-                      "basis": "190px",
-                      "shrink": 1
-                    },
-                    "propConfig": {
-                      "props.params.value": {
-                        "binding": {
-                          "config": {
-                            "expression": "toStr({view.custom.overview.data.kpis.operatingLines}) + \" de \" + toStr({view.custom.overview.data.kpis.totalLines})"
-                          },
-                          "type": "expr"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "meta": {
-                      "name": "ActivePalletizers"
-                    },
-                    "props": {
-                      "path": "01.Overview/01.Templates/tpKpi",
-                      "params": {
-                        "label": "PALETIZADORES ACTIVOS",
-                        "value": ""
-                      }
-                    },
-                    "type": "ia.display.view",
-                    "position": {
-                      "grow": 1,
-                      "basis": "190px",
-                      "shrink": 1
-                    },
-                    "propConfig": {
-                      "props.params.value": {
-                        "binding": {
-                          "config": {
-                            "expression": "toStr({view.custom.overview.data.kpis.activePalletizers}) + \" de \" + toStr({view.custom.overview.data.kpis.totalPalletizers})"
-                          },
-                          "type": "expr"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "meta": {
-                      "name": "PreviousShift"
-                    },
-                    "props": {
-                      "path": "01.Overview/01.Templates/tpKpi",
-                      "params": {
-                        "label": "TURNO ANTERIOR",
-                        "value": ""
-                      }
-                    },
-                    "type": "ia.display.view",
-                    "position": {
-                      "grow": 1,
-                      "basis": "190px",
-                      "shrink": 1
-                    },
-                    "propConfig": {
-                      "props.params.value": {
-                        "binding": {
-                          "config": {
-                            "expression": "numberFormat({view.custom.overview.data.shift.previous.accumulatedCases}, \"#,##0\") + \" Fardos acumulados\""
-                          },
-                          "type": "expr"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "meta": {
-                      "name": "PreviousProduction"
-                    },
-                    "props": {
-                      "path": "01.Overview/01.Templates/tpKpi",
-                      "params": {
-                        "label": "PRODUCCIÓN ANTERIOR",
-                        "value": ""
-                      }
-                    },
-                    "type": "ia.display.view",
-                    "position": {
-                      "grow": 1,
-                      "basis": "190px",
-                      "shrink": 1
-                    },
-                    "propConfig": {
-                      "props.params.value": {
-                        "binding": {
-                          "config": {
-                            "expression": "numberFormat({view.custom.overview.data.shift.previous.accumulatedTons}, \"#,##0.00\") + \" Ton\""
-                          },
-                          "type": "expr"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "meta": {
-                      "name": "CurrentShift"
-                    },
-                    "props": {
-                      "path": "01.Overview/01.Templates/tpKpi",
-                      "params": {
-                        "label": "TURNO ACTUAL",
-                        "value": ""
-                      }
-                    },
-                    "type": "ia.display.view",
-                    "position": {
-                      "grow": 1,
-                      "basis": "190px",
-                      "shrink": 1
-                    },
-                    "propConfig": {
-                      "props.params.value": {
-                        "binding": {
-                          "config": {
-                            "expression": "numberFormat({view.custom.overview.data.shift.current.accumulatedCases}, \"#,##0\") + \" Fardos acumulados\""
-                          },
-                          "type": "expr"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "meta": {
-                      "name": "AccumulatedProduction"
-                    },
-                    "props": {
-                      "path": "01.Overview/01.Templates/tpKpi",
-                      "params": {
-                        "label": "PRODUCCIÓN ACUMULADA",
-                        "value": ""
-                      }
-                    },
-                    "type": "ia.display.view",
-                    "position": {
-                      "grow": 1,
-                      "basis": "190px",
-                      "shrink": 1
-                    },
-                    "propConfig": {
-                      "props.params.value": {
-                        "binding": {
-                          "config": {
-                            "expression": "numberFormat({view.custom.overview.data.shift.current.accumulatedTons}, \"#,##0.00\") + \" Ton\""
-                          },
-                          "type": "expr"
-                        }
-                      }
-                    }
-                  }
-                ],
                 "meta": {
-                  "name": "Kpis"
+                  "name": "Updated"
                 },
                 "props": {
-                  "direction": "row",
                   "style": {
-                    "classes": "overview/kpis"
+                    "classes": "text/caption"
                   },
-                  "wrap": "nowrap"
+                  "text": "Última actualización: —"
                 },
-                "type": "ia.container.flex",
+                "type": "ia.display.label",
                 "position": {
-                  "basis": "90px",
+                  "basis": "220px",
                   "shrink": 0
-                }
-              },
-              {
-                "children": [
-                  {
-                    "children": [
-                      {
-                        "meta": {
-                          "name": "OddLine"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpLine",
-                          "params": {
-                            "line": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "grow": 1,
-                          "basis": "190px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.line": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.lines[0]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "meta": {
-                          "name": "Palletizer"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpPalletizer",
-                          "params": {
-                            "palletizer": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "basis": "145px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.palletizer": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.palletizers[0]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "meta": {
-                          "name": "EvenLine"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpLine",
-                          "params": {
-                            "line": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "grow": 1,
-                          "basis": "190px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.line": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.lines[1]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "meta": {
-                      "name": "Group1"
-                    },
-                    "props": {
-                      "direction": "column",
-                      "style": {
-                        "classes": "overview/group"
-                      },
-                      "wrap": "nowrap"
-                    },
-                    "type": "ia.container.flex",
-                    "position": {
-                      "grow": 1,
-                      "basis": "250px",
-                      "shrink": 1
-                    }
-                  },
-                  {
-                    "children": [
-                      {
-                        "meta": {
-                          "name": "OddLine"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpLine",
-                          "params": {
-                            "line": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "grow": 1,
-                          "basis": "190px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.line": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.lines[2]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "meta": {
-                          "name": "Palletizer"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpPalletizer",
-                          "params": {
-                            "palletizer": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "basis": "145px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.palletizer": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.palletizers[1]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "meta": {
-                          "name": "EvenLine"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpLine",
-                          "params": {
-                            "line": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "grow": 1,
-                          "basis": "190px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.line": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.lines[3]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "meta": {
-                      "name": "Group2"
-                    },
-                    "props": {
-                      "direction": "column",
-                      "style": {
-                        "classes": "overview/group"
-                      },
-                      "wrap": "nowrap"
-                    },
-                    "type": "ia.container.flex",
-                    "position": {
-                      "grow": 1,
-                      "basis": "250px",
-                      "shrink": 1
-                    }
-                  },
-                  {
-                    "children": [
-                      {
-                        "meta": {
-                          "name": "OddLine"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpLine",
-                          "params": {
-                            "line": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "grow": 1,
-                          "basis": "190px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.line": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.lines[4]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "meta": {
-                          "name": "Palletizer"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpPalletizer",
-                          "params": {
-                            "palletizer": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "basis": "145px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.palletizer": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.palletizers[2]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "meta": {
-                          "name": "EvenLine"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpLine",
-                          "params": {
-                            "line": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "grow": 1,
-                          "basis": "190px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.line": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.lines[5]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "meta": {
-                      "name": "Group3"
-                    },
-                    "props": {
-                      "direction": "column",
-                      "style": {
-                        "classes": "overview/group"
-                      },
-                      "wrap": "nowrap"
-                    },
-                    "type": "ia.container.flex",
-                    "position": {
-                      "grow": 1,
-                      "basis": "250px",
-                      "shrink": 1
-                    }
-                  },
-                  {
-                    "children": [
-                      {
-                        "meta": {
-                          "name": "OddLine"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpLine",
-                          "params": {
-                            "line": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "grow": 1,
-                          "basis": "190px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.line": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.lines[6]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "meta": {
-                          "name": "Palletizer"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpPalletizer",
-                          "params": {
-                            "palletizer": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "basis": "145px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.palletizer": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.palletizers[3]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "meta": {
-                          "name": "EvenLine"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpLine",
-                          "params": {
-                            "line": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "grow": 1,
-                          "basis": "190px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.line": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.lines[7]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "meta": {
-                      "name": "Group4"
-                    },
-                    "props": {
-                      "direction": "column",
-                      "style": {
-                        "classes": "overview/group"
-                      },
-                      "wrap": "nowrap"
-                    },
-                    "type": "ia.container.flex",
-                    "position": {
-                      "grow": 1,
-                      "basis": "250px",
-                      "shrink": 1
-                    }
-                  },
-                  {
-                    "children": [
-                      {
-                        "meta": {
-                          "name": "OddLine"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpLine",
-                          "params": {
-                            "line": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "grow": 1,
-                          "basis": "190px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.line": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.lines[8]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "meta": {
-                          "name": "Palletizer"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpPalletizer",
-                          "params": {
-                            "palletizer": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "basis": "145px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.palletizer": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.palletizers[4]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "meta": {
-                          "name": "EvenLine"
-                        },
-                        "props": {
-                          "path": "01.Overview/01.Templates/tpLine",
-                          "params": {
-                            "line": {}
-                          }
-                        },
-                        "type": "ia.display.view",
-                        "position": {
-                          "grow": 1,
-                          "basis": "190px",
-                          "shrink": 1
-                        },
-                        "propConfig": {
-                          "props.params.line": {
-                            "binding": {
-                              "config": {
-                                "expression": "{view.custom.overview.data.lines[9]}"
-                              },
-                              "type": "expr"
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "meta": {
-                      "name": "Group5"
-                    },
-                    "props": {
-                      "direction": "column",
-                      "style": {
-                        "classes": "overview/group"
-                      },
-                      "wrap": "nowrap"
-                    },
-                    "type": "ia.container.flex",
-                    "position": {
-                      "grow": 1,
-                      "basis": "250px",
-                      "shrink": 1
-                    }
-                  }
-                ],
-                "meta": {
-                  "name": "ProductionGroups"
-                },
-                "props": {
-                  "direction": "row",
-                  "style": {
-                    "classes": "layout/row"
-                  },
-                  "wrap": "nowrap"
-                },
-                "type": "ia.container.flex",
-                "position": {
-                  "grow": 1,
-                  "shrink": 1
                 }
               }
             ],
             "meta": {
-              "name": "Ready"
+              "name": "Context"
             },
             "props": {
-              "direction": "column",
+              "direction": "row",
+              "alignItems": "center",
               "style": {
-                "classes": "layout/section"
+                "classes": "card/base",
+                "padding": "12px 20px",
+                "gap": "20px"
               }
             },
             "type": "ia.container.flex",
             "position": {
+              "basis": "88px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "Kpis"
+            },
+            "props": {
+              "path": "00.Common/Components/tpKpi",
+              "direction": "row",
+              "instances": [
+                {
+                  "kpi": {
+                    "label": "LÍNEAS OPERANDO",
+                    "value": "—",
+                    "unit": "",
+                    "trend": null,
+                    "state": "noData"
+                  }
+                },
+                {
+                  "kpi": {
+                    "label": "PALETIZADORES ACTIVOS",
+                    "value": "—",
+                    "unit": "",
+                    "trend": null,
+                    "state": "noData"
+                  }
+                },
+                {
+                  "kpi": {
+                    "label": "TURNO ANTERIOR",
+                    "value": "—",
+                    "unit": "",
+                    "trend": null,
+                    "state": "noData"
+                  }
+                },
+                {
+                  "kpi": {
+                    "label": "PRODUCCIÓN ANTERIOR",
+                    "value": "—",
+                    "unit": "Ton",
+                    "trend": null,
+                    "state": "noData"
+                  }
+                },
+                {
+                  "kpi": {
+                    "label": "TURNO ACTUAL",
+                    "value": "—",
+                    "unit": "",
+                    "trend": null,
+                    "state": "noData"
+                  }
+                },
+                {
+                  "kpi": {
+                    "label": "PRODUCCIÓN ACUMULADA",
+                    "value": "—",
+                    "unit": "Ton",
+                    "trend": null,
+                    "state": "noData"
+                  }
+                }
+              ],
+              "style": {
+                "gap": "14px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.display.flex-repeater",
+            "position": {
+              "basis": "88px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "ProductionGroups"
+            },
+            "props": {
+              "path": "01.Overview/01.Templates/tpProductionGroup",
+              "direction": "row",
+              "instances": [
+                {
+                  "group": {
+                    "id": "",
+                    "lineOdd": {
+                      "id": "",
+                      "name": "—",
+                      "caseInCount": "—",
+                      "caseOutCount": "—",
+                      "faultCode": "—",
+                      "operatingMode": "—",
+                      "operatingState": "—",
+                      "sku": "—",
+                      "wo": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    },
+                    "palletizer": {
+                      "id": "",
+                      "name": "—",
+                      "state": "—",
+                      "palletCount": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    },
+                    "lineEven": {
+                      "id": "",
+                      "name": "—",
+                      "caseInCount": "—",
+                      "caseOutCount": "—",
+                      "faultCode": "—",
+                      "operatingMode": "—",
+                      "operatingState": "—",
+                      "sku": "—",
+                      "wo": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    }
+                  }
+                },
+                {
+                  "group": {
+                    "id": "",
+                    "lineOdd": {
+                      "id": "",
+                      "name": "—",
+                      "caseInCount": "—",
+                      "caseOutCount": "—",
+                      "faultCode": "—",
+                      "operatingMode": "—",
+                      "operatingState": "—",
+                      "sku": "—",
+                      "wo": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    },
+                    "palletizer": {
+                      "id": "",
+                      "name": "—",
+                      "state": "—",
+                      "palletCount": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    },
+                    "lineEven": {
+                      "id": "",
+                      "name": "—",
+                      "caseInCount": "—",
+                      "caseOutCount": "—",
+                      "faultCode": "—",
+                      "operatingMode": "—",
+                      "operatingState": "—",
+                      "sku": "—",
+                      "wo": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    }
+                  }
+                },
+                {
+                  "group": {
+                    "id": "",
+                    "lineOdd": {
+                      "id": "",
+                      "name": "—",
+                      "caseInCount": "—",
+                      "caseOutCount": "—",
+                      "faultCode": "—",
+                      "operatingMode": "—",
+                      "operatingState": "—",
+                      "sku": "—",
+                      "wo": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    },
+                    "palletizer": {
+                      "id": "",
+                      "name": "—",
+                      "state": "—",
+                      "palletCount": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    },
+                    "lineEven": {
+                      "id": "",
+                      "name": "—",
+                      "caseInCount": "—",
+                      "caseOutCount": "—",
+                      "faultCode": "—",
+                      "operatingMode": "—",
+                      "operatingState": "—",
+                      "sku": "—",
+                      "wo": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    }
+                  }
+                },
+                {
+                  "group": {
+                    "id": "",
+                    "lineOdd": {
+                      "id": "",
+                      "name": "—",
+                      "caseInCount": "—",
+                      "caseOutCount": "—",
+                      "faultCode": "—",
+                      "operatingMode": "—",
+                      "operatingState": "—",
+                      "sku": "—",
+                      "wo": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    },
+                    "palletizer": {
+                      "id": "",
+                      "name": "—",
+                      "state": "—",
+                      "palletCount": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    },
+                    "lineEven": {
+                      "id": "",
+                      "name": "—",
+                      "caseInCount": "—",
+                      "caseOutCount": "—",
+                      "faultCode": "—",
+                      "operatingMode": "—",
+                      "operatingState": "—",
+                      "sku": "—",
+                      "wo": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    }
+                  }
+                },
+                {
+                  "group": {
+                    "id": "",
+                    "lineOdd": {
+                      "id": "",
+                      "name": "—",
+                      "caseInCount": "—",
+                      "caseOutCount": "—",
+                      "faultCode": "—",
+                      "operatingMode": "—",
+                      "operatingState": "—",
+                      "sku": "—",
+                      "wo": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    },
+                    "palletizer": {
+                      "id": "",
+                      "name": "—",
+                      "state": "—",
+                      "palletCount": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    },
+                    "lineEven": {
+                      "id": "",
+                      "name": "—",
+                      "caseInCount": "—",
+                      "caseOutCount": "—",
+                      "faultCode": "—",
+                      "operatingMode": "—",
+                      "operatingState": "—",
+                      "sku": "—",
+                      "wo": "—",
+                      "quality": null,
+                      "visualState": "noData"
+                    }
+                  }
+                }
+              ],
+              "style": {
+                "gap": "14px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.display.flex-repeater",
+            "position": {
               "grow": 1,
               "shrink": 1
-            },
-            "propConfig": {
-              "meta.visible": {
-                "binding": {
-                  "config": {
-                    "expression": "{view.custom.overview.status} = \"ready\""
-                  },
-                  "type": "expr"
-                }
-              }
-            }
-          },
-          {
-            "meta": {
-              "name": "Loading"
-            },
-            "props": {
-              "style": {
-                "classes": "text/subtitle"
-              },
-              "text": "Cargando Overview…"
-            },
-            "type": "ia.display.label",
-            "position": {
-              "grow": 1
-            },
-            "propConfig": {
-              "meta.visible": {
-                "binding": {
-                  "config": {
-                    "expression": "{view.custom.overview.status} = \"loading\""
-                  },
-                  "type": "expr"
-                }
-              }
-            }
-          },
-          {
-            "meta": {
-              "name": "Empty"
-            },
-            "props": {
-              "style": {
-                "classes": "text/subtitle"
-              },
-              "text": "No hay datos disponibles para el Overview."
-            },
-            "type": "ia.display.label",
-            "position": {
-              "grow": 1
-            },
-            "propConfig": {
-              "meta.visible": {
-                "binding": {
-                  "config": {
-                    "expression": "{view.custom.overview.status} = \"empty\""
-                  },
-                  "type": "expr"
-                }
-              }
-            }
-          },
-          {
-            "meta": {
-              "name": "Error"
-            },
-            "props": {
-              "style": {
-                "classes": "text/subtitle state/fault"
-              },
-              "text": "No fue posible cargar el Overview."
-            },
-            "type": "ia.display.label",
-            "position": {
-              "grow": 1
-            },
-            "propConfig": {
-              "meta.visible": {
-                "binding": {
-                  "config": {
-                    "expression": "{view.custom.overview.status} = \"error\""
-                  },
-                  "type": "expr"
-                }
-              }
             }
           }
         ],
         "meta": {
-          "name": "PageContent"
+          "name": "Content"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 1
         },
         "props": {
           "direction": "column",
           "style": {
-            "classes": "overview/content"
+            "classes": "layout/page",
+            "padding": "32px 34px 37px",
+            "gap": "18px",
+            "backgroundColor": "var(--containerRoot)",
+            "boxSizing": "border-box",
+            "overflow": "hidden"
           }
         },
-        "type": "ia.container.flex",
-        "position": {
-          "grow": 1,
-          "shrink": 1
-        }
+        "type": "ia.container.flex"
       }
     ],
     "meta": {
@@ -933,23 +444,10 @@
     "props": {
       "direction": "column",
       "style": {
-        "width": "100%",
-        "height": "100%",
-        "boxSizing": "border-box",
-        "overflow": "auto",
-        "backgroundColor": "var(--containerRoot)"
+        "backgroundColor": "var(--containerRoot)",
+        "overflow": "hidden"
       }
     },
     "type": "ia.container.flex"
-  },
-  "propConfig": {
-    "custom.overview": {
-      "binding": {
-        "config": {
-          "script": "\ttry:\n\t\tmodel = project.pct.data.get_overview_model()\n\t\tif not model or not model.get(\"lines\"):\n\t\t\treturn {\"status\": \"empty\", \"data\": model}\n\t\treturn {\"status\": \"ready\", \"data\": model}\n\texcept Exception as error:\n\t\tsystem.util.getLogger(\"pct.overview\").error(\"Overview model load failed: %s\" % error)\n\t\treturn {\"status\": \"error\", \"data\": None}\n"
-        },
-        "type": "script"
-      }
-    }
   }
 }

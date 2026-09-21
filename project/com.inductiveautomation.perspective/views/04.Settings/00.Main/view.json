@@ -11,16 +11,16 @@
     "children": [
       {
         "meta": {
-          "name": "TopNavigation"
-        },
-        "position": {
-          "basis": "72px",
-          "shrink": 0
+          "name": "Navigation"
         },
         "props": {
-          "path": "00.Common/02.Navigation/TopNavigation"
+          "path": "00.Common/Navigation"
         },
-        "type": "ia.display.view"
+        "type": "ia.display.view",
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        }
       },
       {
         "children": [
@@ -36,54 +36,133 @@
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "42px",
+              "basis": "64px",
               "shrink": 0
             }
           },
           {
-            "meta": {
-              "name": "Subtitle"
-            },
-            "props": {
-              "style": {
-                "classes": "text/subtitle"
+            "children": [
+              {
+                "meta": {
+                  "name": "LinesTitle"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/subtitle"
+                  },
+                  "text": "Líneas"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "32px",
+                  "shrink": 0
+                }
               },
-              "text": "Parámetros generales de la aplicación."
-            },
-            "type": "ia.display.label",
-            "position": {
-              "basis": "32px",
-              "shrink": 0
-            }
-          },
-          {
+              {
+                "meta": {
+                  "name": "Lines"
+                },
+                "props": {
+                  "path": "04.Settings/01.Templates/tpLineConfig",
+                  "direction": "column",
+                  "instances": [
+                    {}
+                  ],
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.display.flex-repeater",
+                "position": {
+                  "grow": 1
+                }
+              }
+            ],
             "meta": {
-              "name": "ContentPlaceholder"
-            },
-            "position": {
-              "grow": 1,
-              "shrink": 1
+              "name": "LineSection"
             },
             "props": {
               "direction": "column",
               "style": {
-                "classes": "card/panel"
+                "classes": "card/panel",
+                "gap": "14px"
               }
             },
-            "type": "ia.container.flex"
+            "type": "ia.container.flex",
+            "position": {
+              "grow": 1,
+              "basis": "0px"
+            }
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "PalletizersTitle"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/subtitle"
+                  },
+                  "text": "Paletizadores"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "32px",
+                  "shrink": 0
+                }
+              },
+              {
+                "meta": {
+                  "name": "Palletizers"
+                },
+                "props": {
+                  "path": "04.Settings/01.Templates/tpPalletizerConfig",
+                  "direction": "column",
+                  "instances": [
+                    {}
+                  ],
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.display.flex-repeater",
+                "position": {
+                  "grow": 1
+                }
+              }
+            ],
+            "meta": {
+              "name": "PalletizerSection"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "card/panel",
+                "gap": "14px"
+              }
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "grow": 1,
+              "basis": "0px"
+            }
           }
         ],
         "meta": {
-          "name": "PageContent"
+          "name": "Content"
         },
         "position": {
-          "grow": 1,
-          "shrink": 1
+          "grow": 1
         },
         "props": {
           "direction": "column",
           "style": {
-            "classes": "layout/section"
+            "padding": "32px 47px 40px",
+            "gap": "20px",
+            "backgroundColor": "var(--containerRoot)",
+            "boxSizing": "border-box",
+            "overflow": "hidden"
           }
         },
         "type": "ia.container.flex"
@@ -95,7 +174,8 @@
     "props": {
       "direction": "column",
       "style": {
-        "classes": "layout/page"
+        "backgroundColor": "var(--containerRoot)",
+        "overflow": "hidden"
       }
     },
     "type": "ia.container.flex"

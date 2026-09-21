@@ -1,0 +1,105 @@
+{
+  "custom": {},
+  "params": {
+    "lineConfig": {
+      "id": "",
+      "name": "—",
+      "basePath": "",
+      "palletizerId": ""
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 64,
+      "width": 900
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Id"
+        },
+        "props": {
+          "style": {
+            "classes": "text/label"
+          },
+          "text": "—"
+        },
+        "type": "ia.display.label",
+        "position": {
+          "basis": "90px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.lineConfig.id"
+              },
+              "type": "property"
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "name": "Name"
+        },
+        "props": {
+          "style": {
+            "classes": "text/body"
+          },
+          "text": "—"
+        },
+        "type": "ia.display.label",
+        "position": {
+          "basis": "220px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.lineConfig.name"
+              },
+              "type": "property"
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "name": "BasePath"
+        },
+        "props": {
+          "style": {
+            "classes": "text/caption"
+          },
+          "text": "Sin ruta configurada"
+        },
+        "type": "ia.display.label",
+        "position": {
+          "grow": 1
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "basis": "64px",
+      "shrink": 0
+    },
+    "props": {
+      "direction": "row",
+      "alignItems": "center",
+      "style": {
+        "classes": "card/base",
+        "padding": "10px 14px",
+        "gap": "16px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

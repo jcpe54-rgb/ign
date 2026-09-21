@@ -3,22 +3,22 @@
   "params": {
     "line": {
       "id": "",
-      "name": "",
-      "state": "noData",
-      "hasFault": false,
-      "caseOutCount": 0,
-      "speedTonH": null,
-      "downtime": {
-        "stopCount": 0,
-        "stoppedMinutes": 0,
-        "timeline": []
-      }
+      "name": "—",
+      "caseInCount": "—",
+      "caseOutCount": "—",
+      "faultCode": "—",
+      "operatingMode": "—",
+      "operatingState": "—",
+      "sku": "—",
+      "wo": "—",
+      "quality": null,
+      "visualState": "noData"
     }
   },
   "props": {
     "defaultSize": {
-      "height": 220,
-      "width": 520
+      "height": 300,
+      "width": 359
     }
   },
   "root": {
@@ -33,7 +33,7 @@
               "style": {
                 "classes": "text/subtitle"
               },
-              "text": ""
+              "text": "—"
             },
             "type": "ia.display.label",
             "position": {
@@ -43,42 +43,35 @@
               "props.text": {
                 "binding": {
                   "config": {
-                    "expression": "{view.params.line.name}"
+                    "path": "view.params.line.name"
                   },
-                  "type": "expr"
+                  "type": "property"
                 }
               }
             }
           },
           {
             "meta": {
-              "name": "Status"
+              "name": "State"
             },
             "props": {
               "style": {
-                "classes": "text/label"
+                "classes": "text/caption"
               },
-              "text": ""
+              "text": "—"
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "150px"
+              "basis": "92px",
+              "shrink": 0
             },
             "propConfig": {
               "props.text": {
                 "binding": {
                   "config": {
-                    "expression": "if({view.params.line.state} = \"running\", \"● EN PRODUCCIÓN\", if({view.params.line.state} = \"stopped\", \"● DETENIDA\", if({view.params.line.state} = \"inactive\", \"● INACTIVA\", \"● SIN DATOS / SIN COMUNICACIÓN\")))"
+                    "path": "view.params.line.operatingState"
                   },
-                  "type": "expr"
-                }
-              },
-              "props.style.classes": {
-                "binding": {
-                  "config": {
-                    "expression": "if({view.params.line.state} = \"running\", \"text/label state/running\", if({view.params.line.state} = \"stopped\" && {view.params.line.hasFault}, \"text/label state/fault\", if({view.params.line.state} = \"stopped\", \"text/label state/stopped\", if({view.params.line.state} = \"inactive\", \"text/label state/inactive\", \"text/label state/noData\"))))"
-                  },
-                  "type": "expr"
+                  "type": "property"
                 }
               }
             }
@@ -89,13 +82,14 @@
         },
         "props": {
           "direction": "row",
+          "alignItems": "center",
           "style": {
-            "classes": "layout/row"
+            "gap": "8px"
           }
         },
         "type": "ia.container.flex",
         "position": {
-          "basis": "32px",
+          "basis": "34px",
           "shrink": 0
         }
       },
@@ -105,7 +99,7 @@
             "children": [
               {
                 "meta": {
-                  "name": "OutputLabel"
+                  "name": "Label"
                 },
                 "props": {
                   "style": {
@@ -113,42 +107,39 @@
                   },
                   "text": "ENTRADA"
                 },
-                "type": "ia.display.label",
-                "position": {
-                  "basis": "20px"
-                }
+                "type": "ia.display.label"
               },
               {
                 "meta": {
-                  "name": "Output"
+                  "name": "Value"
                 },
                 "props": {
                   "style": {
                     "classes": "text/value"
                   },
-                  "text": ""
+                  "text": "—"
                 },
                 "type": "ia.display.label",
-                "position": {
-                  "grow": 1
-                },
                 "propConfig": {
                   "props.text": {
                     "binding": {
                       "config": {
-                        "expression": "numberFormat({view.params.line.caseOutCount}, \"#,##0\") + \" Fardos\""
+                        "path": "view.params.line.caseInCount"
                       },
-                      "type": "expr"
+                      "type": "property"
                     }
                   }
                 }
               }
             ],
             "meta": {
-              "name": "OutputColumn"
+              "name": "InputMetric"
             },
             "props": {
-              "direction": "column"
+              "direction": "column",
+              "style": {
+                "gap": "4px"
+              }
             },
             "type": "ia.container.flex",
             "position": {
@@ -160,50 +151,47 @@
             "children": [
               {
                 "meta": {
-                  "name": "SpeedLabel"
+                  "name": "Label"
                 },
                 "props": {
                   "style": {
                     "classes": "text/caption"
                   },
-                  "text": "VELOCIDAD"
+                  "text": "SALIDA"
                 },
-                "type": "ia.display.label",
-                "position": {
-                  "basis": "20px"
-                }
+                "type": "ia.display.label"
               },
               {
                 "meta": {
-                  "name": "Speed"
+                  "name": "Value"
                 },
                 "props": {
                   "style": {
                     "classes": "text/value"
                   },
-                  "text": ""
+                  "text": "—"
                 },
                 "type": "ia.display.label",
-                "position": {
-                  "grow": 1
-                },
                 "propConfig": {
                   "props.text": {
                     "binding": {
                       "config": {
-                        "expression": "if(isNull({view.params.line.speedTonH}), \"—\", numberFormat({view.params.line.speedTonH}, \"#,##0.00\") + \" Ton/h\")"
+                        "path": "view.params.line.caseOutCount"
                       },
-                      "type": "expr"
+                      "type": "property"
                     }
                   }
                 }
               }
             ],
             "meta": {
-              "name": "SpeedColumn"
+              "name": "OutputMetric"
             },
             "props": {
-              "direction": "column"
+              "direction": "column",
+              "style": {
+                "gap": "4px"
+              }
             },
             "type": "ia.container.flex",
             "position": {
@@ -218,12 +206,12 @@
         "props": {
           "direction": "row",
           "style": {
-            "classes": "layout/row"
+            "gap": "16px"
           }
         },
         "type": "ia.container.flex",
         "position": {
-          "basis": "62px",
+          "basis": "74px",
           "shrink": 0
         }
       },
@@ -231,13 +219,29 @@
         "children": [
           {
             "meta": {
-              "name": "Downtime"
+              "name": "SkuLabel"
+            },
+            "props": {
+              "style": {
+                "classes": "text/caption"
+              },
+              "text": "SKU"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "44px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "SkuValue"
             },
             "props": {
               "style": {
                 "classes": "text/body"
               },
-              "text": ""
+              "text": "—"
             },
             "type": "ia.display.label",
             "position": {
@@ -247,134 +251,147 @@
               "props.text": {
                 "binding": {
                   "config": {
-                    "expression": "\"DETENCIONES\""
+                    "path": "view.params.line.sku"
                   },
-                  "type": "expr"
+                  "type": "property"
                 }
               }
             }
           },
           {
             "meta": {
-              "name": "DowntimeSummary"
+              "name": "WoLabel"
             },
             "props": {
               "style": {
                 "classes": "text/caption"
               },
-              "text": ""
+              "text": "OT"
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "130px",
+              "basis": "28px",
               "shrink": 0
-            },
-            "propConfig": {
-              "props.text": {
-                "binding": {
-                  "type": "expr",
-                  "config": {
-                    "expression": "if({view.params.line.state} = \"inactive\", \"\", if({view.params.line.downtime.stopCount} = 0, \"\", toStr({view.params.line.downtime.stopCount}) + if({view.params.line.downtime.stopCount} = 1, \" paro · \", \" paros · \") + toStr({view.params.line.downtime.stoppedMinutes}) + \" min\"))"
-                  }
-                }
-              }
             }
           },
           {
             "meta": {
-              "name": "Fault"
+              "name": "WoValue"
             },
             "props": {
               "style": {
-                "classes": "text/label state/fault"
+                "classes": "text/body"
               },
-              "text": "⚠ FALLA"
+              "text": "—"
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "85px"
+              "grow": 1
             },
             "propConfig": {
-              "meta.visible": {
+              "props.text": {
                 "binding": {
                   "config": {
-                    "expression": "{view.params.line.hasFault}"
+                    "path": "view.params.line.wo"
                   },
-                  "type": "expr"
+                  "type": "property"
                 }
               }
             }
           }
         ],
         "meta": {
-          "name": "DowntimeRow"
+          "name": "ProductionContext"
         },
         "props": {
           "direction": "row",
+          "alignItems": "center",
           "style": {
-            "classes": "layout/row"
+            "gap": "8px"
           }
         },
         "type": "ia.container.flex",
         "position": {
-          "basis": "28px",
+          "basis": "34px",
           "shrink": 0
         }
       },
       {
-        "meta": {
-          "name": "Timeline"
-        },
-        "props": {
-          "path": "01.Overview/01.Templates/tpTimeline",
-          "params": {
-            "timeline": []
-          }
-        },
-        "type": "ia.display.view",
-        "position": {
-          "basis": "46px",
-          "shrink": 0
-        },
-        "propConfig": {
-          "props.params.timeline": {
-            "binding": {
-              "config": {
-                "expression": "{view.params.line.downtime.timeline}"
+        "children": [
+          {
+            "meta": {
+              "name": "Placeholder"
+            },
+            "props": {
+              "style": {
+                "classes": "text/caption"
               },
-              "type": "expr"
+              "text": "TIMELINE"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "58px",
+              "shrink": 0
+            }
+          },
+          {
+            "meta": {
+              "name": "Track"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "var(--containerNested)",
+                "border": "var(--containerBorder)",
+                "borderRadius": "var(--borderRadius)"
+              },
+              "text": ""
+            },
+            "type": "ia.display.label",
+            "position": {
+              "grow": 1
             }
           }
+        ],
+        "meta": {
+          "name": "TimelinePlaceholder"
+        },
+        "props": {
+          "direction": "row",
+          "alignItems": "center",
+          "style": {
+            "gap": "8px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "30px",
+          "shrink": 0
         }
       }
     ],
     "meta": {
       "name": "root"
     },
+    "position": {
+      "basis": "0px",
+      "grow": 1,
+      "shrink": 1
+    },
     "props": {
       "direction": "column",
+      "justify": "space-between",
       "style": {
-        "classes": "overview/line",
-        "borderStyle": "solid",
-        "borderWidth": "0 0 1px 0"
+        "classes": "card/base"
       }
     },
     "type": "ia.container.flex",
     "propConfig": {
-      "props.style.backgroundColor": {
+      "props.style.classes": {
         "binding": {
-          "type": "expr",
           "config": {
-            "expression": "if({view.params.line.state} = \"inactive\" || {view.params.line.state} = \"noData\", \"var(--containerNested)\", \"var(--container)\")"
-          }
-        }
-      },
-      "props.style.borderColor": {
-        "binding": {
-          "type": "expr",
-          "config": {
-            "expression": "if({view.params.line.state} = \"stopped\" && {view.params.line.hasFault}, \"var(--state-fault)\", if({view.params.line.state} = \"stopped\", \"var(--state-stopped)\", if({view.params.line.state} = \"inactive\", \"var(--state-inactive)\", if({view.params.line.state} = \"noData\", \"var(--state-noData)\", \"var(--border)\"))))"
-          }
+            "expression": "\"card/base state/\" + {view.params.line.visualState}"
+          },
+          "type": "expr"
         }
       }
     }

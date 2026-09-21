@@ -3,18 +3,17 @@
   "params": {
     "palletizer": {
       "id": "",
-      "name": "",
-      "state": "inactive",
-      "line1": "",
-      "line2": "",
-      "palletsLine1": 0,
-      "palletsLine2": 0
+      "name": "—",
+      "state": "—",
+      "palletCount": "—",
+      "quality": null,
+      "visualState": "noData"
     }
   },
   "props": {
     "defaultSize": {
-      "height": 220,
-      "width": 230
+      "height": 136,
+      "width": 359
     }
   },
   "root": {
@@ -29,7 +28,7 @@
               "style": {
                 "classes": "text/subtitle"
               },
-              "text": ""
+              "text": "—"
             },
             "type": "ia.display.label",
             "position": {
@@ -39,9 +38,9 @@
               "props.text": {
                 "binding": {
                   "config": {
-                    "expression": "{view.params.palletizer.name}"
+                    "path": "view.params.palletizer.name"
                   },
-                  "type": "expr"
+                  "type": "property"
                 }
               }
             }
@@ -52,29 +51,22 @@
             },
             "props": {
               "style": {
-                "classes": "text/label"
+                "classes": "text/caption"
               },
-              "text": ""
+              "text": "—"
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "100px"
+              "basis": "90px",
+              "shrink": 0
             },
             "propConfig": {
               "props.text": {
                 "binding": {
                   "config": {
-                    "expression": "if({view.params.palletizer.state} = \"active\", \"● ACTIVO\", \"● INACTIVO\")"
+                    "path": "view.params.palletizer.state"
                   },
-                  "type": "expr"
-                }
-              },
-              "props.style.classes": {
-                "binding": {
-                  "config": {
-                    "expression": "if({view.params.palletizer.state} = \"active\", \"text/label state/running\", \"text/label state/inactive\")"
-                  },
-                  "type": "expr"
+                  "type": "property"
                 }
               }
             }
@@ -85,170 +77,97 @@
         },
         "props": {
           "direction": "row",
+          "alignItems": "center",
           "style": {
-            "classes": "layout/row"
+            "gap": "8px"
           }
         },
         "type": "ia.container.flex",
         "position": {
-          "basis": "32px"
+          "basis": "32px",
+          "shrink": 0
         }
       },
       {
         "children": [
           {
             "meta": {
-              "name": "Line1Name"
+              "name": "Label"
             },
             "props": {
               "style": {
-                "classes": "text/body"
+                "classes": "text/caption"
               },
-              "text": ""
+              "text": "PALLETS"
             },
             "type": "ia.display.label",
             "position": {
               "grow": 1
-            },
-            "propConfig": {
-              "props.text": {
-                "binding": {
-                  "config": {
-                    "expression": "{view.params.palletizer.line1}"
-                  },
-                  "type": "expr"
-                }
-              }
             }
           },
           {
             "meta": {
-              "name": "Line1Value"
+              "name": "Value"
             },
             "props": {
               "style": {
                 "classes": "text/value"
               },
-              "text": ""
+              "text": "—"
             },
             "type": "ia.display.label",
             "position": {
-              "grow": 1
+              "basis": "110px",
+              "shrink": 0
             },
             "propConfig": {
               "props.text": {
                 "binding": {
                   "config": {
-                    "expression": "numberFormat({view.params.palletizer.palletsLine1}, \"#,##0\") + \" PALLETS\""
+                    "path": "view.params.palletizer.palletCount"
                   },
-                  "type": "expr"
+                  "type": "property"
                 }
               }
             }
           }
         ],
         "meta": {
-          "name": "Line1"
+          "name": "Pallets"
         },
         "props": {
-          "direction": "column",
-          "style": {
-            "classes": "layout/stack"
-          }
+          "direction": "row",
+          "alignItems": "center"
         },
         "type": "ia.container.flex",
         "position": {
-          "grow": 1,
-          "basis": "0px"
-        }
-      },
-      {
-        "children": [
-          {
-            "meta": {
-              "name": "Line2Name"
-            },
-            "props": {
-              "style": {
-                "classes": "text/body"
-              },
-              "text": ""
-            },
-            "type": "ia.display.label",
-            "position": {
-              "grow": 1
-            },
-            "propConfig": {
-              "props.text": {
-                "binding": {
-                  "config": {
-                    "expression": "{view.params.palletizer.line2}"
-                  },
-                  "type": "expr"
-                }
-              }
-            }
-          },
-          {
-            "meta": {
-              "name": "Line2Value"
-            },
-            "props": {
-              "style": {
-                "classes": "text/value"
-              },
-              "text": ""
-            },
-            "type": "ia.display.label",
-            "position": {
-              "grow": 1
-            },
-            "propConfig": {
-              "props.text": {
-                "binding": {
-                  "config": {
-                    "expression": "numberFormat({view.params.palletizer.palletsLine2}, \"#,##0\") + \" PALLETS\""
-                  },
-                  "type": "expr"
-                }
-              }
-            }
-          }
-        ],
-        "meta": {
-          "name": "Line2"
-        },
-        "props": {
-          "direction": "column",
-          "style": {
-            "classes": "layout/stack"
-          }
-        },
-        "type": "ia.container.flex",
-        "position": {
-          "grow": 1,
-          "basis": "0px"
+          "grow": 1
         }
       }
     ],
     "meta": {
       "name": "root"
     },
+    "position": {
+      "basis": "0px",
+      "grow": 1,
+      "shrink": 1
+    },
     "props": {
       "direction": "column",
+      "justify": "space-between",
       "style": {
-        "classes": "overview/palletizer"
-      },
-      "justify": "space-between"
+        "classes": "card/base"
+      }
     },
     "type": "ia.container.flex",
     "propConfig": {
-      "props.style.backgroundColor": {
+      "props.style.classes": {
         "binding": {
-          "type": "expr",
           "config": {
-            "expression": "if({view.params.palletizer.state} = \"active\", \"var(--container)\", \"var(--containerNested)\")"
-          }
+            "expression": "\"card/base state/\" + {view.params.palletizer.visualState}"
+          },
+          "type": "expr"
         }
       }
     }

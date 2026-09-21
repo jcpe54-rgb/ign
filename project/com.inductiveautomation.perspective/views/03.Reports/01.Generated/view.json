@@ -11,16 +11,16 @@
     "children": [
       {
         "meta": {
-          "name": "TopNavigation"
-        },
-        "position": {
-          "basis": "72px",
-          "shrink": 0
+          "name": "Navigation"
         },
         "props": {
-          "path": "00.Common/02.Navigation/TopNavigation"
+          "path": "00.Common/Navigation"
         },
-        "type": "ia.display.view"
+        "type": "ia.display.view",
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        }
       },
       {
         "children": [
@@ -36,54 +36,73 @@
             },
             "type": "ia.display.label",
             "position": {
-              "basis": "42px",
+              "basis": "64px",
               "shrink": 0
             }
           },
           {
-            "meta": {
-              "name": "Subtitle"
-            },
-            "props": {
-              "style": {
-                "classes": "text/subtitle"
+            "children": [
+              {
+                "meta": {
+                  "name": "Header"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/subtitle"
+                  },
+                  "text": "Listado"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "36px",
+                  "shrink": 0
+                }
               },
-              "text": "Consulta de reportes generados."
-            },
-            "type": "ia.display.label",
-            "position": {
-              "basis": "32px",
-              "shrink": 0
-            }
-          },
-          {
+              {
+                "meta": {
+                  "name": "Placeholder"
+                },
+                "props": {
+                  "style": {
+                    "classes": "text/caption"
+                  },
+                  "text": "Sin reportes generados"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                }
+              }
+            ],
             "meta": {
-              "name": "ContentPlaceholder"
-            },
-            "position": {
-              "grow": 1,
-              "shrink": 1
+              "name": "GeneratedList"
             },
             "props": {
               "direction": "column",
               "style": {
-                "classes": "card/panel"
+                "classes": "card/panel",
+                "gap": "12px"
               }
             },
-            "type": "ia.container.flex"
+            "type": "ia.container.flex",
+            "position": {
+              "grow": 1
+            }
           }
         ],
         "meta": {
-          "name": "PageContent"
+          "name": "Content"
         },
         "position": {
-          "grow": 1,
-          "shrink": 1
+          "grow": 1
         },
         "props": {
           "direction": "column",
           "style": {
-            "classes": "layout/section"
+            "padding": "32px 47px 64px",
+            "gap": "21px",
+            "backgroundColor": "var(--containerRoot)",
+            "boxSizing": "border-box"
           }
         },
         "type": "ia.container.flex"
@@ -95,7 +114,8 @@
     "props": {
       "direction": "column",
       "style": {
-        "classes": "layout/page"
+        "backgroundColor": "var(--containerRoot)",
+        "overflow": "hidden"
       }
     },
     "type": "ia.container.flex"

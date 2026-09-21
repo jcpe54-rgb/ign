@@ -1,0 +1,174 @@
+{
+  "custom": {},
+  "params": {
+    "filters": {
+      "from": null,
+      "to": null,
+      "lines": []
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 94,
+      "width": 1800
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "style": {
+                "classes": "text/caption"
+              },
+              "text": "DESDE"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Value"
+            },
+            "props": {
+              "style": {
+                "classes": "text/body"
+              },
+              "text": "—"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "From"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "card/base",
+            "padding": "8px 12px",
+            "gap": "4px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "176px",
+          "shrink": 0
+        }
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "style": {
+                "classes": "text/caption"
+              },
+              "text": "HASTA"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Value"
+            },
+            "props": {
+              "style": {
+                "classes": "text/body"
+              },
+              "text": "—"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "To"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "card/base",
+            "padding": "8px 12px",
+            "gap": "4px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "218px",
+          "shrink": 0
+        }
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "style": {
+                "classes": "text/caption"
+              },
+              "text": "LÍNEAS"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Value"
+            },
+            "props": {
+              "style": {
+                "classes": "text/body"
+              },
+              "text": "—"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Lines"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "card/base",
+            "padding": "8px 12px",
+            "gap": "4px"
+          }
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "218px",
+          "shrink": 0
+        }
+      },
+      {
+        "meta": {
+          "name": "Spacer"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "row",
+      "alignItems": "center",
+      "style": {
+        "classes": "card/base",
+        "gap": "28px",
+        "padding": "14px 24px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

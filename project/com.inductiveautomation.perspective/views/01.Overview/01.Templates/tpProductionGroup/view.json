@@ -1,0 +1,179 @@
+{
+  "custom": {},
+  "params": {
+    "group": {
+      "id": "",
+      "lineOdd": {
+        "id": "",
+        "name": "—",
+        "caseInCount": "—",
+        "caseOutCount": "—",
+        "faultCode": "—",
+        "operatingMode": "—",
+        "operatingState": "—",
+        "sku": "—",
+        "wo": "—",
+        "quality": null,
+        "visualState": "noData"
+      },
+      "palletizer": {
+        "id": "",
+        "name": "—",
+        "state": "—",
+        "palletCount": "—",
+        "quality": null,
+        "visualState": "noData"
+      },
+      "lineEven": {
+        "id": "",
+        "name": "—",
+        "caseInCount": "—",
+        "caseOutCount": "—",
+        "faultCode": "—",
+        "operatingMode": "—",
+        "operatingState": "—",
+        "sku": "—",
+        "wo": "—",
+        "quality": null,
+        "visualState": "noData"
+      }
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 800,
+      "width": 359
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "OddLine"
+        },
+        "props": {
+          "path": "01.Overview/01.Templates/tpLine",
+          "params": {
+            "line": {
+              "id": "",
+              "name": "—",
+              "caseInCount": "—",
+              "caseOutCount": "—",
+              "faultCode": "—",
+              "operatingMode": "—",
+              "operatingState": "—",
+              "sku": "—",
+              "wo": "—",
+              "quality": null,
+              "visualState": "noData"
+            }
+          }
+        },
+        "type": "ia.display.view",
+        "position": {
+          "grow": 2.3,
+          "basis": "0px",
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.params.line": {
+            "binding": {
+              "config": {
+                "path": "view.params.group.lineOdd"
+              },
+              "type": "property"
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "name": "Palletizer"
+        },
+        "props": {
+          "path": "01.Overview/01.Templates/tpPalletizer",
+          "params": {
+            "palletizer": {
+              "id": "",
+              "name": "—",
+              "state": "—",
+              "palletCount": "—",
+              "quality": null,
+              "visualState": "noData"
+            }
+          }
+        },
+        "type": "ia.display.view",
+        "position": {
+          "grow": 1,
+          "basis": "0px",
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.params.palletizer": {
+            "binding": {
+              "config": {
+                "path": "view.params.group.palletizer"
+              },
+              "type": "property"
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "name": "EvenLine"
+        },
+        "props": {
+          "path": "01.Overview/01.Templates/tpLine",
+          "params": {
+            "line": {
+              "id": "",
+              "name": "—",
+              "caseInCount": "—",
+              "caseOutCount": "—",
+              "faultCode": "—",
+              "operatingMode": "—",
+              "operatingState": "—",
+              "sku": "—",
+              "wo": "—",
+              "quality": null,
+              "visualState": "noData"
+            }
+          }
+        },
+        "type": "ia.display.view",
+        "position": {
+          "grow": 2.3,
+          "basis": "0px",
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.params.line": {
+            "binding": {
+              "config": {
+                "path": "view.params.group.lineEven"
+              },
+              "type": "property"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "basis": "0px",
+      "grow": 1,
+      "shrink": 1
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "gap": "18px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
