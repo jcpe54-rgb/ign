@@ -406,7 +406,8 @@
                               "style": {
                                 "classes": "control/secondary",
                                 "minHeight": "32px",
-                                "padding": "0 10px"
+                                "padding": "0 10px",
+                                "border": "1px solid var(--border)"
                               }
                             },
                             "type": "ia.input.button",
@@ -418,7 +419,7 @@
                               "props.style.backgroundColor": {
                                 "binding": {
                                   "config": {
-                                    "expression": "if({view.custom.mode} = \"chart\", \"var(--callToActionHighlight)\", \"transparent\")"
+                                    "expression": "if({view.custom.mode} = \"chart\", \"var(--containerNested)\", \"transparent\")"
                                   },
                                   "type": "expr"
                                 }
@@ -446,7 +447,8 @@
                               "style": {
                                 "classes": "control/secondary",
                                 "minHeight": "32px",
-                                "padding": "0 10px"
+                                "padding": "0 10px",
+                                "border": "1px solid var(--border)"
                               }
                             },
                             "type": "ia.input.button",
@@ -458,7 +460,7 @@
                               "props.style.backgroundColor": {
                                 "binding": {
                                   "config": {
-                                    "expression": "if({view.custom.mode} = \"table\", \"var(--callToActionHighlight)\", \"transparent\")"
+                                    "expression": "if({view.custom.mode} = \"table\", \"var(--containerNested)\", \"transparent\")"
                                   },
                                   "type": "expr"
                                 }
@@ -731,31 +733,31 @@
                         {
                           "FECHA / HORA": "21/09/2026 06:00",
                           "LÍNEA": "L1",
-                          "VELOCIDAD": "29.52 Ton/h",
+                          "VELOCIDAD": "24.80 Ton/h",
                           "ESTADO": "En producción"
                         },
                         {
                           "FECHA / HORA": "21/09/2026 06:05",
                           "LÍNEA": "L2",
-                          "VELOCIDAD": "0.00 Ton/h",
-                          "ESTADO": "Detenida"
+                          "VELOCIDAD": "25.10 Ton/h",
+                          "ESTADO": "En producción"
                         },
                         {
                           "FECHA / HORA": "21/09/2026 06:10",
                           "LÍNEA": "L3",
-                          "VELOCIDAD": "27.94 Ton/h",
+                          "VELOCIDAD": "23.90 Ton/h",
                           "ESTADO": "En producción"
                         },
                         {
                           "FECHA / HORA": "21/09/2026 06:15",
                           "LÍNEA": "L4",
-                          "VELOCIDAD": "26.06 Ton/h",
+                          "VELOCIDAD": "26.10 Ton/h",
                           "ESTADO": "En producción"
                         },
                         {
                           "FECHA / HORA": "21/09/2026 06:20",
                           "LÍNEA": "L5",
-                          "VELOCIDAD": "28.94 Ton/h",
+                          "VELOCIDAD": "24.70 Ton/h",
                           "ESTADO": "En producción"
                         }
                       ],
@@ -805,7 +807,8 @@
                 "classes": "card/panel",
                 "padding": "16px 24px 12px",
                 "gap": "5px",
-                "overflow": "hidden"
+                "overflow": "hidden",
+                "marginTop": "4px"
               }
             },
             "type": "ia.container.flex",
@@ -912,12 +915,22 @@
                       "row": {
                         "id": "L1",
                         "name": "L1",
-                        "summary": "0 paros · 0 min",
+                        "summary": "1 paro · 12 min",
                         "segments": [
                           {
                             "state": "running",
                             "startMinute": 0,
-                            "durationMinutes": 480
+                            "durationMinutes": 185
+                          },
+                          {
+                            "state": "stopped",
+                            "startMinute": 185,
+                            "durationMinutes": 12
+                          },
+                          {
+                            "state": "running",
+                            "startMinute": 197,
+                            "durationMinutes": 283
                           }
                         ]
                       }
@@ -926,37 +939,32 @@
                       "row": {
                         "id": "L2",
                         "name": "L2",
-                        "summary": "3 paros · 72 min",
+                        "summary": "2 paros · 26 min",
                         "segments": [
                           {
                             "state": "running",
                             "startMinute": 0,
-                            "durationMinutes": 90
+                            "durationMinutes": 95
                           },
                           {
                             "state": "stopped",
-                            "startMinute": 90,
-                            "durationMinutes": 22
+                            "startMinute": 95,
+                            "durationMinutes": 11
                           },
                           {
                             "state": "running",
-                            "startMinute": 112,
-                            "durationMinutes": 198
+                            "startMinute": 106,
+                            "durationMinutes": 218
                           },
                           {
                             "state": "stopped",
-                            "startMinute": 310,
-                            "durationMinutes": 25
+                            "startMinute": 324,
+                            "durationMinutes": 15
                           },
                           {
                             "state": "running",
-                            "startMinute": 335,
-                            "durationMinutes": 120
-                          },
-                          {
-                            "state": "stopped",
-                            "startMinute": 455,
-                            "durationMinutes": 25
+                            "startMinute": 339,
+                            "durationMinutes": 141
                           }
                         ]
                       }
@@ -965,40 +973,6 @@
                       "row": {
                         "id": "L3",
                         "name": "L3",
-                        "summary": "2 paros · 21 min",
-                        "segments": [
-                          {
-                            "state": "running",
-                            "startMinute": 0,
-                            "durationMinutes": 130
-                          },
-                          {
-                            "state": "stopped",
-                            "startMinute": 130,
-                            "durationMinutes": 8
-                          },
-                          {
-                            "state": "running",
-                            "startMinute": 138,
-                            "durationMinutes": 212
-                          },
-                          {
-                            "state": "stopped",
-                            "startMinute": 350,
-                            "durationMinutes": 13
-                          },
-                          {
-                            "state": "running",
-                            "startMinute": 363,
-                            "durationMinutes": 117
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "row": {
-                        "id": "L4",
-                        "name": "L4",
                         "summary": "0 paros · 0 min",
                         "segments": [
                           {
@@ -1011,64 +985,58 @@
                     },
                     {
                       "row": {
-                        "id": "L5",
-                        "name": "L5",
-                        "summary": "5 paros · 47 min",
+                        "id": "L4",
+                        "name": "L4",
+                        "summary": "1 paro · 18 min",
                         "segments": [
                           {
                             "state": "running",
                             "startMinute": 0,
-                            "durationMinutes": 55
+                            "durationMinutes": 270
                           },
                           {
                             "state": "stopped",
-                            "startMinute": 55,
-                            "durationMinutes": 5
+                            "startMinute": 270,
+                            "durationMinutes": 18
                           },
                           {
                             "state": "running",
-                            "startMinute": 60,
+                            "startMinute": 288,
+                            "durationMinutes": 192
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "row": {
+                        "id": "L5",
+                        "name": "L5",
+                        "summary": "2 paros · 23 min",
+                        "segments": [
+                          {
+                            "state": "running",
+                            "startMinute": 0,
                             "durationMinutes": 65
                           },
                           {
                             "state": "stopped",
-                            "startMinute": 125,
-                            "durationMinutes": 7
-                          },
-                          {
-                            "state": "running",
-                            "startMinute": 132,
-                            "durationMinutes": 78
-                          },
-                          {
-                            "state": "stopped",
-                            "startMinute": 210,
+                            "startMinute": 65,
                             "durationMinutes": 9
                           },
                           {
                             "state": "running",
-                            "startMinute": 219,
-                            "durationMinutes": 96
+                            "startMinute": 74,
+                            "durationMinutes": 300
                           },
                           {
                             "state": "stopped",
-                            "startMinute": 315,
-                            "durationMinutes": 11
+                            "startMinute": 374,
+                            "durationMinutes": 14
                           },
                           {
                             "state": "running",
-                            "startMinute": 326,
-                            "durationMinutes": 84
-                          },
-                          {
-                            "state": "stopped",
-                            "startMinute": 410,
-                            "durationMinutes": 15
-                          },
-                          {
-                            "state": "running",
-                            "startMinute": 425,
-                            "durationMinutes": 55
+                            "startMinute": 388,
+                            "durationMinutes": 92
                           }
                         ]
                       }
@@ -1077,37 +1045,22 @@
                       "row": {
                         "id": "L6",
                         "name": "L6",
-                        "summary": "3 paros · 56 min",
+                        "summary": "1 paro · 31 min",
                         "segments": [
                           {
                             "state": "running",
                             "startMinute": 0,
-                            "durationMinutes": 100
+                            "durationMinutes": 410
                           },
                           {
                             "state": "stopped",
-                            "startMinute": 100,
-                            "durationMinutes": 10
+                            "startMinute": 410,
+                            "durationMinutes": 31
                           },
                           {
                             "state": "running",
-                            "startMinute": 110,
-                            "durationMinutes": 135
-                          },
-                          {
-                            "state": "stopped",
-                            "startMinute": 245,
-                            "durationMinutes": 12
-                          },
-                          {
-                            "state": "running",
-                            "startMinute": 257,
-                            "durationMinutes": 189
-                          },
-                          {
-                            "state": "stopped",
-                            "startMinute": 446,
-                            "durationMinutes": 34
+                            "startMinute": 441,
+                            "durationMinutes": 39
                           }
                         ]
                       }
@@ -1130,10 +1083,10 @@
                       "row": {
                         "id": "L8",
                         "name": "L8",
-                        "summary": "Inactiva",
+                        "summary": "0 paros · 0 min",
                         "segments": [
                           {
-                            "state": "inactive",
+                            "state": "running",
                             "startMinute": 0,
                             "durationMinutes": 480
                           }
@@ -1144,22 +1097,22 @@
                       "row": {
                         "id": "L9",
                         "name": "L9",
-                        "summary": "1 paro · 31 min",
+                        "summary": "1 paro · 14 min",
                         "segments": [
                           {
                             "state": "running",
                             "startMinute": 0,
-                            "durationMinutes": 260
+                            "durationMinutes": 222
                           },
                           {
                             "state": "stopped",
-                            "startMinute": 260,
-                            "durationMinutes": 31
+                            "startMinute": 222,
+                            "durationMinutes": 14
                           },
                           {
                             "state": "running",
-                            "startMinute": 291,
-                            "durationMinutes": 189
+                            "startMinute": 236,
+                            "durationMinutes": 244
                           }
                         ]
                       }
@@ -1168,32 +1121,32 @@
                       "row": {
                         "id": "L10",
                         "name": "L10",
-                        "summary": "2 paros · 20 min",
+                        "summary": "2 paros · 19 min",
                         "segments": [
                           {
                             "state": "running",
                             "startMinute": 0,
-                            "durationMinutes": 145
+                            "durationMinutes": 115
                           },
                           {
                             "state": "stopped",
-                            "startMinute": 145,
-                            "durationMinutes": 9
+                            "startMinute": 115,
+                            "durationMinutes": 7
                           },
                           {
                             "state": "running",
-                            "startMinute": 154,
-                            "durationMinutes": 216
+                            "startMinute": 122,
+                            "durationMinutes": 245
                           },
                           {
                             "state": "stopped",
-                            "startMinute": 370,
-                            "durationMinutes": 11
+                            "startMinute": 367,
+                            "durationMinutes": 12
                           },
                           {
                             "state": "running",
-                            "startMinute": 381,
-                            "durationMinutes": 99
+                            "startMinute": 379,
+                            "durationMinutes": 101
                           }
                         ]
                       }

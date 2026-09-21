@@ -491,7 +491,7 @@
                       "kpi": {
                         "id": "cases",
                         "label": "FARDOS",
-                        "value": "93,220",
+                        "value": "—",
                         "unit": "",
                         "icon": "material/view_module",
                         "divider": true
@@ -501,7 +501,7 @@
                       "kpi": {
                         "id": "tons",
                         "label": "TON",
-                        "value": "1,118.64",
+                        "value": "—",
                         "unit": "",
                         "icon": "material/assessment",
                         "divider": true
@@ -511,7 +511,7 @@
                       "kpi": {
                         "id": "pallets",
                         "label": "PALLETS",
-                        "value": "665",
+                        "value": "—",
                         "unit": "",
                         "icon": "material/settings",
                         "divider": true
@@ -521,7 +521,7 @@
                       "kpi": {
                         "id": "stops",
                         "label": "PAROS",
-                        "value": "16",
+                        "value": "—",
                         "unit": "",
                         "icon": "material/pause_circle_outline",
                         "divider": true
@@ -531,7 +531,7 @@
                       "kpi": {
                         "id": "downtime",
                         "label": "TIEMPO DETENIDO",
-                        "value": "247",
+                        "value": "—",
                         "unit": "min",
                         "icon": "material/access_time",
                         "divider": false
@@ -620,93 +620,93 @@
                       "data": [
                         {
                           "LÍNEA": "L1",
-                          "PRODUCCIÓN Fardos": "6355",
-                          "PRODUCCIÓN Ton": "76.26",
-                          "VELOCIDAD PROM. Ton/h": "29.52",
-                          "PAROS": 0,
-                          "TIEMPO DETENIDA": "0 min",
-                          "PALLETS": 87
+                          "PRODUCCIÓN Fardos": "—",
+                          "PRODUCCIÓN Ton": "—",
+                          "VELOCIDAD PROM. Ton/h": "—",
+                          "PAROS": "—",
+                          "TIEMPO DETENIDA": "—",
+                          "PALLETS": "—"
                         },
                         {
                           "LÍNEA": "L2",
-                          "PRODUCCIÓN Fardos": "6050",
-                          "PRODUCCIÓN Ton": "72.60",
-                          "VELOCIDAD PROM. Ton/h": "0.00",
-                          "PAROS": 3,
-                          "TIEMPO DETENIDA": "72 min",
-                          "PALLETS": 100
+                          "PRODUCCIÓN Fardos": "—",
+                          "PRODUCCIÓN Ton": "—",
+                          "VELOCIDAD PROM. Ton/h": "—",
+                          "PAROS": "—",
+                          "TIEMPO DETENIDA": "—",
+                          "PALLETS": "—"
                         },
                         {
                           "LÍNEA": "L3",
-                          "PRODUCCIÓN Fardos": "6180",
-                          "PRODUCCIÓN Ton": "74.16",
-                          "VELOCIDAD PROM. Ton/h": "27.94",
-                          "PAROS": 2,
-                          "TIEMPO DETENIDA": "21 min",
-                          "PALLETS": 94
+                          "PRODUCCIÓN Fardos": "—",
+                          "PRODUCCIÓN Ton": "—",
+                          "VELOCIDAD PROM. Ton/h": "—",
+                          "PAROS": "—",
+                          "TIEMPO DETENIDA": "—",
+                          "PALLETS": "—"
                         },
                         {
                           "LÍNEA": "L4",
-                          "PRODUCCIÓN Fardos": "5950",
-                          "PRODUCCIÓN Ton": "71.40",
-                          "VELOCIDAD PROM. Ton/h": "26.06",
-                          "PAROS": 0,
-                          "TIEMPO DETENIDA": "0 min",
-                          "PALLETS": 70
+                          "PRODUCCIÓN Fardos": "—",
+                          "PRODUCCIÓN Ton": "—",
+                          "VELOCIDAD PROM. Ton/h": "—",
+                          "PAROS": "—",
+                          "TIEMPO DETENIDA": "—",
+                          "PALLETS": "—"
                         },
                         {
                           "LÍNEA": "L5",
-                          "PRODUCCIÓN Fardos": "6230",
-                          "PRODUCCIÓN Ton": "74.76",
-                          "VELOCIDAD PROM. Ton/h": "28.94",
-                          "PAROS": 5,
-                          "TIEMPO DETENIDA": "47 min",
-                          "PALLETS": 68
+                          "PRODUCCIÓN Fardos": "—",
+                          "PRODUCCIÓN Ton": "—",
+                          "VELOCIDAD PROM. Ton/h": "—",
+                          "PAROS": "—",
+                          "TIEMPO DETENIDA": "—",
+                          "PALLETS": "—"
                         },
                         {
                           "LÍNEA": "L6",
-                          "PRODUCCIÓN Fardos": "4700",
-                          "PRODUCCIÓN Ton": "56.40",
-                          "VELOCIDAD PROM. Ton/h": "0.00",
-                          "PAROS": 3,
-                          "TIEMPO DETENIDA": "56 min",
-                          "PALLETS": 74
+                          "PRODUCCIÓN Fardos": "—",
+                          "PRODUCCIÓN Ton": "—",
+                          "VELOCIDAD PROM. Ton/h": "—",
+                          "PAROS": "—",
+                          "TIEMPO DETENIDA": "—",
+                          "PALLETS": "—"
                         },
                         {
                           "LÍNEA": "L7",
-                          "PRODUCCIÓN Fardos": "5760",
-                          "PRODUCCIÓN Ton": "69.12",
-                          "VELOCIDAD PROM. Ton/h": "0.00",
-                          "PAROS": 0,
-                          "TIEMPO DETENIDA": "0 min",
-                          "PALLETS": 0
+                          "PRODUCCIÓN Fardos": "—",
+                          "PRODUCCIÓN Ton": "—",
+                          "VELOCIDAD PROM. Ton/h": "—",
+                          "PAROS": "—",
+                          "TIEMPO DETENIDA": "—",
+                          "PALLETS": "—"
                         },
                         {
                           "LÍNEA": "L8",
-                          "PRODUCCIÓN Fardos": "6250",
-                          "PRODUCCIÓN Ton": "75.00",
-                          "VELOCIDAD PROM. Ton/h": "0.00",
-                          "PAROS": 0,
-                          "TIEMPO DETENIDA": "0 min",
-                          "PALLETS": 0
+                          "PRODUCCIÓN Fardos": "—",
+                          "PRODUCCIÓN Ton": "—",
+                          "VELOCIDAD PROM. Ton/h": "—",
+                          "PAROS": "—",
+                          "TIEMPO DETENIDA": "—",
+                          "PALLETS": "—"
                         },
                         {
                           "LÍNEA": "L9",
-                          "PRODUCCIÓN Fardos": "6105",
-                          "PRODUCCIÓN Ton": "73.26",
-                          "VELOCIDAD PROM. Ton/h": "27.07",
-                          "PAROS": 1,
-                          "TIEMPO DETENIDA": "31 min",
-                          "PALLETS": 96
+                          "PRODUCCIÓN Fardos": "—",
+                          "PRODUCCIÓN Ton": "—",
+                          "VELOCIDAD PROM. Ton/h": "—",
+                          "PAROS": "—",
+                          "TIEMPO DETENIDA": "—",
+                          "PALLETS": "—"
                         },
                         {
                           "LÍNEA": "L10",
-                          "PRODUCCIÓN Fardos": "4427",
-                          "PRODUCCIÓN Ton": "53.12",
-                          "VELOCIDAD PROM. Ton/h": "25.34",
-                          "PAROS": 2,
-                          "TIEMPO DETENIDA": "20 min",
-                          "PALLETS": 76
+                          "PRODUCCIÓN Fardos": "—",
+                          "PRODUCCIÓN Ton": "—",
+                          "VELOCIDAD PROM. Ton/h": "—",
+                          "PAROS": "—",
+                          "TIEMPO DETENIDA": "—",
+                          "PALLETS": "—"
                         }
                       ],
                       "pager": {
@@ -779,71 +779,71 @@
                         {
                           "bar": {
                             "label": "L1",
-                            "value": "76.3",
-                            "height": "76%"
+                            "value": "—",
+                            "height": "58%"
                           }
                         },
                         {
                           "bar": {
                             "label": "L2",
-                            "value": "72.6",
-                            "height": "73%"
+                            "value": "—",
+                            "height": "72%"
                           }
                         },
                         {
                           "bar": {
                             "label": "L3",
-                            "value": "74.2",
-                            "height": "74%"
+                            "value": "—",
+                            "height": "64%"
                           }
                         },
                         {
                           "bar": {
                             "label": "L4",
-                            "value": "71.4",
-                            "height": "71%"
+                            "value": "—",
+                            "height": "49%"
                           }
                         },
                         {
                           "bar": {
                             "label": "L5",
-                            "value": "74.8",
-                            "height": "75%"
+                            "value": "—",
+                            "height": "81%"
                           }
                         },
                         {
                           "bar": {
                             "label": "L6",
-                            "value": "56.4",
-                            "height": "56%"
+                            "value": "—",
+                            "height": "61%"
                           }
                         },
                         {
                           "bar": {
                             "label": "L7",
-                            "value": "69.1",
-                            "height": "69%"
+                            "value": "—",
+                            "height": "44%"
                           }
                         },
                         {
                           "bar": {
                             "label": "L8",
-                            "value": "75.0",
-                            "height": "75%"
+                            "value": "—",
+                            "height": "76%"
                           }
                         },
                         {
                           "bar": {
                             "label": "L9",
-                            "value": "73.3",
-                            "height": "73%"
+                            "value": "—",
+                            "height": "69%"
                           }
                         },
                         {
                           "bar": {
                             "label": "L10",
-                            "value": "53.1",
-                            "height": "53%"
+                            "value": "—",
+                            "height": "55%"
                           }
                         }
                       ],

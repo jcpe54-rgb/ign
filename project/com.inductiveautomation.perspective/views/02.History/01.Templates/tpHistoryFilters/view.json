@@ -251,7 +251,9 @@
                     "classes": "control/secondary",
                     "minHeight": "36px",
                     "padding": "0 12px",
-                    "backgroundColor": "var(--callToActionHighlight)"
+                    "backgroundColor": "var(--containerNested)",
+                    "border": "1px solid var(--callToAction)",
+                    "color": "var(--callToAction)"
                   }
                 },
                 "type": "ia.input.button",
